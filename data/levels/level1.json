@@ -16,12 +16,27 @@
       "toolkit_flow": {
         "order": [],
         "prompts": [],
-        "quick_actions": [
-          "Publish a 6-month transition plan",
-          "Define hospital/transit continuity plan",
-          "Trigger supplier labor audit"
+        "quick_actions": {
+          "A": [
+            "Publish a 6-month transition plan",
+            "Define hospital/transit continuity plan",
+            "Trigger supplier labor audit"
+          ],
+          "B": [
+            "Issue emergency public notice",
+            "Seek mutual aid compute resources",
+            "Establish emergency continuity protocols"
+          ],
+          "C": [
+            "Divert savings to remediation fund",
+            "Establish remediation fund oversight",
+            "Trigger supplier labor audit"
+          ]
+        },
+        "metrics": [
+          "Continuity incidents",
+          "Audit completion %"
         ],
-        "metrics": ["Continuity incidents", "Audit completion %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -38,7 +53,13 @@
       "toolkit_cues": "Are we treating people merely as a means to an end? Who will experience short-term harm?",
       "p3_cues": "People (exploitation), Planet (energy retraining), Parity (who loses access during a pause).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: Are workers being treated as ends in themselves or just means?",
           "T1 Map Impacts: Who benefits from the app? Who is harmed by low wages? Who loses access if paused?",
@@ -46,12 +67,27 @@
           "T4 Alternatives: Evaluate each option and identify safeguards for your chosen path.",
           "T5 Accountability: Who is responsible for ensuring fair labor practices? What review process will you establish?"
         ],
-        "quick_actions": [
-          "Audit current vendor labor practices",
-          "Create transition timeline with milestones",
-          "Establish worker compensation standards"
+        "quick_actions": {
+          "A": [
+            "Audit current vendor labor practices",
+            "Create transition timeline with milestones",
+            "Establish worker compensation standards"
+          ],
+          "B": [
+            "Verify fair labor practices before reactivation",
+            "Establish labor verification process",
+            "Create service restoration plan"
+          ],
+          "C": [
+            "Audit current vendor labor practices",
+            "Establish emergency payment options for citizens",
+            "Create public audit process for transparency"
+          ]
+        },
+        "metrics": [
+          "Fair pay compliance %",
+          "App uptime %"
         ],
-        "metrics": ["Fair pay compliance %", "App uptime %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -68,7 +104,13 @@
       "toolkit_cues": "Duty of care versus service uptime.",
       "p3_cues": "People (mental health), Planet (increased AI compute), Parity (who is protected online).",
       "toolkit_flow": {
-        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "order": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T1 Map Impacts: Who is harmed by current working conditions? Who benefits from platform safety?",
           "T2 Clarify Values: What duties do we have to our moderators? What duties to platform users?",
@@ -76,12 +118,27 @@
           "T4 Alternatives: Evaluate each choice and identify additional safeguards.",
           "T5 Accountability: Who will ensure moderator wellbeing? What metrics will track success?"
         ],
-        "quick_actions": [
-          "Establish mental health support program",
-          "Create clear workload limits and rotation schedules",
-          "Develop safety protocols for high-risk content"
+        "quick_actions": {
+          "A": [
+            "Establish mental health support program",
+            "Implement shift rotation schedules",
+            "Create clear workload limits"
+          ],
+          "B": [
+            "Temporarily disable high-risk features",
+            "Establish safety protocols",
+            "Create feature restoration timeline"
+          ],
+          "C": [
+            "Increase AI filter usage",
+            "Reserve human review for appeals",
+            "Establish appeal process"
+          ]
+        },
+        "metrics": [
+          "Moderator wellbeing score",
+          "Content removal accuracy %"
         ],
-        "metrics": ["Moderator wellbeing score", "Content removal accuracy %"],
         "owner_required": true,
         "review_default_days": 60
       }
@@ -98,7 +155,13 @@
       "toolkit_cues": "Focus on consent and proportionality.",
       "p3_cues": "Consider the People (health and safety), Planet (energy consumption), and Parity (distribution of burdens).",
       "toolkit_flow": {
-        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "order": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T1 Map Impacts: Who experiences blackouts? Who benefits from cost savings? Who is most vulnerable?",
           "T2 Clarify Values: What is the relationship between consent and harm? Is this proportional?",
@@ -106,12 +169,27 @@
           "T4 Alternatives: Evaluate each option. How does each address consent and fair distribution?",
           "T5 Accountability: Who decides how burdens are distributed? What public process will you establish?"
         ],
-        "quick_actions": [
-          "Conduct vulnerability assessment for affected district",
-          "Establish transparent decision-making process",
-          "Create emergency support fund"
+        "quick_actions": {
+          "A": [
+            "Add relief payments for vulnerable populations",
+            "Conduct vulnerability assessment",
+            "Establish relief payment distribution process"
+          ],
+          "B": [
+            "Adjust system to distribute outages equitably",
+            "Redistribute cost burden",
+            "Create equitable distribution framework"
+          ],
+          "C": [
+            "Pause power-saving feature",
+            "Establish fair rules and public process",
+            "Create public consultation timeline"
+          ]
+        },
+        "metrics": [
+          "Outage distribution fairness",
+          "Vulnerable population support %"
         ],
-        "metrics": ["Outage distribution fairness", "Vulnerable population support %"],
         "owner_required": true,
         "review_default_days": 30
       }
@@ -128,7 +206,13 @@
       "toolkit_cues": "Clarify the difference between goals (ends) and methods (means), and encourage equitable distribution of responsibilities.",
       "p3_cues": "Considerations: People (worker safety), Planet (toxic waste), Parity (responsibility for cleanup).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is the goal (sustainability) vs. the method (export)? Are they aligned?",
           "T1 Map Impacts: Who is harmed by unsafe recycling? Who benefits from the program? Who is responsible for cleanup?",
@@ -136,12 +220,27 @@
           "T4 Alternatives: Evaluate each option. How does each address responsibility distribution?",
           "T5 Accountability: Who is responsible for ensuring safe recycling? What oversight will you establish?"
         ],
-        "quick_actions": [
-          "Audit current recycling facilities and safety standards",
-          "Establish clear responsibility and accountability framework",
-          "Create transition plan for safer practices"
+        "quick_actions": {
+          "A": [
+            "Invest in safer facilities abroad",
+            "Establish safety standards for foreign facilities",
+            "Create compliance monitoring system"
+          ],
+          "B": [
+            "Stop exports immediately",
+            "Develop safe local recycling options",
+            "Establish service delay mitigation plan"
+          ],
+          "C": [
+            "Reduce program size",
+            "Ensure compliance with strict recycling standards",
+            "Establish compliance verification process"
+          ]
+        },
+        "metrics": [
+          "Worker safety compliance %",
+          "Environmental impact score"
         ],
-        "metrics": ["Worker safety compliance %", "Environmental impact score"],
         "owner_required": true,
         "review_default_days": 90
       }

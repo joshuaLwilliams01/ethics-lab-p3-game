@@ -14,7 +14,13 @@
       "toolkit_cues": "Informed consent, secondary use, redress.",
       "p3_cues": "People (chilling effects), Planet (local vs. cloud energy), Parity (who loses utility under opt-in).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is informed consent? What is secondary use? What is redress?",
           "T1 Map Impacts: Who is harmed by data collection? Who benefits? Who loses utility?",
@@ -22,12 +28,28 @@
           "T4 Alternatives: Evaluate each option. How does each address consent and privacy?",
           "T5 Accountability: Who ensures privacy? What redress process will exist?"
         ],
-        "quick_actions": [
-          "Establish clear consent process and documentation",
-          "Create data deletion mechanisms",
-          "Develop privacy-preserving learning methods"
+        "quick_actions": {
+          "A": [
+            "Store conversations by default",
+            "Allow users to delete",
+            "Create deletion mechanism"
+          ],
+          "B": [
+            "Offer opt-in for participation",
+            "Protect privacy with fake data",
+            "Use secure learning methods"
+          ],
+          "C": [
+            "Choose no data retention",
+            "Allow personalization on device",
+            "Enhance device privacy"
+          ]
+        },
+        "metrics": [
+          "Consent rate %",
+          "Data deletion requests",
+          "Privacy compliance %"
         ],
-        "metrics": ["Consent rate %", "Data deletion requests", "Privacy compliance %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -44,7 +66,13 @@
       "toolkit_cues": "Is this coercive consent?",
       "p3_cues": "People (movement privacy), Planet (edge compute), Parity (regressive tradeoffs).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What makes consent meaningful? Is discount consent coercive?",
           "T1 Map Impacts: Who benefits from discounts? Who is harmed by privacy loss? Who faces regressive tradeoffs?",
@@ -52,12 +80,28 @@
           "T4 Alternatives: Evaluate each option. How does each address coercive consent?",
           "T5 Accountability: Who ensures meaningful consent? What oversight will prevent coercion?"
         ],
-        "quick_actions": [
-          "Establish transparent data usage policies",
-          "Create user control mechanisms",
-          "Develop fair pricing alternatives"
+        "quick_actions": {
+          "A": [
+            "Implement opt-in model",
+            "Provide transparent data usage policies",
+            "Create consent documentation"
+          ],
+          "B": [
+            "Provide complete user control",
+            "Allow data sharing preferences",
+            "Create preference management"
+          ],
+          "C": [
+            "Offer tiered discounts",
+            "Ensure robust data protection",
+            "Establish tiered discount structure"
+          ]
+        },
+        "metrics": [
+          "Opt-in rate %",
+          "User control usage",
+          "Privacy compliance %"
         ],
-        "metrics": ["Opt-in rate %", "User control usage", "Privacy compliance %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -74,7 +118,13 @@
       "toolkit_cues": "AI data supply chain; legitimacy.",
       "p3_cues": "People (expectations), Planet (storage), Parity (visibility of vulnerable groups).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is legitimacy? What is transparency in the data supply chain?",
           "T1 Map Impacts: Who benefits from planning? Who is made visible? Who is vulnerable?",
@@ -82,12 +132,28 @@
           "T4 Alternatives: Evaluate each option. How does each address legitimacy and transparency?",
           "T5 Accountability: Who ensures legitimacy? What oversight will prevent abuse?"
         ],
-        "quick_actions": [
-          "Engage stakeholders in data usage decisions",
-          "Establish clear objectives and metrics",
-          "Create transparency and accountability framework"
+        "quick_actions": {
+          "A": [
+            "Engage stakeholders",
+            "Ensure data usage aligns with needs",
+            "Create stakeholder engagement process"
+          ],
+          "B": [
+            "Establish clear objectives",
+            "Measure program success",
+            "Define impact metrics"
+          ],
+          "C": [
+            "Avoid brokered data if not transparent",
+            "Prioritize transparency",
+            "Ensure accountability"
+          ]
+        },
+        "metrics": [
+          "Stakeholder engagement rate",
+          "Transparency score",
+          "Accountability compliance %"
         ],
-        "metrics": ["Stakeholder engagement rate", "Transparency score", "Accountability compliance %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -104,7 +170,13 @@
       "toolkit_cues": "Residual risk vs. public benefit.",
       "p3_cues": "People (stigma), Planet (DP/synthetic compute), Parity (who benefits).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is residual risk? How do we balance risk and public benefit?",
           "T1 Map Impacts: Who is harmed by re-identification? Who benefits from research? Who faces stigma?",
@@ -112,12 +184,28 @@
           "T4 Alternatives: Evaluate each option. How does each address residual risk?",
           "T5 Accountability: Who ensures privacy? What oversight will minimize risk?"
         ],
-        "quick_actions": [
-          "Conduct privacy risk assessment",
-          "Develop privacy-preserving technologies",
-          "Establish transparency and audit processes"
+        "quick_actions": {
+          "A": [
+            "Collaborate with privacy experts",
+            "Assess potential risks",
+            "Develop privacy-preserving technologies"
+          ],
+          "B": [
+            "Continue implementing chatbot",
+            "Conduct regular audits",
+            "Enhance transparency"
+          ],
+          "C": [
+            "Develop educational campaign",
+            "Inform users about privacy",
+            "Encourage community feedback"
+          ]
+        },
+        "metrics": [
+          "Re-identification risk score",
+          "Privacy-preserving tech usage %",
+          "Transparency score"
         ],
-        "metrics": ["Re-identification risk score", "Privacy-preserving tech usage %", "Transparency score"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -134,7 +222,13 @@
       "toolkit_cues": "Necessity, proportionality, alternatives.",
       "p3_cues": "People (biometric risk), Planet (cameras), Parity (accuracy gaps).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: Is this necessary? Is it proportional? What alternatives exist?",
           "T1 Map Impacts: Who is harmed by biometric collection? Who benefits? Who faces accuracy gaps?",
@@ -142,12 +236,28 @@
           "T4 Alternatives: Evaluate each option. How does each address necessity and proportionality?",
           "T5 Accountability: Who ensures privacy and fairness? What oversight will employees have?"
         ],
-        "quick_actions": [
-          "Establish opt-out mechanisms and alternatives",
-          "Create independent oversight committee",
-          "Involve employees in decision-making"
+        "quick_actions": {
+          "A": [
+            "Offer opt-out option",
+            "Utilize other entry forms",
+            "Create alternative entry methods"
+          ],
+          "B": [
+            "Establish independent oversight committee",
+            "Monitor implementation",
+            "Address ethical concerns"
+          ],
+          "C": [
+            "Involve employees in decision-making",
+            "Conduct surveys or focus groups",
+            "Gauge employee feelings"
+          ]
+        },
+        "metrics": [
+          "Opt-out rate %",
+          "Accuracy by demographic",
+          "Employee satisfaction"
         ],
-        "metrics": ["Opt-out rate %", "Accuracy by demographic", "Employee satisfaction"],
         "owner_required": true,
         "review_default_days": 60
       }

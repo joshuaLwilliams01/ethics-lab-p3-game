@@ -14,7 +14,13 @@
       "toolkit_cues": "Harm minimization vs. privacy; false positives & appeals; duty to report.",
       "p3_cues": "People (victim safety/trauma), Planet (inference costs at scale), Parity (over-policing certain geos/communities).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is the balance between harm minimization and privacy? What duties do we have?",
           "T1 Map Impacts: Who is harmed by delays? Who is harmed by privacy violations? Who faces false positives?",
@@ -22,12 +28,28 @@
           "T4 Alternatives: Evaluate each option. How does each address harm, privacy, and false positives?",
           "T5 Accountability: Who is responsible for child safety? What appeal process will exist?"
         ],
-        "quick_actions": [
-          "Establish clear false positive appeal process",
-          "Create educational resources on reporting",
-          "Develop privacy-preserving detection methods"
+        "quick_actions": {
+          "A": [
+            "Perform scans on user devices",
+            "Ensure encryption for privacy",
+            "Establish device scanning protocols"
+          ],
+          "B": [
+            "Implement server-side scanning",
+            "Create takedown measures",
+            "Develop educational resources"
+          ],
+          "C": [
+            "Customize scanning protocols by environment",
+            "Allow device scans where appropriate",
+            "Require server scans where needed"
+          ]
+        },
+        "metrics": [
+          "Detection accuracy rate",
+          "False positive rate",
+          "Appeal success rate"
         ],
-        "metrics": ["Detection accuracy rate", "False positive rate", "Appeal success rate"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -44,7 +66,13 @@
       "toolkit_cues": "Openness vs. prevention; duty to test.",
       "p3_cues": "People (secondary trauma), Planet (retraining), Parity (access for small orgs).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is the balance between openness and prevention? What is our duty to test?",
           "T1 Map Impacts: Who is harmed by inappropriate content? Who benefits from access? Who is excluded by restrictions?",
@@ -52,12 +80,28 @@
           "T4 Alternatives: Evaluate each option. How does each address prevention and responsible access?",
           "T5 Accountability: Who ensures safety? What testing and review process will you establish?"
         ],
-        "quick_actions": [
-          "Conduct comprehensive red-teaming exercises",
-          "Establish clear safety protocols and watermarking",
-          "Create appeal process for false flags"
+        "quick_actions": {
+          "A": [
+            "Implement safety protocols",
+            "Use watermarking for transparency",
+            "Create fast appeal processes"
+          ],
+          "B": [
+            "Refine datasets to exclude harmful material",
+            "Slow release pace",
+            "Conduct red-teaming"
+          ],
+          "C": [
+            "Restrict access to sensitive features",
+            "Allow only verified researchers",
+            "Establish researcher verification process"
+          ]
+        },
+        "metrics": [
+          "Safety protocol compliance %",
+          "False positive rate",
+          "Red-team findings"
         ],
-        "metrics": ["Safety protocol compliance %", "False positive rate", "Red-team findings"],
         "owner_required": true,
         "review_default_days": 60
       }
@@ -74,7 +118,13 @@
       "toolkit_cues": "Who's accountable when errors cascade?",
       "p3_cues": "People (wrongful flags), Planet (compute), Parity (small platforms' capacity).",
       "toolkit_flow": {
-        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "order": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T1 Map Impacts: Who is harmed by false reports? Who benefits from bulk uploads? Who lacks capacity?",
           "T2 Clarify Values: What is accountability when errors cascade? Who is responsible?",
@@ -82,12 +132,28 @@
           "T4 Alternatives: Evaluate each option. How does each address accountability and false reports?",
           "T5 Accountability: Who is responsible for accuracy? What oversight will prevent abuse?"
         ],
-        "quick_actions": [
-          "Establish rate limits and abuse prevention measures",
-          "Create independent verification process",
-          "Develop strong appeal process for false reports"
+        "quick_actions": {
+          "A": [
+            "Require human review for bulk uploads",
+            "Establish rate limits",
+            "Create abuse prevention measures"
+          ],
+          "B": [
+            "Prioritize high confidence matches",
+            "Establish strong appeal processes",
+            "Create confidence threshold criteria"
+          ],
+          "C": [
+            "Direct submissions through independent clearinghouse",
+            "Verify reports before processing",
+            "Establish clearinghouse verification process"
+          ]
+        },
+        "metrics": [
+          "False report rate",
+          "Appeal success rate",
+          "Processing time"
         ],
-        "metrics": ["False report rate", "Appeal success rate", "Processing time"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -104,7 +170,13 @@
       "toolkit_cues": "Child's best interest.",
       "p3_cues": "People (trust), Planet (storage), Parity (guardian consent gaps).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is in the child's best interest? How do we balance safety and privacy?",
           "T1 Map Impacts: Who is harmed by security risks? Who benefits from monitoring? Who lacks consent?",
@@ -112,12 +184,28 @@
           "T4 Alternatives: Evaluate each option. How does each serve the child's best interest?",
           "T5 Accountability: Who ensures student safety and privacy? What oversight will schools have?"
         ],
-        "quick_actions": [
-          "Conduct security audit of AI monitoring systems",
-          "Establish clear consent process for parents and students",
-          "Develop alternative safety measures"
+        "quick_actions": {
+          "A": [
+            "Advocate for stronger regulations",
+            "Prioritize student privacy and security",
+            "Engage with policymakers"
+          ],
+          "B": [
+            "Encourage transparency about monitoring",
+            "Engage in open conversations",
+            "Create parent-student dialogue process"
+          ],
+          "C": [
+            "Propose alternative safety measures",
+            "Enhance conflict resolution programs",
+            "Improve mental health support"
+          ]
+        },
+        "metrics": [
+          "Security incident rate",
+          "Consent rate %",
+          "Alternative program effectiveness"
         ],
-        "metrics": ["Security incident rate", "Consent rate %", "Alternative program effectiveness"],
         "owner_required": true,
         "review_default_days": 60
       }
@@ -134,7 +222,13 @@
       "toolkit_cues": "Do no further harm; informed consent.",
       "p3_cues": "People (re-trauma), Planet (storage), Parity (legal access).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What does 'do no further harm' mean here? What is informed consent?",
           "T1 Map Impacts: Who is harmed by delays? Who is harmed by lack of evidence? Who is re-traumatized?",
@@ -142,12 +236,28 @@
           "T4 Alternatives: Evaluate each option. How does each minimize harm and respect consent?",
           "T5 Accountability: Who ensures survivor wellbeing? What process balances removal and justice?"
         ],
-        "quick_actions": [
-          "Establish survivor consent process",
-          "Create evidence escrow system",
-          "Develop expedited removal protocols"
+        "quick_actions": {
+          "A": [
+            "Implement rapid removal process",
+            "Retain only hashed proof",
+            "Establish hashing verification system"
+          ],
+          "B": [
+            "Conduct gradual removal process",
+            "Ensure consent from survivors",
+            "Utilize evidence escrow"
+          ],
+          "C": [
+            "Establish court-mandated expedited route",
+            "Create standard procedure for other cases",
+            "Develop expedited removal criteria"
+          ]
+        },
+        "metrics": [
+          "Removal time",
+          "Survivor satisfaction",
+          "Investigation success rate"
         ],
-        "metrics": ["Removal time", "Survivor satisfaction", "Investigation success rate"],
         "owner_required": true,
         "review_default_days": 30
       }

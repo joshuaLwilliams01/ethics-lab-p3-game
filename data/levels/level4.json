@@ -14,7 +14,13 @@
       "toolkit_cues": "Incentives, lock-in, bargaining power, exit plans.",
       "p3_cues": "People (surveillance risk), Planet (duplicated infra), Parity (market concentration).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What are the incentives? What is true neutrality? What is our bargaining power?",
           "T1 Map Impacts: Who is harmed by surveillance? Who benefits from scaling? Who is locked in?",
@@ -22,12 +28,28 @@
           "T4 Alternatives: Evaluate each option. How does each address incentives, lock-in, and exit plans?",
           "T5 Accountability: Who ensures neutrality? What oversight will prevent abuse of power?"
         ],
-        "quick_actions": [
-          "Negotiate clear data separation and audit rights",
-          "Establish oversight board with diverse stakeholders",
-          "Create exit plan and transition strategy"
+        "quick_actions": {
+          "A": [
+            "Accept proposal with oversight board",
+            "Negotiate oversight board composition",
+            "Establish board review process"
+          ],
+          "B": [
+            "Create publicly available cloud option",
+            "Develop independent infrastructure",
+            "Establish development timeline"
+          ],
+          "C": [
+            "Structure multi-cloud environment",
+            "Ensure strict data separation",
+            "Define clear audit rights"
+          ]
+        },
+        "metrics": [
+          "Data separation compliance %",
+          "Oversight board effectiveness",
+          "Exit plan readiness"
         ],
-        "metrics": ["Data separation compliance %", "Oversight board effectiveness", "Exit plan readiness"],
         "owner_required": true,
         "review_default_days": 180
       }
@@ -44,7 +66,13 @@
       "toolkit_cues": "Leverage and coalition strategy.",
       "p3_cues": "People (access), Planet (duplicate builds), Parity (gatekeeper rents).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is leverage? How do coalitions work? What is fair access?",
           "T1 Map Impacts: Who loses access? Who benefits from native features? Who pays gatekeeper rents?",
@@ -52,12 +80,28 @@
           "T4 Alternatives: Evaluate each option. How does each address leverage and access?",
           "T5 Accountability: Who ensures fair access? What coalition will you build?"
         ],
-        "quick_actions": [
-          "Build coalition with other public-interest apps",
-          "Advocate for fee exemptions or reductions",
-          "Develop hybrid web/native strategy"
+        "quick_actions": {
+          "A": [
+            "Pay fee to maintain broad reach",
+            "Allocate budget for app store fees",
+            "Monitor reach metrics"
+          ],
+          "B": [
+            "Switch to web-only version",
+            "Develop web version features",
+            "Create feature parity plan"
+          ],
+          "C": [
+            "Join coalition for fee reductions",
+            "Advocate for exemptions",
+            "Build coalition strategy"
+          ]
+        },
+        "metrics": [
+          "Coalition size",
+          "Fee reduction success",
+          "Access rate"
         ],
-        "metrics": ["Coalition size", "Fee reduction success", "Access rate"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -74,7 +118,13 @@
       "toolkit_cues": "Who captures value created by the public?",
       "p3_cues": "People (public benefit), Planet (retraining), Parity (favoring large vendors).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: Who owns value created from public data? What is fair benefit sharing?",
           "T1 Map Impacts: Who benefits from improvements? Who is excluded? Who captures value?",
@@ -82,12 +132,28 @@
           "T4 Alternatives: Evaluate each option. How does each address value capture and public benefit?",
           "T5 Accountability: Who ensures public benefit? What oversight will prevent monopolization?"
         ],
-        "quick_actions": [
-          "Establish clear value-sharing framework",
-          "Create transparent improvement reporting",
-          "Develop anti-monopoly safeguards"
+        "quick_actions": {
+          "A": [
+            "Ensure improvements are transparent",
+            "Make improvements justifiable",
+            "Create transparency reporting"
+          ],
+          "B": [
+            "Prevent exclusive rights to improvements",
+            "Ensure public access to improvements",
+            "Establish public benefit sharing"
+          ],
+          "C": [
+            "Proceed with limited exclusivity",
+            "Define exclusivity limits",
+            "Establish exclusivity review process"
+          ]
+        },
+        "metrics": [
+          "Public benefit %",
+          "Exclusivity limits",
+          "Transparency score"
         ],
-        "metrics": ["Public benefit %", "Exclusivity limits", "Transparency score"],
         "owner_required": true,
         "review_default_days": 180
       }
@@ -104,7 +170,13 @@
       "toolkit_cues": "Conflicts of interest; informed debate.",
       "p3_cues": "People (opinion shaping), Planet (campaign travel/media), Parity (voice imbalance).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is a conflict of interest? What is educational integrity?",
           "T1 Map Impacts: Who is harmed by conflicts? Who benefits from funding? Who loses voice?",
@@ -112,12 +184,28 @@
           "T4 Alternatives: Evaluate each option. How does each address conflicts and integrity?",
           "T5 Accountability: Who ensures educational integrity? What oversight will prevent bias?"
         ],
-        "quick_actions": [
-          "Establish independent advisory committee",
-          "Create clear conflict-of-interest policies",
-          "Develop alternative funding sources"
+        "quick_actions": {
+          "A": [
+            "Set strict conditions",
+            "Include independent advisory committee",
+            "Protect educational integrity"
+          ],
+          "B": [
+            "Reject funding proposal",
+            "Maintain independence",
+            "Avoid conflicts of interest"
+          ],
+          "C": [
+            "Explore alternative funding",
+            "Secure resources without software adoption",
+            "Develop partnership strategy"
+          ]
+        },
+        "metrics": [
+          "Conflict-of-interest compliance %",
+          "Educational integrity score",
+          "Funding diversity"
         ],
-        "metrics": ["Conflict-of-interest compliance %", "Educational integrity score", "Funding diversity"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -134,7 +222,13 @@
       "toolkit_cues": "Network effects and public value.",
       "p3_cues": "People (communication access), Planet (redundancy), Parity (new entrants).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is public value? What are network effects? How do they relate?",
           "T1 Map Impacts: Who benefits from partnerships? Who loses access? Who is excluded?",
@@ -142,12 +236,28 @@
           "T4 Alternatives: Evaluate each option. How does each balance network effects and public value?",
           "T5 Accountability: Who ensures public value? What oversight will prevent exploitation?"
         ],
-        "quick_actions": [
-          "Establish privacy-preserving data collection",
-          "Create public value metrics",
-          "Develop alternative funding models"
+        "quick_actions": {
+          "A": [
+            "Focus on data collection",
+            "Enhance engagement",
+            "Accept privacy tradeoffs"
+          ],
+          "B": [
+            "Find balanced approach",
+            "Respect privacy",
+            "Gather essential data"
+          ],
+          "C": [
+            "Explore alternative funding",
+            "Don't compromise user experience",
+            "Maintain accessibility"
+          ]
+        },
+        "metrics": [
+          "Privacy compliance %",
+          "Public value score",
+          "Network growth rate"
         ],
-        "metrics": ["Privacy compliance %", "Public value score", "Network growth rate"],
         "owner_required": true,
         "review_default_days": 90
       }

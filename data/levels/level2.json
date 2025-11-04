@@ -14,7 +14,13 @@
       "toolkit_cues": "What definition of 'fairness' are you advocating for, and why? Are you referring to the concept of an accountability chain?",
       "p3_cues": "People (false negatives), Planet (retraining cost), Parity (distribution of opportunity).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What does 'fairness' mean here? Equal opportunity? Equal outcomes? Equalized odds?",
           "T1 Map Impacts: Who is harmed by the disparity? Who benefits from the tool? Who is excluded?",
@@ -22,12 +28,27 @@
           "T4 Alternatives: Evaluate each option. What safeguards will ensure fairness?",
           "T5 Accountability: Who is responsible for fair hiring? What accountability chain exists?"
         ],
-        "quick_actions": [
-          "Define fairness metrics and targets",
-          "Establish appeal and review process",
-          "Conduct bias audit across demographic groups"
+        "quick_actions": {
+          "A": [
+            "Establish human-in-the-loop appeals process",
+            "Create appeal review protocol",
+            "Monitor demographic parity"
+          ],
+          "B": [
+            "Pause hiring tool implementation",
+            "Optimize for equalized odds",
+            "Establish retraining timeline"
+          ],
+          "C": [
+            "Restrict use to roles with minimal disparity",
+            "Maintain manual processes for others",
+            "Establish role eligibility criteria"
+          ]
+        },
+        "metrics": [
+          "Demographic parity %",
+          "Appeal success rate"
         ],
-        "metrics": ["Demographic parity %", "Appeal success rate"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -44,7 +65,13 @@
       "toolkit_cues": "Is user consent meaningful? What potential harms could arise from mis-scoring?",
       "p3_cues": "Consider the impacts on People (over-indebted individuals), Planet (constant scoring), and Parity (users with limited data access).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What makes consent meaningful? Is opt-out consent sufficient here?",
           "T1 Map Impacts: Who benefits from quick loans? Who is harmed by mis-scoring? Who lacks data access?",
@@ -52,12 +79,28 @@
           "T4 Alternatives: Evaluate each option. How does each address meaningful consent and potential harms?",
           "T5 Accountability: Who ensures fair lending? What oversight will prevent bias and abuse?"
         ],
-        "quick_actions": [
-          "Conduct bias audit on scoring model",
-          "Establish clear consent process and documentation",
-          "Create appeal process for loan denials"
+        "quick_actions": {
+          "A": [
+            "Provide clear opt-out options",
+            "Offer thorough explanations",
+            "Create consent documentation"
+          ],
+          "B": [
+            "Implement opt-in model",
+            "Conduct independent bias audits",
+            "Establish audit schedule"
+          ],
+          "C": [
+            "Test system on small loans",
+            "Analyze outcomes by demographic",
+            "Establish pilot review process"
+          ]
+        },
+        "metrics": [
+          "Opt-in rate %",
+          "Bias audit results",
+          "Appeal success rate"
         ],
-        "metrics": ["Opt-in rate %", "Bias audit results", "Appeal success rate"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -74,7 +117,13 @@
       "toolkit_cues": "Strategies for Enhancing Contestability and Utilizing Less Intrusive Methods.",
       "p3_cues": "People (stress and dignity), Planet (continuous monitoring through video), Parity (issues with false positives).",
       "toolkit_flow": {
-        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "order": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T1 Map Impacts: Who is harmed by false positives? Who benefits from proctoring? What alternatives exist?",
           "T2 Clarify Values: What is the balance between integrity and dignity? Is less intrusive always better?",
@@ -82,12 +131,27 @@
           "T4 Alternatives: Evaluate each option. How does each address fairness and dignity?",
           "T5 Accountability: Who ensures fair testing? What appeal process will students have?"
         ],
-        "quick_actions": [
-          "Conduct bias audit on proctoring system",
-          "Develop alternative assessment methods",
-          "Establish clear appeal process for flagged exams"
+        "quick_actions": {
+          "A": [
+            "Incorporate human checks",
+            "Perform additional calibration",
+            "Establish calibration schedule"
+          ],
+          "B": [
+            "Provide alternative assessment methods",
+            "Develop oral presentation options",
+            "Create portfolio assessment framework"
+          ],
+          "C": [
+            "Pause proctoring system",
+            "Fix error gaps",
+            "Establish testing and verification process"
+          ]
+        },
+        "metrics": [
+          "False positive rate by demographic",
+          "Alternative assessment usage %"
         ],
-        "metrics": ["False positive rate by demographic", "Alternative assessment usage %"],
         "owner_required": true,
         "review_default_days": 60
       }
@@ -104,7 +168,13 @@
       "toolkit_cues": "Missing data = hidden bias.",
       "p3_cues": "People (outcomes), Planet (compute), and Parity (who is deprioritized).",
       "toolkit_flow": {
-        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "order": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T1 Map Impacts: Who is deprioritized? Who benefits from reduced wait times? Who has limited medical history?",
           "T2 Clarify Values: How should we handle missing data? What does fairness mean in healthcare?",
@@ -112,12 +182,28 @@
           "T4 Alternatives: Evaluate each option. How does each address bias from missing data?",
           "T5 Accountability: Who is responsible for patient outcomes? What oversight will ensure fairness?"
         ],
-        "quick_actions": [
-          "Conduct bias audit on triage model",
-          "Establish override protocols and documentation",
-          "Create equity monitoring system"
+        "quick_actions": {
+          "A": [
+            "Include doctor override functionality",
+            "Establish override protocols",
+            "Create override documentation"
+          ],
+          "B": [
+            "Impose penalties for model uncertainty",
+            "Promote caution with limited data",
+            "Establish uncertainty threshold"
+          ],
+          "C": [
+            "Set aside equity slots",
+            "Ensure fair access",
+            "Establish equity slot allocation process"
+          ]
+        },
+        "metrics": [
+          "Triage accuracy by patient history",
+          "Override usage rate",
+          "Equity slot utilization"
         ],
-        "metrics": ["Triage accuracy by patient history", "Override usage rate", "Equity slot utilization"],
         "owner_required": true,
         "review_default_days": 30
       }
@@ -134,7 +220,13 @@
       "toolkit_cues": "Outcome vs. process fairness.",
       "p3_cues": "People (chilling effects), Planet (miles), Parity (surveillance load).",
       "toolkit_flow": {
-        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "order": [
+          "T2",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
         "prompts": [
           "T2 Clarify Values: What is the difference between outcome fairness and process fairness? Which matters more here?",
           "T1 Map Impacts: Who experiences increased surveillance? Who benefits from crime reduction? What are the chilling effects?",
@@ -142,12 +234,28 @@
           "T4 Alternatives: Evaluate each option. How does each address fairness and community trust?",
           "T5 Accountability: Who decides where patrols go? What community input will you seek?"
         ],
-        "quick_actions": [
-          "Conduct community impact assessment",
-          "Establish transparent decision-making process",
-          "Create community advisory board"
+        "quick_actions": {
+          "A": [
+            "Allocate funding for community initiatives",
+            "Enforce transparent public audits",
+            "Create community engagement process"
+          ],
+          "B": [
+            "Implement randomized block trials",
+            "Assess effectiveness",
+            "Gather data on outcomes"
+          ],
+          "C": [
+            "Prioritize investment in community safety programs",
+            "Develop alternatives to traditional policing",
+            "Create program evaluation framework"
+          ]
+        },
+        "metrics": [
+          "Crime reduction in hot spots",
+          "Community trust score",
+          "Surveillance distribution"
         ],
-        "metrics": ["Crime reduction in hot spots", "Community trust score", "Surveillance distribution"],
         "owner_required": true,
         "review_default_days": 90
       }
