@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --brand:#8C1515; /* Stanford Cardinal */
+  --ink:#1F2937;
+  --bg:#FAFAFA;
+  --accent:#5B8DEF;
+  --success:#10B981;
+  --warn:#F59E0B;
+}
+html,body{ background: var(--bg); color: var(--ink); }
+a{ color: var(--accent); }
+

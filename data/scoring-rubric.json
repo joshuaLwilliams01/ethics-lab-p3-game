@@ -1,0 +1,2 @@
+{ "weights": { "decisionQuality":20,"toolkitCompleteness":30,"p3Coverage":30,"reflectionDepth":10,"consistency":10 }, "thresholds": { "certificate":70 } }
+

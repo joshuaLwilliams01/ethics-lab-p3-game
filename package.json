@@ -1,0 +1,30 @@
+{
+  "name": "ethics-lab-p3",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "next": "14.2.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@supabase/supabase-js": "^2.46.1",
+    "zod": "^3.23.8",
+    "pdf-lib": "^1.17.1",
+    "recharts": "^2.12.7",
+    "framer-motion": "^11.5.4",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "eslint": "^9.12.0",
+    "eslint-config-next": "^14.2.4",
+    "tailwindcss": "^3.4.14",
+    "postcss": "^8.4.47",
+    "autoprefixer": "^10.4.20"
+  }
+}
