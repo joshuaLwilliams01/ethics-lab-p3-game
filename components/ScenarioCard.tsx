@@ -26,10 +26,10 @@ export default function ScenarioCard({
   const [resultBlock, setResultBlock] = useState<null | {summary:string; benefits:string[]; harms:string[]}>(null);
 
   const canSubmit = useMemo(() => {
-    const hasChoice = Boolean(choice);
-    const toolkitComplete = toolkit?.isComplete === true;
-    return hasChoice && toolkitComplete;
-  }, [choice, toolkit?.isComplete]);
+    if (!choice) return false;
+    if (!toolkit || toolkit.isComplete !== true) return false;
+    return true;
+  }, [choice, toolkit]);
 
   const doSave = () => {
     saveProgress({ level, idx:index, timestamp:Date.now(), payload:{ choice, toolkit } });

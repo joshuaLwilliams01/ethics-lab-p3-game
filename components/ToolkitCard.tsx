@@ -10,17 +10,17 @@ export default function ToolkitCard({ flow, onComplete }:{
   const [checks, setChecks]   = useState<boolean[]>(() => flow.quick_actions.map(() => false));
 
   useEffect(() => {
-    // If no prompts or actions, consider complete
-    const noPrompts = flow.prompts.length === 0;
-    const noActions = flow.quick_actions.length === 0;
+    // Check if prompts are complete
+    const promptsComplete = flow.prompts.length === 0 || 
+      answers.filter(a => a.trim().length >= 2).length === flow.prompts.length;
     
-    // Complete if:
-    // - No prompts AND no actions (empty toolkit)
-    // - OR all prompts filled (>= 2 chars) AND all actions checked
-    const promptsComplete = noPrompts || (answers.filter(a => a.trim().length >= 2).length === flow.prompts.length);
-    const actionsComplete = noActions || (checks.length > 0 && checks.every(Boolean));
+    // Check if actions are complete
+    const actionsComplete = flow.quick_actions.length === 0 || 
+      (checks.length === flow.quick_actions.length && checks.every(Boolean));
+    
     const isComplete = promptsComplete && actionsComplete;
     
+    // Always call onComplete to update parent state
     onComplete({ prompts:answers, actions:checks, metrics:flow.metrics ?? [], isComplete });
   }, [answers, checks, flow.prompts.length, flow.quick_actions.length, flow.metrics]);
 
