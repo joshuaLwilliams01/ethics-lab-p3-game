@@ -24,15 +24,15 @@ export default function AudioToggle(){
       audioContextRef.current = ctx;
       startTimeRef.current = ctx.currentTime;
       
-      // James Bond theme notes (simplified version)
-      // Bass line: E2, F#2, G2, E2 (low suspenseful notes)
-      // Melody: E4, G4, A4, B4, A4, G4, E4 (iconic rising/falling pattern)
+      // Calmer James Bond-inspired theme (softened version)
+      // Bass line: E2, F#2, G2, E2 (low suspenseful notes) - one octave lower for warmth
+      // Melody: E3, G3, A3, B3, A3, G3, E3 (softer, lower octave)
       const bassNotes = [82.41, 92.50, 98.00, 82.41]; // E2, F#2, G2, E2
-      const melodyNotes = [329.63, 392.00, 440.00, 493.88, 440.00, 392.00, 329.63]; // E4, G4, A4, B4, A4, G4, E4
+      const melodyNotes = [164.81, 196.00, 220.00, 246.94, 220.00, 196.00, 164.81]; // E3, G3, A3, B3, A3, G3, E3 (one octave lower)
       
-      const tempo = 0.25; // seconds per note
-      const bassGain = 0.12;
-      const melodyGain = 0.08;
+      const tempo = 0.35; // Slower tempo for calmer feel
+      const bassGain = 0.06; // Much quieter
+      const melodyGain = 0.04; // Very subtle
       
       const isEnabledRef = { current: true }; // Track enabled state for scheduling
       const scheduleNext = () => {
@@ -50,12 +50,13 @@ export default function AudioToggle(){
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
           
-          bassOsc.type = 'sawtooth'; // More aggressive bass sound
+          bassOsc.type = 'sine'; // Softer, calmer sound
           bassOsc.frequency.value = bassNote;
           
+          // Much gentler envelope with longer fade
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.01);
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.8);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.05); // Slower attack
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 1.2); // Longer decay
           
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
@@ -75,12 +76,13 @@ export default function AudioToggle(){
           const melodyOsc = ctx.createOscillator();
           const melodyGainNode = ctx.createGain();
           
-          melodyOsc.type = 'square'; // Distinctive James Bond sound
+          melodyOsc.type = 'sine'; // Smooth, calm sound instead of harsh square
           melodyOsc.frequency.value = melodyNote;
           
+          // Very gentle envelope
           melodyGainNode.gain.setValueAtTime(0, currentTime);
-          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.02);
-          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.6);
+          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.08); // Very slow attack
+          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.9); // Longer, smoother decay
           
           melodyOsc.connect(melodyGainNode);
           melodyGainNode.connect(ctx.destination);
