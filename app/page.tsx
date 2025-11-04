@@ -13,7 +13,7 @@ export default function Home(){
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2E2D29] tracking-tight">
           DECISIONS SANDBOX
         </h2>
-        <div className="text-base md:text-lg max-w-3xl mx-auto text-[#53565A] mb-8 leading-relaxed">
+        <div className="text-base md:text-lg max-w-3xl mx-auto text-[#53565A] mb-8 leading-relaxed text-left">
           <p>
             The Ethics-Tech-Policy Decisions Sandbox, created by{' '}
             <a 
@@ -24,7 +24,16 @@ export default function Home(){
             >
               Joshua Williams
             </a>
-            , is a web-based simulator addressing real-world dilemmas at the intersection of technology, policy, and society. Utilizing Stanford's Ethics Toolkit from Manuela Travaglianti, PhD, and Thomas Both, players explore tradeoffs and justify their decisions, promoting privacy, accessibility, and responsible technology education.
+            , is a web-based simulator addressing real-world dilemmas at the intersection of technology, policy, and society. Utilizing{' '}
+            <a 
+              href="https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#8C1515] hover:text-[#820f0f] underline"
+            >
+              Stanford's Ethics Toolkit
+            </a>
+            {' '}from Manuela Travaglianti, PhD, and Thomas Both, players explore tradeoffs and justify their decisions, promoting privacy, accessibility, and responsible technology education.
           </p>
         </div>
       </div>
