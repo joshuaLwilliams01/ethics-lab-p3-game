@@ -6,6 +6,7 @@ export default function AudioToggle(){
   const audioContextRef = useRef<AudioContext|null>(null);
   const oscillatorRef = useRef<OscillatorNode|null>(null);
   const gainNodeRef = useRef<GainNode|null>(null);
+  const animationFrameRef = useRef<number|null>(null);
   const [enabled, setEnabled] = useState(false);
   const [usingFallback, setUsingFallback] = useState(false);
 
@@ -14,6 +15,9 @@ export default function AudioToggle(){
     try {
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContextClass) return;
+      
+      // Stop any existing audio first
+      stopFallbackAudio();
       
       const ctx = new AudioContextClass();
       audioContextRef.current = ctx;
@@ -33,34 +37,48 @@ export default function AudioToggle(){
       gainNodeRef.current = gainNode;
       
       // Slowly modulate frequency for subtle suspense
-      let animationFrame: number;
       const modulate = () => {
-        if (!oscillatorRef.current) return;
+        if (!oscillatorRef.current || !enabled) {
+          if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = null;
+          }
+          return;
+        }
         const baseFreq = 220;
         const variation = Math.sin(Date.now() / 3000) * 5;
         oscillatorRef.current.frequency.value = baseFreq + variation;
-        animationFrame = requestAnimationFrame(modulate);
+        animationFrameRef.current = requestAnimationFrame(modulate);
       };
-      animationFrame = requestAnimationFrame(modulate);
-      
-      // Store animation frame ID for cleanup
-      (oscillatorRef.current as any)._animationFrame = animationFrame;
+      animationFrameRef.current = requestAnimationFrame(modulate);
     } catch (e) {
       console.warn('Audio context not available:', e);
     }
   };
 
   const stopFallbackAudio = () => {
+    // Cancel animation frame
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = null;
+    }
+    
+    // Stop oscillator
     if (oscillatorRef.current) {
-      const animationFrame = (oscillatorRef.current as any)._animationFrame;
-      if (animationFrame) cancelAnimationFrame(animationFrame);
-      oscillatorRef.current.stop();
+      try {
+        oscillatorRef.current.stop();
+      } catch (e) {
+        // Already stopped
+      }
       oscillatorRef.current = null;
     }
+    
+    // Close audio context
     if (audioContextRef.current) {
       audioContextRef.current.close().catch(() => {});
       audioContextRef.current = null;
     }
+    
     gainNodeRef.current = null;
   };
 
@@ -71,11 +89,16 @@ export default function AudioToggle(){
         audioRef.current.volume = 0.25;
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // Audio file failed, use fallback
-            setUsingFallback(true);
-            startFallbackAudio();
-          });
+          playPromise
+            .then(() => {
+              // Audio file is playing successfully
+              setUsingFallback(false);
+            })
+            .catch(() => {
+              // Audio file failed, use fallback
+              setUsingFallback(true);
+              startFallbackAudio();
+            });
         }
       } else {
         // No audio element, use fallback
@@ -83,10 +106,12 @@ export default function AudioToggle(){
         startFallbackAudio();
       }
     } else {
+      // Stop audio file
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
+      // Stop fallback audio
       stopFallbackAudio();
       setUsingFallback(false);
     }
@@ -95,6 +120,10 @@ export default function AudioToggle(){
   // Cleanup on unmount
   useEffect(() => {
     return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
       stopFallbackAudio();
     };
   }, []);
