@@ -21,10 +21,7 @@
           "Define hospital/transit continuity plan",
           "Trigger supplier labor audit"
         ],
-        "metrics": [
-          "Continuity incidents",
-          "Audit completion %"
-        ],
+        "metrics": ["Continuity incidents", "Audit completion %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -41,13 +38,7 @@
       "toolkit_cues": "Are we treating people merely as a means to an end? Who will experience short-term harm?",
       "p3_cues": "People (exploitation), Planet (energy retraining), Parity (who loses access during a pause).",
       "toolkit_flow": {
-        "order": [
-          "T2",
-          "T1",
-          "T3",
-          "T4",
-          "T5"
-        ],
+        "order": ["T2", "T1", "T3", "T4", "T5"],
         "prompts": [
           "T2 Clarify Values: Are workers being treated as ends in themselves or just means?",
           "T1 Map Impacts: Who benefits from the app? Who is harmed by low wages? Who loses access if paused?",
@@ -60,10 +51,7 @@
           "Create transition timeline with milestones",
           "Establish worker compensation standards"
         ],
-        "metrics": [
-          "Fair pay compliance %",
-          "App uptime %"
-        ],
+        "metrics": ["Fair pay compliance %", "App uptime %"],
         "owner_required": true,
         "review_default_days": 90
       }
@@ -80,13 +68,7 @@
       "toolkit_cues": "Duty of care versus service uptime.",
       "p3_cues": "People (mental health), Planet (increased AI compute), Parity (who is protected online).",
       "toolkit_flow": {
-        "order": [
-          "T1",
-          "T2",
-          "T3",
-          "T4",
-          "T5"
-        ],
+        "order": ["T1", "T2", "T3", "T4", "T5"],
         "prompts": [
           "T1 Map Impacts: Who is harmed by current working conditions? Who benefits from platform safety?",
           "T2 Clarify Values: What duties do we have to our moderators? What duties to platform users?",
@@ -99,10 +81,7 @@
           "Create clear workload limits and rotation schedules",
           "Develop safety protocols for high-risk content"
         ],
-        "metrics": [
-          "Moderator wellbeing score",
-          "Content removal accuracy %"
-        ],
+        "metrics": ["Moderator wellbeing score", "Content removal accuracy %"],
         "owner_required": true,
         "review_default_days": 60
       }
@@ -119,13 +98,7 @@
       "toolkit_cues": "Focus on consent and proportionality.",
       "p3_cues": "Consider the People (health and safety), Planet (energy consumption), and Parity (distribution of burdens).",
       "toolkit_flow": {
-        "order": [
-          "T1",
-          "T2",
-          "T3",
-          "T4",
-          "T5"
-        ],
+        "order": ["T1", "T2", "T3", "T4", "T5"],
         "prompts": [
           "T1 Map Impacts: Who experiences blackouts? Who benefits from cost savings? Who is most vulnerable?",
           "T2 Clarify Values: What is the relationship between consent and harm? Is this proportional?",
@@ -138,10 +111,7 @@
           "Establish transparent decision-making process",
           "Create emergency support fund"
         ],
-        "metrics": [
-          "Outage distribution fairness",
-          "Vulnerable population support %"
-        ],
+        "metrics": ["Outage distribution fairness", "Vulnerable population support %"],
         "owner_required": true,
         "review_default_days": 30
       }
@@ -158,13 +128,7 @@
       "toolkit_cues": "Clarify the difference between goals (ends) and methods (means), and encourage equitable distribution of responsibilities.",
       "p3_cues": "Considerations: People (worker safety), Planet (toxic waste), Parity (responsibility for cleanup).",
       "toolkit_flow": {
-        "order": [
-          "T2",
-          "T1",
-          "T3",
-          "T4",
-          "T5"
-        ],
+        "order": ["T2", "T1", "T3", "T4", "T5"],
         "prompts": [
           "T2 Clarify Values: What is the goal (sustainability) vs. the method (export)? Are they aligned?",
           "T1 Map Impacts: Who is harmed by unsafe recycling? Who benefits from the program? Who is responsible for cleanup?",
@@ -177,10 +141,7 @@
           "Establish clear responsibility and accountability framework",
           "Create transition plan for safer practices"
         ],
-        "metrics": [
-          "Worker safety compliance %",
-          "Environmental impact score"
-        ],
+        "metrics": ["Worker safety compliance %", "Environmental impact score"],
         "owner_required": true,
         "review_default_days": 90
       }
