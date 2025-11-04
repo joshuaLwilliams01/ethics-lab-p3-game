@@ -2,34 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Stanford-inspired palette (Ethics Center vibe) */
+/* Stanford University Official Brand Colors */
 :root{
-  --cardinal:#8C1515;       /* primary */
-  --cardinal-dark:#820f0f;
-  --stone:#2E2D29;          /* ink */
-  --fog:#F7F6F3;            /* paper */
-  --accent:#2E6AB3;         /* links */
-  --gold:#B3995D;           /* subtle highlights */
+  --cardinal:#8C1515;       /* Stanford Cardinal Red - primary brand color */
+  --cardinal-dark:#820f0f;  /* Darker cardinal for hover states */
+  --cardinal-light:#b83a3a; /* Lighter cardinal for accents */
+  --palo-alto-green:#175E54; /* Palo Alto Green - secondary accent */
+  --stone:#2E2D29;          /* Stanford Black/Stone - text color */
+  --white:#FFFFFF;          /* White - backgrounds */
+  --fog:#F7F6F3;            /* Light gray background */
+  --cool-gray:#53565A;      /* Cool gray for secondary text */
 }
 
-html,body{ background:var(--fog); color:var(--stone); }
-a{ color:var(--accent); }
+html,body{ 
+  background:var(--white); 
+  color:var(--stone); 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
 
+a{ color:var(--cardinal); }
+a:hover{ color:var(--cardinal-dark); }
+
+/* Suspenseful background with Stanford colors */
 .suspense-bg{
-  background: radial-gradient(1200px 400px at 50% -200px, rgba(140,21,21,0.18), transparent),
-              radial-gradient(600px 300px at 20% 0%, rgba(179,153,93,0.15), transparent),
-              linear-gradient(#ffffff, #faf8f5);
+  background: 
+    radial-gradient(1200px 400px at 50% -200px, rgba(140,21,21,0.12), transparent),
+    radial-gradient(800px 300px at 80% 100px, rgba(23,94,84,0.08), transparent),
+    radial-gradient(600px 200px at 20% 50%, rgba(140,21,21,0.06), transparent),
+    linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+  min-height: 100vh;
 }
 
-/* Buttons */
-.btn{ @apply inline-flex items-center justify-center px-4 py-2 rounded font-medium transition;
-      background: var(--stone); color:#fff; }
-.btn:hover{ background: #000; }
-.btn-ghost{ @apply border; background:#fff; color:var(--stone); }
-.btn-ghost:hover{ background:#f3f3f3; }
+/* Buttons - Stanford Cardinal Red primary */
+.btn{ 
+  @apply inline-flex items-center justify-center px-4 py-2 rounded font-medium transition;
+  background: var(--cardinal); 
+  color: var(--white); 
+  border: 1px solid var(--cardinal);
+}
+.btn:hover{ 
+  background: var(--cardinal-dark); 
+  border-color: var(--cardinal-dark);
+}
+.btn-ghost{ 
+  @apply border; 
+  background: var(--white); 
+  color: var(--cardinal); 
+  border-color: var(--cardinal);
+}
+.btn-ghost:hover{ 
+  background: var(--fog); 
+  border-color: var(--cardinal-dark);
+  color: var(--cardinal-dark);
+}
 
-/* Card */
-.card{ @apply rounded border bg-white/80 backdrop-blur p-4; }
+/* Card - Stanford style with subtle borders */
+.card{ 
+  @apply rounded border p-4; 
+  background: var(--white); 
+  border-color: #E5E5E5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
 
 /* Small helper */
-.kicker{ @apply uppercase tracking-wide text-xs text-gray-500; }
+.kicker{ 
+  @apply uppercase tracking-wide text-xs; 
+  color: var(--cool-gray);
+  font-weight: 600;
+}
+
+/* Header styling - Stanford style */
+header {
+  border-bottom: 2px solid var(--cardinal);
+}
+
+/* Links in content */
+.card a, .card a:visited {
+  color: var(--cardinal);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.card a:hover {
+  color: var(--cardinal-dark);
+  text-decoration-thickness: 2px;
+}

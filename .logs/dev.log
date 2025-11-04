@@ -36,3 +36,13 @@
  GET /play/individual/1 200 in 170ms
  GET /play/individual/1 200 in 52ms
  ✓ Compiled in 499ms (566 modules)
+ ✓ Compiled in 319ms (566 modules)
+ GET /play/individual/1 200 in 390ms
+ GET / 200 in 77ms
+ GET / 200 in 38ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1772ms (776 modules)
+ GET /sfx-suspense.mp3 416 in 2037ms
+ ✓ Compiled in 491ms (788 modules)
+ ✓ Compiled in 219ms (788 modules)
+ ✓ Compiled in 666ms (788 modules)
