@@ -1,2 +1,156 @@
-{ "level": 5, "title": "Level 5", "scenarios": [] }
-
+{
+  "level": 5,
+  "title": "Data Collection, Privacy & Civil Liberties",
+  "scenarios": [
+    {
+      "scenario_id": "L5-S1",
+      "title": "The Platform That Remembers",
+      "prompt": "A city plans to boost resident engagement by launching a Civic AI advisor, an AI platform for real-time conversations that collects and stores feedback and suggestions on community services.",
+      "choices": {
+        "A": "By default, store conversations and allow users to delete them.",
+        "B": "Offer an opt-in for participation and protect privacy with fake data and secure learning methods.",
+        "C": "Choose to have no data retained and allow all personalization to occur solely on the device, enhancing user privacy and security."
+      },
+      "toolkit_cues": "Informed consent, secondary use, redress.",
+      "p3_cues": "People (chilling effects), Planet (local vs. cloud energy), Parity (who loses utility under opt-in).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is informed consent? What is secondary use? What is redress?",
+          "T1 Map Impacts: Who is harmed by data collection? Who benefits? Who loses utility?",
+          "T3 Anticipate Risks: What are the risks of storage? What are the risks of opt-in?",
+          "T4 Alternatives: Evaluate each option. How does each address consent and privacy?",
+          "T5 Accountability: Who ensures privacy? What redress process will exist?"
+        ],
+        "quick_actions": [
+          "Establish clear consent process and documentation",
+          "Create data deletion mechanisms",
+          "Develop privacy-preserving learning methods"
+        ],
+        "metrics": ["Consent rate %", "Data deletion requests", "Privacy compliance %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L5-S2",
+      "title": "Discount for Location",
+      "prompt": "A rideshare service offers lower fares to users who share their location history, raising privacy concerns. While it sounds like a deal too good to pass up, it raises serious privacy concerns. What would you recommend?",
+      "choices": {
+        "A": "Implement an opt-in model with transparent data usage policies.",
+        "B": "Provide users with complete control over their data sharing preferences.",
+        "C": "Offer tiered discounts based on the depth of data shared while ensuring robust data protection measures."
+      },
+      "toolkit_cues": "Is this coercive consent?",
+      "p3_cues": "People (movement privacy), Planet (edge compute), Parity (regressive tradeoffs).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What makes consent meaningful? Is discount consent coercive?",
+          "T1 Map Impacts: Who benefits from discounts? Who is harmed by privacy loss? Who faces regressive tradeoffs?",
+          "T3 Anticipate Risks: What are the risks of location sharing? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address coercive consent?",
+          "T5 Accountability: Who ensures meaningful consent? What oversight will prevent coercion?"
+        ],
+        "quick_actions": [
+          "Establish transparent data usage policies",
+          "Create user control mechanisms",
+          "Develop fair pricing alternatives"
+        ],
+        "metrics": ["Opt-in rate %", "User control usage", "Privacy compliance %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L5-S3",
+      "title": "Buying Brokered Data",
+      "prompt": "A state is exploring collaboration with a data broker to improve strategic planning, identify growth opportunities, and assess program effectiveness. What is your advice?",
+      "choices": {
+        "A": "Engage stakeholders to ensure that data usage aligns with community needs and preferences.",
+        "B": "Establish clear objectives for how the data will be used to measure program success and impact.",
+        "C": "Avoid using brokered data if it does not prioritize transparency and accountability in data collection and usage."
+      },
+      "toolkit_cues": "AI data supply chain; legitimacy.",
+      "p3_cues": "People (expectations), Planet (storage), Parity (visibility of vulnerable groups).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is legitimacy? What is transparency in the data supply chain?",
+          "T1 Map Impacts: Who benefits from planning? Who is made visible? Who is vulnerable?",
+          "T3 Anticipate Risks: What are the risks of brokered data? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address legitimacy and transparency?",
+          "T5 Accountability: Who ensures legitimacy? What oversight will prevent abuse?"
+        ],
+        "quick_actions": [
+          "Engage stakeholders in data usage decisions",
+          "Establish clear objectives and metrics",
+          "Create transparency and accountability framework"
+        ],
+        "metrics": ["Stakeholder engagement rate", "Transparency score", "Accountability compliance %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L5-S4",
+      "title": "Health Chat Sharing",
+      "prompt": "A wellness chatbot shares information that doesn't include any personal details with researchers. However, there is still a chance that someone could figure out who you are from the information shared.",
+      "choices": {
+        "A": "Collaborate with privacy experts to assess potential risks; develop innovative privacy-preserving technologies.",
+        "B": "Continue implementing the chatbot, conduct regular audits of data-sharing practices, and enhance transparency for users.",
+        "C": "Develop an educational campaign to inform users about data privacy and encourage community feedback on policies."
+      },
+      "toolkit_cues": "Residual risk vs. public benefit.",
+      "p3_cues": "People (stigma), Planet (DP/synthetic compute), Parity (who benefits).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is residual risk? How do we balance risk and public benefit?",
+          "T1 Map Impacts: Who is harmed by re-identification? Who benefits from research? Who faces stigma?",
+          "T3 Anticipate Risks: What are the risks of sharing? What are the risks of not sharing?",
+          "T4 Alternatives: Evaluate each option. How does each address residual risk?",
+          "T5 Accountability: Who ensures privacy? What oversight will minimize risk?"
+        ],
+        "quick_actions": [
+          "Conduct privacy risk assessment",
+          "Develop privacy-preserving technologies",
+          "Establish transparency and audit processes"
+        ],
+        "metrics": ["Re-identification risk score", "Privacy-preserving tech usage %", "Transparency score"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L5-S5",
+      "title": "Face Entry Pilot",
+      "prompt": "A corporate office is testing a facial recognition system for employee entry to enhance security and reduce wait times, raising ethical and societal questions about privacy and surveillance. How would you handle this?",
+      "choices": {
+        "A": "Offer employees the option to opt-out and utilize other forms of entry, such as key cards or PINs.",
+        "B": "Establish an independent oversight committee to monitor the implementation and address any ethical concerns that arise.",
+        "C": "Involve employees in the decision-making process through surveys or focus groups to gauge their feelings about the system."
+      },
+      "toolkit_cues": "Necessity, proportionality, alternatives.",
+      "p3_cues": "People (biometric risk), Planet (cameras), Parity (accuracy gaps).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: Is this necessary? Is it proportional? What alternatives exist?",
+          "T1 Map Impacts: Who is harmed by biometric collection? Who benefits? Who faces accuracy gaps?",
+          "T3 Anticipate Risks: What are the risks of facial recognition? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address necessity and proportionality?",
+          "T5 Accountability: Who ensures privacy and fairness? What oversight will employees have?"
+        ],
+        "quick_actions": [
+          "Establish opt-out mechanisms and alternatives",
+          "Create independent oversight committee",
+          "Involve employees in decision-making"
+        ],
+        "metrics": ["Opt-out rate %", "Accuracy by demographic", "Employee satisfaction"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    }
+  ]
+}

@@ -5,16 +5,16 @@
     {
       "scenario_id": "L1-S1",
       "title": "The Hidden Server",
-      "prompt": "City AI runs on a shadow data center tied to labor abuse. Shutting it down risks hospital and transit outages.",
+      "prompt": "A city's AI services operate on a 'shadow' data center that relies on exploited labor within the supply chain. Decommissioning this infrastructure risks outages for hospitals and public transit systems. How would you respond in this situation?",
       "choices": {
-        "A": "Keep running; 6-month transition with public oversight.",
-        "B": "Immediate shutdown; emergency notice; mutual-aid compute.",
-        "C": "Keep running with penalties; divert savings to remediation + audits."
+        "A": "Keep running the services, but start a 6-month transition plan.",
+        "B": "Immediate shutdown; emergency public notice; seek mutual aid compute.",
+        "C": "Keep running, but divert a portion of savings to remediation funds."
       },
-      "toolkit_cues": "Non-negotiable duties; acceptable interim harm.",
-      "p3_cues": "People (coercion), Planet (energy mix), Parity (who suffers outages).",
+      "toolkit_cues": "Which duties are inviolable? What counts as acceptable interim harm?",
+      "p3_cues": "People (coercion), Planet (datacenter energy mix), Parity (who suffers outages).",
       "toolkit_flow": {
-        "order": ["T2","T1","T3","T4","T5"],
+        "order": ["T2", "T1", "T3", "T4", "T5"],
         "prompts": [
           "T2 Clarify Values: Which duties are inviolable here and why?",
           "T1 Map Impacts: Who is harmed by shutdown vs. continuation? Sketch outage map.",
@@ -28,6 +28,126 @@
           "Trigger supplier labor audit"
         ],
         "metrics": ["Continuity incidents", "Audit completion %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L1-S2",
+      "title": "The Secret Labelers",
+      "prompt": "A popular city app thrives on the efficiency of its data, thanks to a dedicated overseas team that works tirelessly overnight at a fraction of the cost. Their hard work behind the scenes powers the app, delivering seamless experiences to its users. What action would you take?",
+      "choices": {
+        "A": "Keep the app active, but transition to fair-pay vendors over the next six months.",
+        "B": "Pause the app now until fair labor practices are verified.",
+        "C": "Keep the app running smoothly during the transition with emergency payment options for citizens and a public audit for transparency."
+      },
+      "toolkit_cues": "Are we treating people merely as a means to an end? Who will experience short-term harm?",
+      "p3_cues": "People (exploitation), Planet (energy retraining), Parity (who loses access during a pause).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: Are workers being treated as ends in themselves or just means?",
+          "T1 Map Impacts: Who benefits from the app? Who is harmed by low wages? Who loses access if paused?",
+          "T3 Anticipate Risks: What are the risks of continuing vs. pausing? Consider service disruption, worker exploitation, public trust.",
+          "T4 Alternatives: Evaluate each option and identify safeguards for your chosen path.",
+          "T5 Accountability: Who is responsible for ensuring fair labor practices? What review process will you establish?"
+        ],
+        "quick_actions": [
+          "Audit current vendor labor practices",
+          "Create transition timeline with milestones",
+          "Establish worker compensation standards"
+        ],
+        "metrics": ["Fair pay compliance %", "App uptime %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L1-S3",
+      "title": "Moderators in the Dark",
+      "prompt": "Your social media platform relies on human moderators to manage violent or abusive content, but they often face heavy workloads and lack proper training, tools, and mental health support, highlighting the need for improved resources for a safer online environment. What decision would you make in this situation?",
+      "choices": {
+        "A": "Introduce counseling services and implement shift rotations.",
+        "B": "Temporarily turn off high-risk features until sufficient protections are in place.",
+        "C": "Increase the use of AI filters, reserving human review for appeals."
+      },
+      "toolkit_cues": "Duty of care versus service uptime.",
+      "p3_cues": "People (mental health), Planet (increased AI compute), Parity (who is protected online).",
+      "toolkit_flow": {
+        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "prompts": [
+          "T1 Map Impacts: Who is harmed by current working conditions? Who benefits from platform safety?",
+          "T2 Clarify Values: What duties do we have to our moderators? What duties to platform users?",
+          "T3 Anticipate Risks: What are the risks of each option? Consider moderator burnout, content safety gaps, user experience.",
+          "T4 Alternatives: Evaluate each choice and identify additional safeguards.",
+          "T5 Accountability: Who will ensure moderator wellbeing? What metrics will track success?"
+        ],
+        "quick_actions": [
+          "Establish mental health support program",
+          "Create clear workload limits and rotation schedules",
+          "Develop safety protocols for high-risk content"
+        ],
+        "metrics": ["Moderator wellbeing score", "Content removal accuracy %"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    },
+    {
+      "scenario_id": "L1-S4",
+      "title": "The Blackouts",
+      "prompt": "A new power-saving algorithm aims to reduce city expenses and lower residents' bills. However, its deployment has caused unexpected rolling blackouts in a small district, forcing the community to balance savings with the inconvenience of outages. What actions would you take?",
+      "choices": {
+        "A": "Maintain the algorithm while adding relief payments to assist vulnerable populations in overcoming adverse effects.",
+        "B": "Adjust the system so that no single area experiences the majority of the negative impact; rising costs should be distributed more equitably.",
+        "C": "Temporarily pause this feature until fair rules are established and made publicly available."
+      },
+      "toolkit_cues": "Focus on consent and proportionality.",
+      "p3_cues": "Consider the People (health and safety), Planet (energy consumption), and Parity (distribution of burdens).",
+      "toolkit_flow": {
+        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "prompts": [
+          "T1 Map Impacts: Who experiences blackouts? Who benefits from cost savings? Who is most vulnerable?",
+          "T2 Clarify Values: What is the relationship between consent and harm? Is this proportional?",
+          "T3 Anticipate Risks: What are the health and safety risks of continued outages? What are the financial risks of pausing?",
+          "T4 Alternatives: Evaluate each option. How does each address consent and fair distribution?",
+          "T5 Accountability: Who decides how burdens are distributed? What public process will you establish?"
+        ],
+        "quick_actions": [
+          "Conduct vulnerability assessment for affected district",
+          "Establish transparent decision-making process",
+          "Create emergency support fund"
+        ],
+        "metrics": ["Outage distribution fairness", "Vulnerable population support %"],
+        "owner_required": true,
+        "review_default_days": 30
+      }
+    },
+    {
+      "scenario_id": "L1-S5",
+      "title": "E-Waste Exchange",
+      "prompt": "A Green City Sensor Program encourages sustainability by promoting the recycling of used devices. However, these devices are sent to a country with poor safety standards, raising concerns about environmental impact and health risks from improper recycling practices. This decision raises significant ethical and safety issues. What decision will you make?",
+      "choices": {
+        "A": "Continue exporting, but invest in safer facilities abroad.",
+        "B": "Stop exports and focus on developing safe local recycling options. Please anticipate possible service delays.",
+        "C": "Reduce program size and ensure compliance with strict recycling standards only."
+      },
+      "toolkit_cues": "Clarify the difference between goals (ends) and methods (means), and encourage equitable distribution of responsibilities.",
+      "p3_cues": "Considerations: People (worker safety), Planet (toxic waste), Parity (responsibility for cleanup).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is the goal (sustainability) vs. the method (export)? Are they aligned?",
+          "T1 Map Impacts: Who is harmed by unsafe recycling? Who benefits from the program? Who is responsible for cleanup?",
+          "T3 Anticipate Risks: What are the health risks to workers? Environmental risks? What happens if program pauses?",
+          "T4 Alternatives: Evaluate each option. How does each address responsibility distribution?",
+          "T5 Accountability: Who is responsible for ensuring safe recycling? What oversight will you establish?"
+        ],
+        "quick_actions": [
+          "Audit current recycling facilities and safety standards",
+          "Establish clear responsibility and accountability framework",
+          "Create transition plan for safer practices"
+        ],
+        "metrics": ["Worker safety compliance %", "Environmental impact score"],
         "owner_required": true,
         "review_default_days": 90
       }

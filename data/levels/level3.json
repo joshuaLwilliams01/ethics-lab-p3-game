@@ -1,2 +1,156 @@
-{ "level": 3, "title": "Level 3", "scenarios": [] }
-
+{
+  "level": 3,
+  "title": "AI, Child Safety & Burden of Responsibility",
+  "scenarios": [
+    {
+      "scenario_id": "L3-S1",
+      "title": "Hash or Hesitate?",
+      "prompt": "A social media platform must choose between a fast AI method on users' devices to quickly detect child sexual abuse material (CSAM), which raises privacy concerns, and a slower server method that protects privacy but delays removal of harmful content. What would be your approach?",
+      "choices": {
+        "A": "Perform scans directly on user devices using checks from reliable sources, ensuring all requests are encrypted to maintain privacy and security.",
+        "B": "Implement server-side scanning with takedown measures, create educational resources, and share information on harmful content.",
+        "C": "Customize scanning protocols based on environments: some allow user device scans, while others require server scans."
+      },
+      "toolkit_cues": "Harm minimization vs. privacy; false positives & appeals; duty to report.",
+      "p3_cues": "People (victim safety/trauma), Planet (inference costs at scale), Parity (over-policing certain geos/communities).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is the balance between harm minimization and privacy? What duties do we have?",
+          "T1 Map Impacts: Who is harmed by delays? Who is harmed by privacy violations? Who faces false positives?",
+          "T3 Anticipate Risks: What are the risks of false positives? What are the risks of delayed detection?",
+          "T4 Alternatives: Evaluate each option. How does each address harm, privacy, and false positives?",
+          "T5 Accountability: Who is responsible for child safety? What appeal process will exist?"
+        ],
+        "quick_actions": [
+          "Establish clear false positive appeal process",
+          "Create educational resources on reporting",
+          "Develop privacy-preserving detection methods"
+        ],
+        "metrics": ["Detection accuracy rate", "False positive rate", "Appeal success rate"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L3-S2",
+      "title": "Safer Generative AI (Gen-AI)",
+      "prompt": "Recent findings indicate that a creative generative AI tool can be manipulated into producing inappropriate content involving minors when subjected to adversarial prompts. What course of action would you recommend?",
+      "choices": {
+        "A": "Implement safety protocols, use watermarking for transparency, and create fast appeal processes for flagged content.",
+        "B": "Refine datasets to exclude harmful material, slow release pace, and conduct red-teaming before public deployment.",
+        "C": "Restrict access to potentially sensitive features, allowing only verified researchers to utilize them for responsible experimentation."
+      },
+      "toolkit_cues": "Openness vs. prevention; duty to test.",
+      "p3_cues": "People (secondary trauma), Planet (retraining), Parity (access for small orgs).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is the balance between openness and prevention? What is our duty to test?",
+          "T1 Map Impacts: Who is harmed by inappropriate content? Who benefits from access? Who is excluded by restrictions?",
+          "T3 Anticipate Risks: What are the risks of release? What are the risks of delayed access?",
+          "T4 Alternatives: Evaluate each option. How does each address prevention and responsible access?",
+          "T5 Accountability: Who ensures safety? What testing and review process will you establish?"
+        ],
+        "quick_actions": [
+          "Conduct comprehensive red-teaming exercises",
+          "Establish clear safety protocols and watermarking",
+          "Create appeal process for false flags"
+        ],
+        "metrics": ["Safety protocol compliance %", "False positive rate", "Red-team findings"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    },
+    {
+      "scenario_id": "L3-S3",
+      "title": "Reports at Scale",
+      "prompt": "Law enforcement has requested the ability to submit bulk uploads to the platform's abuse Application Programming Interface (API). However, this may lead to an increase in false reports. What would be your recommended approach?",
+      "choices": {
+        "A": "Implement bulk uploads but require human review and establish rate limits to prevent abuse.",
+        "B": "Prioritize matches that have high confidence levels and establish strong processes for handling appeals.",
+        "C": "Direct submissions through an independent clearinghouse to verify reports before they are processed."
+      },
+      "toolkit_cues": "Who's accountable when errors cascade?",
+      "p3_cues": "People (wrongful flags), Planet (compute), Parity (small platforms' capacity).",
+      "toolkit_flow": {
+        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "prompts": [
+          "T1 Map Impacts: Who is harmed by false reports? Who benefits from bulk uploads? Who lacks capacity?",
+          "T2 Clarify Values: What is accountability when errors cascade? Who is responsible?",
+          "T3 Anticipate Risks: What are the risks of bulk uploads? What are the risks of delays?",
+          "T4 Alternatives: Evaluate each option. How does each address accountability and false reports?",
+          "T5 Accountability: Who is responsible for accuracy? What oversight will prevent abuse?"
+        ],
+        "quick_actions": [
+          "Establish rate limits and abuse prevention measures",
+          "Create independent verification process",
+          "Develop strong appeal process for false reports"
+        ],
+        "metrics": ["False report rate", "Appeal success rate", "Processing time"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L3-S4",
+      "title": "Schools use AI",
+      "prompt": "Several middle schools are using AI to monitor students to prevent violence. A recent investigation has uncovered potential security risks associated with this practice.",
+      "choices": {
+        "A": "Advocate for stronger regulations on AI use in schools to prioritize student privacy and security.",
+        "B": "Encourage schools to be transparent about AI monitoring practices and engage in open conversations with parents and students.",
+        "C": "Propose alternative measures for ensuring student safety that do not involve AI monitoring, like enhanced conflict resolution programs and better mental health support."
+      },
+      "toolkit_cues": "Child's best interest.",
+      "p3_cues": "People (trust), Planet (storage), Parity (guardian consent gaps).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is in the child's best interest? How do we balance safety and privacy?",
+          "T1 Map Impacts: Who is harmed by security risks? Who benefits from monitoring? Who lacks consent?",
+          "T3 Anticipate Risks: What are the security risks? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each serve the child's best interest?",
+          "T5 Accountability: Who ensures student safety and privacy? What oversight will schools have?"
+        ],
+        "quick_actions": [
+          "Conduct security audit of AI monitoring systems",
+          "Establish clear consent process for parents and students",
+          "Develop alternative safety measures"
+        ],
+        "metrics": ["Security incident rate", "Consent rate %", "Alternative program effectiveness"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    },
+    {
+      "scenario_id": "L3-S5",
+      "title": "Survivor-First Takedown",
+      "prompt": "Victims of online harassment seek quick removal of harmful content, while some agencies may need copies for investigations, balancing swift action with the need to preserve evidence. What would your decision be?",
+      "choices": {
+        "A": "Implement a rapid removal process, retaining only hashed proof for verification.",
+        "B": "Conduct a gradual removal process, ensuring consent from survivors and utilizing evidence escrow for accountability.",
+        "C": "Establish a court-mandated expedited removal route, with a standard procedure for all other cases."
+      },
+      "toolkit_cues": "Do no further harm; informed consent.",
+      "p3_cues": "People (re-trauma), Planet (storage), Parity (legal access).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What does 'do no further harm' mean here? What is informed consent?",
+          "T1 Map Impacts: Who is harmed by delays? Who is harmed by lack of evidence? Who is re-traumatized?",
+          "T3 Anticipate Risks: What are the risks of rapid removal? What are the risks of preserving evidence?",
+          "T4 Alternatives: Evaluate each option. How does each minimize harm and respect consent?",
+          "T5 Accountability: Who ensures survivor wellbeing? What process balances removal and justice?"
+        ],
+        "quick_actions": [
+          "Establish survivor consent process",
+          "Create evidence escrow system",
+          "Develop expedited removal protocols"
+        ],
+        "metrics": ["Removal time", "Survivor satisfaction", "Investigation success rate"],
+        "owner_required": true,
+        "review_default_days": 30
+      }
+    }
+  ]
+}

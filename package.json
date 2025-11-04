@@ -1,13 +1,15 @@
 {
   "name": "ethics-lab-p3",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "seed": "node scripts/seed.js",
-    "validate:content": "tsx scripts/validate-content.ts"
+    "validate:content": "node scripts/validate-content.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "next": "14.2.4",

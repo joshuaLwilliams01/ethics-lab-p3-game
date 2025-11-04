@@ -27,7 +27,8 @@ const levelSchema = z.object({
 
 export async function loadLevel(n:number):Promise<LevelPack>{
   const mod = await import(`../data/levels/level${n}.json`);
-  const parsed = levelSchema.parse(mod);
+  const data = (mod as any).default ?? mod;
+  const parsed = levelSchema.parse(data);
   return parsed as LevelPack;
 }
 export async function loadAllLevels():Promise<LevelPack[]>{

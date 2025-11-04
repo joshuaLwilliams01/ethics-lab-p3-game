@@ -1,2 +1,156 @@
-{ "level": 2, "title": "Level 2", "scenarios": [] }
-
+{
+  "level": 2,
+  "title": "Algorithmic Decision-Making & Fairness",
+  "scenarios": [
+    {
+      "scenario_id": "L2-S1",
+      "title": "The Screening Model",
+      "prompt": "A corporation has implemented an automated hiring tool with high precision, but it still sees a 10–15% disparity in outcomes among different demographic groups. Balancing fairness with efficiency is challenging, as retraining the algorithm may delay hiring processes. What would you do?",
+      "choices": {
+        "A": "Continue to implement and include human-in-the-loop appeals.",
+        "B": "Stop implementation for 6 weeks to optimize equalized odds, accepting lower throughput.",
+        "C": "Hybrid approach: restrict use for roles with minimal disparity; use manual processes for others."
+      },
+      "toolkit_cues": "What definition of 'fairness' are you advocating for, and why? Are you referring to the concept of an accountability chain?",
+      "p3_cues": "People (false negatives), Planet (retraining cost), Parity (distribution of opportunity).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What does 'fairness' mean here? Equal opportunity? Equal outcomes? Equalized odds?",
+          "T1 Map Impacts: Who is harmed by the disparity? Who benefits from the tool? Who is excluded?",
+          "T3 Anticipate Risks: What are the risks of continuing vs. fixing? Consider hiring delays, discrimination, legal issues.",
+          "T4 Alternatives: Evaluate each option. What safeguards will ensure fairness?",
+          "T5 Accountability: Who is responsible for fair hiring? What accountability chain exists?"
+        ],
+        "quick_actions": [
+          "Define fairness metrics and targets",
+          "Establish appeal and review process",
+          "Conduct bias audit across demographic groups"
+        ],
+        "metrics": ["Demographic parity %", "Appeal success rate"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L2-S2",
+      "title": "Credit by Phone",
+      "prompt": "A lender is using phone bills and location data to evaluate loan eligibility. As this practice becomes more widespread, the convenience of quick approvals comes with growing concerns about your privacy. What is your decision on this?",
+      "choices": {
+        "A": "Implement the system, but provide clear options for users to opt out and offer thorough explanations.",
+        "B": "Encourage participation only through an opt-in model that includes independent bias audits.",
+        "C": "Test the system on small loans initially and analyze the outcomes."
+      },
+      "toolkit_cues": "Is user consent meaningful? What potential harms could arise from mis-scoring?",
+      "p3_cues": "Consider the impacts on People (over-indebted individuals), Planet (constant scoring), and Parity (users with limited data access).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What makes consent meaningful? Is opt-out consent sufficient here?",
+          "T1 Map Impacts: Who benefits from quick loans? Who is harmed by mis-scoring? Who lacks data access?",
+          "T3 Anticipate Risks: What are the risks of over-indebtedness? Privacy violations? Bias against certain groups?",
+          "T4 Alternatives: Evaluate each option. How does each address meaningful consent and potential harms?",
+          "T5 Accountability: Who ensures fair lending? What oversight will prevent bias and abuse?"
+        ],
+        "quick_actions": [
+          "Conduct bias audit on scoring model",
+          "Establish clear consent process and documentation",
+          "Create appeal process for loan denials"
+        ],
+        "metrics": ["Opt-in rate %", "Bias audit results", "Appeal success rate"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L2-S3",
+      "title": "Webcam Exams",
+      "prompt": "A recent study shows that online proctoring systems are incorrectly flagging 'suspicious gaze' more often for dark-skinned students, raising serious concerns about fairness and accuracy in digital testing. What would you do if you needed to solve this problem?",
+      "choices": {
+        "A": "Continue using the system, but ensure to incorporate human checks and perform additional calibration.",
+        "B": "Provide alternatives to webcams, such as oral presentations or portfolios.",
+        "C": "Pause the system until the error gaps have been resolved."
+      },
+      "toolkit_cues": "Strategies for Enhancing Contestability and Utilizing Less Intrusive Methods.",
+      "p3_cues": "People (stress and dignity), Planet (continuous monitoring through video), Parity (issues with false positives).",
+      "toolkit_flow": {
+        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "prompts": [
+          "T1 Map Impacts: Who is harmed by false positives? Who benefits from proctoring? What alternatives exist?",
+          "T2 Clarify Values: What is the balance between integrity and dignity? Is less intrusive always better?",
+          "T3 Anticipate Risks: What are the risks of false positives? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address fairness and dignity?",
+          "T5 Accountability: Who ensures fair testing? What appeal process will students have?"
+        ],
+        "quick_actions": [
+          "Conduct bias audit on proctoring system",
+          "Develop alternative assessment methods",
+          "Establish clear appeal process for flagged exams"
+        ],
+        "metrics": ["False positive rate by demographic", "Alternative assessment usage %"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    },
+    {
+      "scenario_id": "L2-S4",
+      "title": "ER Triage Model",
+      "prompt": "A new predictive analytics model for emergency department (ED) triage is revolutionizing how hospitals handle wait times, significantly reducing them. However, it seems that patients with less extensive medical histories aren't ranking as high in this system. How would you handle this?",
+      "choices": {
+        "A": "Continue implementing the model, but include a doctor override functionality.",
+        "B": "Impose penalties for model uncertainty to enhance decision-making safety by promoting caution with limited historical data.",
+        "C": "Set aside 'equity slots' in the queue to make sure that underrepresented individuals or groups have fair access."
+      },
+      "toolkit_cues": "Missing data = hidden bias.",
+      "p3_cues": "People (outcomes), Planet (compute), and Parity (who is deprioritized).",
+      "toolkit_flow": {
+        "order": ["T1", "T2", "T3", "T4", "T5"],
+        "prompts": [
+          "T1 Map Impacts: Who is deprioritized? Who benefits from reduced wait times? Who has limited medical history?",
+          "T2 Clarify Values: How should we handle missing data? What does fairness mean in healthcare?",
+          "T3 Anticipate Risks: What are the health risks of mis-prioritization? What are the risks of each option?",
+          "T4 Alternatives: Evaluate each option. How does each address bias from missing data?",
+          "T5 Accountability: Who is responsible for patient outcomes? What oversight will ensure fairness?"
+        ],
+        "quick_actions": [
+          "Conduct bias audit on triage model",
+          "Establish override protocols and documentation",
+          "Create equity monitoring system"
+        ],
+        "metrics": ["Triage accuracy by patient history", "Override usage rate", "Equity slot utilization"],
+        "owner_required": true,
+        "review_default_days": 30
+      }
+    },
+    {
+      "scenario_id": "L2-S5",
+      "title": "Patrol Maps",
+      "prompt": "A police resource tool directs additional patrols to crime 'hot spots,' creating a potential cycle of escalating tensions and safety concerns. How would you address this?",
+      "choices": {
+        "A": "Allocate funding for community initiatives and enforce transparent public audits.",
+        "B": "Implement randomized block trials to assess effectiveness and gather data.",
+        "C": "Prioritize investment in community safety programs as alternatives to traditional policing."
+      },
+      "toolkit_cues": "Outcome vs. process fairness.",
+      "p3_cues": "People (chilling effects), Planet (miles), Parity (surveillance load).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is the difference between outcome fairness and process fairness? Which matters more here?",
+          "T1 Map Impacts: Who experiences increased surveillance? Who benefits from crime reduction? What are the chilling effects?",
+          "T3 Anticipate Risks: What are the risks of hot spot policing? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address fairness and community trust?",
+          "T5 Accountability: Who decides where patrols go? What community input will you seek?"
+        ],
+        "quick_actions": [
+          "Conduct community impact assessment",
+          "Establish transparent decision-making process",
+          "Create community advisory board"
+        ],
+        "metrics": ["Crime reduction in hot spots", "Community trust score", "Surveillance distribution"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    }
+  ]
+}

@@ -1,2 +1,156 @@
-{ "level": 6, "title": "Level 6", "scenarios": [] }
-
+{
+  "level": 6,
+  "title": "Future of Work",
+  "scenarios": [
+    {
+      "scenario_id": "L6-S1",
+      "title": "The Automation Pilot",
+      "prompt": "The municipality seeks to implement a Large Language Model (LLM) as a copilot for caseworkers, anticipating a 20% increase in productivity and an 8% risk of role displacement, while ensuring quality monitoring. How would you approach this?",
+      "choices": {
+        "A": "Deploy the large language model (LLM), initiate a reskilling program, and ensure a smooth transition for the pay-to-stay process.",
+        "B": "Implement phased pilot programs that include worker councils and establish guardrails for algorithmic management.",
+        "C": "Demand no rollout until wage-sharing and job quality guarantees are officially established."
+      },
+      "toolkit_cues": "Just transition, surveillance limits, error accountability.",
+      "p3_cues": "People (dignity, autonomy), Planet (compute intensity), Parity (who benefits from productivity).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is a just transition? What are surveillance limits? What is error accountability?",
+          "T1 Map Impacts: Who is displaced? Who benefits from productivity? Who loses autonomy?",
+          "T3 Anticipate Risks: What are the risks of displacement? What are the risks of delays?",
+          "T4 Alternatives: Evaluate each option. How does each address just transition and dignity?",
+          "T5 Accountability: Who ensures just transition? What oversight will protect workers?"
+        ],
+        "quick_actions": [
+          "Establish worker councils and input mechanisms",
+          "Create reskilling and transition programs",
+          "Develop wage-sharing and job quality guarantees"
+        ],
+        "metrics": ["Worker satisfaction", "Reskilling success rate", "Productivity gain distribution"],
+        "owner_required": true,
+        "review_default_days": 180
+      }
+    },
+    {
+      "scenario_id": "L6-S2",
+      "title": "Shift Scheduler",
+      "prompt": "A warehouse struggles with shift scheduling, causing overstaffing and burnout. Managers are considering implementing an algorithm-based system to optimize schedules. What would you do?",
+      "choices": {
+        "A": "Involve workers in the design process and prioritize their needs while combining algorithmic scheduling with manual adjustments.",
+        "B": "Decide to implement the algorithm on a trial basis.",
+        "C": "Reject algorithm-based systems; prioritize well-being and work-life balance through current scheduling and regular manager-staff meetings."
+      },
+      "toolkit_cues": "Human agency vs. efficiency.",
+      "p3_cues": "People (fatigue), Planet (energy), Parity (frontline voice).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is human agency? How does it relate to efficiency?",
+          "T1 Map Impacts: Who experiences burnout? Who benefits from optimization? Who loses voice?",
+          "T3 Anticipate Risks: What are the risks of algorithmic scheduling? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each balance agency and efficiency?",
+          "T5 Accountability: Who ensures worker wellbeing? What input will workers have?"
+        ],
+        "quick_actions": [
+          "Involve workers in algorithm design",
+          "Establish manual override mechanisms",
+          "Create regular feedback and adjustment process"
+        ],
+        "metrics": ["Worker satisfaction", "Burnout rate", "Scheduling efficiency"],
+        "owner_required": true,
+        "review_default_days": 60
+      }
+    },
+    {
+      "scenario_id": "L6-S3",
+      "title": "Live Call Coach",
+      "prompt": "In a busy call center, agents face long wait times and inconsistent service. Management mandates the use of an AI-driven Live Call Coach, which suggests responses in real time. What action would you take?",
+      "choices": {
+        "A": "Support the mandate and implement comprehensive training for agents on using the AI tool effectively, ensuring they can adapt suggestions to fit their style.",
+        "B": "Limit AI suggestions to specific scenarios where agents may struggle and encourage independent problem-solving in other situations.",
+        "C": "Implement the Live Call Coach without training, understanding that this may boost efficiency but also risks agent frustration and misuse."
+      },
+      "toolkit_cues": "Long-term skill vs. dependency.",
+      "p3_cues": "People (morale), Planet (compute per call), Parity (promotion paths).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is the balance between skill development and dependency?",
+          "T1 Map Impacts: Who benefits from efficiency? Who loses skills? Who is blocked from promotion?",
+          "T3 Anticipate Risks: What are the risks of dependency? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address skill development?",
+          "T5 Accountability: Who ensures skill development? What training will agents receive?"
+        ],
+        "quick_actions": [
+          "Develop comprehensive training program",
+          "Create skill-building opportunities",
+          "Establish promotion pathways"
+        ],
+        "metrics": ["Agent skill development", "Morale score", "Promotion rate"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L6-S4",
+      "title": "Gig 'Quality' Tiers",
+      "prompt": "A new gig-economy platform connects freelancers with job opportunities and ranks them based on performance and customer feedback. However, workers in lower tiers face limited job access and financial uncertainty. What would you recommend?",
+      "choices": {
+        "A": "Maintain the tier system, publish evaluation criteria openly, and expedite the appeals process for ranking challenges.",
+        "B": "Eliminate tiers and create a randomized pool to guarantee equal job opportunities for freelancers.",
+        "C": "Establish union-negotiated tier structures that guarantee a minimum level of job access regardless of performance metrics."
+      },
+      "toolkit_cues": "Procedural fairness and transparency.",
+      "p3_cues": "People (income swings), Planet (routing), Parity (bias).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: What is procedural fairness? What is transparency?",
+          "T1 Map Impacts: Who is harmed by tiers? Who benefits? Who faces bias?",
+          "T3 Anticipate Risks: What are the risks of tiers? What are the risks of alternatives?",
+          "T4 Alternatives: Evaluate each option. How does each address fairness and transparency?",
+          "T5 Accountability: Who ensures fairness? What oversight will prevent bias?"
+        ],
+        "quick_actions": [
+          "Publish evaluation criteria and methodology",
+          "Establish expedited appeal process",
+          "Create bias audit and monitoring system"
+        ],
+        "metrics": ["Tier distribution fairness", "Appeal success rate", "Bias audit results"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    },
+    {
+      "scenario_id": "L6-S5",
+      "title": "Public Office Re-skilling",
+      "prompt": "Automation has rendered many clerical roles in public offices obsolete. Budget resources can either fund severance packages or facilitate re-skilling programs to prepare employees for new opportunities and challenges. What would be your choice?",
+      "choices": {
+        "A": "Offer comprehensive severance packages, with a commitment to prioritize re-hiring for suitable roles in the future.",
+        "B": "Provide fully funded training programs aimed at equipping employees with skills for higher-demand positions.",
+        "C": "A hybrid approach of reduced hours with shared-work arrangements, combined with robust training opportunities for skill development."
+      },
+      "toolkit_cues": "Who shares the gains of automation?",
+      "p3_cues": "People (stability), Planet (facility use), Parity (training access).",
+      "toolkit_flow": {
+        "order": ["T2", "T1", "T3", "T4", "T5"],
+        "prompts": [
+          "T2 Clarify Values: Who should benefit from automation? Who shares the gains?",
+          "T1 Map Impacts: Who is displaced? Who benefits from automation? Who has training access?",
+          "T3 Anticipate Risks: What are the risks of displacement? What are the risks of each option?",
+          "T4 Alternatives: Evaluate each option. How does each address just transition?",
+          "T5 Accountability: Who ensures just transition? What oversight will protect workers?"
+        ],
+        "quick_actions": [
+          "Develop comprehensive re-skilling programs",
+          "Create re-hiring prioritization process",
+          "Establish shared-work arrangements"
+        ],
+        "metrics": ["Re-skilling success rate", "Re-hiring rate", "Worker satisfaction"],
+        "owner_required": true,
+        "review_default_days": 180
+      }
+    }
+  ]
+}
