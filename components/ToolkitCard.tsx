@@ -23,7 +23,7 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
   // Reset checks when choice or actions change
   useEffect(() => {
     setChecks(actions.map(() => false));
-  }, [choice, actions.length]);
+  }, [actions.length]);
 
   useEffect(() => {
     // Check if prompts are complete
