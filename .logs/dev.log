@@ -123,3 +123,6 @@
  ✓ Compiled in 408ms (792 modules)
  ✓ Compiled in 165ms (469 modules)
  ✓ Compiled in 183ms (469 modules)
+ ✓ Compiled in 629ms (792 modules)
+ GET /play/individual/1 200 in 170ms
+ ✓ Compiled in 1517ms (778 modules)
