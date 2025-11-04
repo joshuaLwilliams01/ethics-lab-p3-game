@@ -1,2 +1,36 @@
-{ "level": 1, "title": "Level 1", "scenarios": [] }
-
+{
+  "level": 1,
+  "title": "Moral Foundations & Complicity",
+  "scenarios": [
+    {
+      "scenario_id": "L1-S1",
+      "title": "The Hidden Server",
+      "prompt": "City AI runs on a shadow data center tied to labor abuse. Shutting it down risks hospital and transit outages.",
+      "choices": {
+        "A": "Keep running; 6-month transition with public oversight.",
+        "B": "Immediate shutdown; emergency notice; mutual-aid compute.",
+        "C": "Keep running with penalties; divert savings to remediation + audits."
+      },
+      "toolkit_cues": "Non-negotiable duties; acceptable interim harm.",
+      "p3_cues": "People (coercion), Planet (energy mix), Parity (who suffers outages).",
+      "toolkit_flow": {
+        "order": ["T2","T1","T3","T4","T5"],
+        "prompts": [
+          "T2 Clarify Values: Which duties are inviolable here and why?",
+          "T1 Map Impacts: Who is harmed by shutdown vs. continuation? Sketch outage map.",
+          "T3 Anticipate Risks: Rate health, safety, legal, reputational risks (L/M/H).",
+          "T4 Alternatives: Pick A/B/C and add two safeguards for the chosen path.",
+          "T5 Accountability: Who owns this decision? What will you review in 90 days?"
+        ],
+        "quick_actions": [
+          "Publish a 6-month transition plan",
+          "Define hospital/transit continuity plan",
+          "Trigger supplier labor audit"
+        ],
+        "metrics": ["Continuity incidents", "Audit completion %"],
+        "owner_required": true,
+        "review_default_days": 90
+      }
+    }
+  ]
+}
