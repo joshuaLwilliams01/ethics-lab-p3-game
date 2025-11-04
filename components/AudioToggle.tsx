@@ -38,7 +38,7 @@ export default function AudioToggle(){
       
       // Slowly modulate frequency for subtle suspense
       const modulate = () => {
-        if (!oscillatorRef.current || !enabled) {
+        if (!oscillatorRef.current) {
           if (animationFrameRef.current) {
             cancelAnimationFrame(animationFrameRef.current);
             animationFrameRef.current = null;
