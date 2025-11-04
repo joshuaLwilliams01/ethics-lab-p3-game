@@ -90,7 +90,7 @@ export default function Home(){
 
       {/* How to Play Section - Expandable */}
       {showHowToPlay && (
-        <div className="w-full max-w-3xl card mb-8 animate-in fade-in slide-in-from-top-2 duration-300">
+        <div className="w-full max-w-3xl card mb-8 transition-all duration-300 ease-in-out">
           <HowToPlay />
         </div>
       )}
