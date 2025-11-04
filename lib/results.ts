@@ -5,7 +5,7 @@ export function describeResult(opts:{
   choice: 'A'|'B'|'C';
   p3:{people:boolean; planet:boolean; parity:boolean};
 }): { summary:string; benefits:string[]; harms:string[] }{
-  const {scenario, choice, p3} = opts;
+  const {scenario, choice} = opts;
   const pick = scenario.choices[choice] || "";
   const benefits:string[] = [];
   const harms:string[] = [];
@@ -21,9 +21,6 @@ export function describeResult(opts:{
   if (pick.toLowerCase().includes("immediate") || pick.toLowerCase().includes("restrict")) {
     benefits.push("Reduces exposure to known risks quickly");
   }
-  if (p3.people){ benefits.push("Directly considers human safety and dignity"); }
-  if (p3.planet){ benefits.push("Accounts for environmental impact"); }
-  if (p3.parity){ benefits.push("Addresses distributional fairness and access"); }
 
   if (!benefits.length) benefits.push("Maintains continuity for current users");
   if (!harms.length && pick.toLowerCase().includes("keep")) harms.push("Continues existing risks and inequities");

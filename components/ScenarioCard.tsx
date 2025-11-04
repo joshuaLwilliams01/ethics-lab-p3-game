@@ -2,7 +2,6 @@
 import { useMemo, useState } from 'react';
 import type { Scenario, ChoiceKey } from '@/lib/types';
 import ToolkitCard from './ToolkitCard';
-import P3Strip, { P3State } from './P3Strip';
 import { describeResult } from '@/lib/results';
 import Link from 'next/link';
 import { saveProgress } from '@/lib/save';
@@ -19,26 +18,25 @@ export default function ScenarioCard({
   onSubmit: (payload: {
     choice: ChoiceKey;
     toolkitOut: any;
-    p3Out: P3State;
+    p3Out: any;
   }) => void
 }) {
   const [choice, setChoice] = useState<ChoiceKey | null>(null);
   const [toolkit, setToolkit] = useState<any>({ isComplete:false });
-  const [p3, setP3] = useState<P3State>({ people:false, planet:false, parity:false });
   const [resultBlock, setResultBlock] = useState<null | {summary:string; benefits:string[]; harms:string[]}>(null);
 
   const canSubmit = useMemo(() => Boolean(choice) && toolkit?.isComplete, [choice, toolkit]);
 
   const doSave = () => {
-    saveProgress({ level, idx:index, timestamp:Date.now(), payload:{ choice, toolkit, p3 } });
+    saveProgress({ level, idx:index, timestamp:Date.now(), payload:{ choice, toolkit } });
     alert("Progress saved locally.");
   };
 
   const handleSubmit = () => {
     if (!choice) return;
-    const res = describeResult({ scenario, choice, p3 });
+    const res = describeResult({ scenario, choice, p3: { people: false, planet: false, parity: false } });
     setResultBlock(res);
-    onSubmit({ choice, toolkitOut: toolkit, p3Out: p3 });
+    onSubmit({ choice, toolkitOut: toolkit, p3Out: { people: false, planet: false, parity: false } });
   };
 
   return (
@@ -86,7 +84,6 @@ export default function ScenarioCard({
       </div>
 
       <ToolkitCard flow={scenario.toolkit_flow} onComplete={setToolkit} />
-      <P3Strip onUpdate={setP3} />
 
       <div className="flex flex-wrap gap-2">
         <button disabled={!canSubmit} onClick={handleSubmit}
