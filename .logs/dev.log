@@ -3652,3 +3652,4 @@ Require stack:
  GET /_next/static/chunks/fallback/pages/_app.js 500 in 364ms
  GET /_next/static/chunks/fallback/pages/_error.js 500 in 359ms
  ✓ Compiled in 3.1s (1161 modules)
+ ✓ Compiled in 4.1s (1161 modules)
