@@ -5,6 +5,7 @@ import ToolkitCard from './ToolkitCard';
 import { describeResult } from '@/lib/results';
 import Link from 'next/link';
 import { saveProgress } from '@/lib/save';
+import ResultsModal from './ResultsModal';
 
 function CheatCodeButton({ scenario }: { scenario: Scenario }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,31 +14,52 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
     <div className="mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="btn-ghost px-4 py-2 text-sm font-semibold w-full text-left flex items-center justify-between"
+        className="relative w-full text-left flex items-center justify-between px-6 py-4 rounded-lg font-semibold text-sm transition-all duration-300 overflow-hidden group"
+        style={{
+          background: isOpen 
+            ? 'linear-gradient(135deg, #8C1515 0%, #C41E3A 100%)' 
+            : 'linear-gradient(135deg, rgba(140,21,21,0.1) 0%, rgba(196,30,58,0.1) 100%)',
+          border: '2px solid #8C1515',
+          color: isOpen ? '#FFFFFF' : '#8C1515',
+          animation: 'shake 0.5s ease-in-out infinite',
+          boxShadow: isOpen 
+            ? '0 8px 16px rgba(140,21,21,0.4), 0 0 20px rgba(140,21,21,0.3)' 
+            : '0 4px 8px rgba(140,21,21,0.2)'
+        }}
       >
-        <span className="flex items-center gap-2">
-          <span>🎮</span>
-          <span>Cheat Code</span>
+        <span className="relative z-10 flex items-center gap-3">
+          <span className="text-2xl" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' }}>🎮</span>
+          <div className="flex flex-col">
+            <span className="font-bold">Cheat Code</span>
+            <span className="text-xs opacity-90 italic">(Psssttt...Click Me)</span>
+          </div>
         </span>
-        <span className="text-xs">{isOpen ? '▼' : '▶'}</span>
+        <span className="text-lg relative z-10 transform transition-transform duration-300" style={{ 
+          transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' 
+        }}>
+          {isOpen ? '▼' : '▶'}
+        </span>
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+        />
       </button>
       {isOpen && (
-        <div className="mt-2 text-sm text-gray-700 card">
+        <div className="mt-3 text-sm text-gray-700 card border-2 border-[#8C1515] bg-gradient-to-br from-white to-[#F7F6F3] shadow-lg">
           <div>
-            <strong>Stanford Ethics Toolkit Cue(s):</strong> {scenario.toolkit_cues}
+            <strong className="text-[#8C1515]">Stanford Ethics Toolkit Cue(s):</strong> <span className="text-[#2E2D29]">{scenario.toolkit_cues}</span>
           </div>
           {scenario.toolkit_references && (
-            <div className="mt-2">
-              <strong>Stanford Ethics Toolkit Reference(s):</strong>{' '}
+            <div className="mt-3 p-3 bg-white/50 rounded border border-[#8C1515]/20">
+              <strong className="text-[#8C1515]">Stanford Ethics Toolkit Reference(s):</strong>{' '}
               <a
                 href="https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8C1515] hover:text-[#820f0f] underline text-xs"
+                className="text-[#8C1515] hover:text-[#820f0f] underline text-xs font-medium"
               >
                 https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit
               </a>
-              <ol className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#2E2D29] font-medium list-decimal list-inside">
+              <ol className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#2E2D29] font-medium list-decimal list-inside">
                 {scenario.toolkit_references.split(',').map((ref, idx) => {
                   const trimmedRef = ref.trim();
                   return (
@@ -49,7 +71,9 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
               </ol>
             </div>
           )}
-          <div className="mt-2"><strong>People + Planet + Parity Cues:</strong> {scenario.p3_cues}</div>
+          <div className="mt-3 p-3 bg-white/50 rounded border border-[#8C1515]/20">
+            <strong className="text-[#8C1515]">People + Planet + Parity Cues:</strong> <span className="text-[#2E2D29]">{scenario.p3_cues}</span>
+          </div>
         </div>
       )}
     </div>
@@ -138,22 +162,12 @@ export default function ScenarioCard({
         </button>
       </div>
 
-      {resultBlock && (
-        <div className="card">
-          <div className="font-semibold mb-1">Result(s) of your decision</div>
-          <p className="mb-2">{resultBlock.summary}</p>
-          <div className="grid sm:grid-cols-2 gap-3">
-            <div>
-              <div className="kicker mb-1">Benefits</div>
-              <ul className="list-disc ml-5">{resultBlock.benefits.map((b,i)=><li key={i}>{b}</li>)}</ul>
-            </div>
-            <div>
-              <div className="kicker mb-1">Harms</div>
-              <ul className="list-disc ml-5">{resultBlock.harms.map((h,i)=><li key={i}>{h}</li>)}</ul>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Results Modal */}
+      <ResultsModal 
+        isOpen={resultBlock !== null} 
+        onClose={() => setResultBlock(null)} 
+        results={resultBlock}
+      />
     </div>
   );
 }
