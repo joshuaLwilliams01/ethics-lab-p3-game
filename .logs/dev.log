@@ -1953,3 +1953,6 @@ digest: "3421250340"
  ✓ Compiled in 437ms (790 modules)
  ✓ Compiled in 820ms (804 modules)
  ✓ Compiled in 1575ms (804 modules)
+ ✓ Compiled in 2.7s (804 modules)
+ GET / 200 in 779ms
+ ✓ Compiled in 3.7s (804 modules)

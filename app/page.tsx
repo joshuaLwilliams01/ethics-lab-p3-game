@@ -78,7 +78,7 @@ export default function Home(){
                     { level: 3, emoji: "🛡️", title: "Child Safety", desc: "Responsibility", color: "from-green-50 via-green-100 to-green-50", accent: "rgba(23,94,84,0.2)" },
                     { level: 4, emoji: "🏛️", title: "Political Economy", desc: "Power Distribution", color: "from-purple-50 via-purple-100 to-purple-50", accent: "rgba(147,51,234,0.2)" },
                     { level: 5, emoji: "🔒", title: "Privacy & Liberty", desc: "Data Collection", color: "from-orange-50 via-orange-100 to-orange-50", accent: "rgba(249,115,22,0.2)" },
-                    { level: 7, emoji: "💡", title: "Moral Imagination", desc: "Civic Courage & Governance", color: "from-teal-50 via-teal-100 to-teal-50", accent: "rgba(20,184,166,0.2)" },
+                    { level: 7, emoji: "🗳️", title: "Moral Imagination", desc: "Civic Courage & Governance", color: "from-teal-50 via-teal-100 to-teal-50", accent: "rgba(20,184,166,0.2)" },
                     { level: 6, emoji: "🤖", title: "Future of Work", desc: "Automation", color: "from-indigo-50 via-indigo-100 to-indigo-50", accent: "rgba(99,102,241,0.2)" },
                   ].map(({ level, emoji, title, desc, color, accent }) => (
                     <Link
