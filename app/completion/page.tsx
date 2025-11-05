@@ -36,68 +36,6 @@ function CompletionPageContent() {
     }
   }, [isTestMode]);
 
-  const generateCertificate = async () => {
-    if (!playerName.trim()) {
-      alert('Please enter your name to generate a certificate.');
-      return;
-    }
-    
-    playButtonClick();
-    setIsGenerating(true);
-    
-    try {
-      const pdfBlob = await generateCertificatePDF();
-      const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
-      const url = URL.createObjectURL(pdfBlob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error generating certificate:', error);
-      alert('Failed to generate certificate. Please try again.');
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
-  const shareOnTwitter = async () => {
-    if (!playerName.trim()) {
-      alert('Please enter your name to share your certificate.');
-      return;
-    }
-    
-    playButtonClick();
-    setIsGenerating(true);
-    
-    try {
-      // Generate and auto-download certificate
-      const pdfBlob = await generateCertificatePDF();
-      const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
-      const pdfUrl = URL.createObjectURL(pdfBlob);
-      const pdfLink = document.createElement('a');
-      pdfLink.href = pdfUrl;
-      pdfLink.download = fileName;
-      pdfLink.click();
-      URL.revokeObjectURL(pdfUrl);
-      
-      // Open Twitter share dialog directly
-      const text = `I just completed all 7 levels of the Ethics-Tech-Policy Decisions Sandbox! ${playerName ? `- ${playerName}` : ''} 🎓✨`;
-      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-      
-      setTimeout(() => {
-        window.open(url, '_blank');
-        setIsGenerating(false);
-      }, 300);
-      
-    } catch (error) {
-      console.error('Error generating certificate for Twitter:', error);
-      alert('Failed to generate certificate. Please try again.');
-      setIsGenerating(false);
-    }
-  };
-
   // Helper function to generate certificate PDF
   const generateCertificatePDF = async () => {
     const pdf = await PDFDocument.create();
@@ -173,6 +111,68 @@ function CompletionPageContent() {
     
     const bytes = await pdf.save();
     return new Blob([bytes], { type: 'application/pdf' });
+  };
+
+  const generateCertificate = async () => {
+    if (!playerName.trim()) {
+      alert('Please enter your name to generate a certificate.');
+      return;
+    }
+    
+    playButtonClick();
+    setIsGenerating(true);
+    
+    try {
+      const pdfBlob = await generateCertificatePDF();
+      const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+      const url = URL.createObjectURL(pdfBlob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error generating certificate:', error);
+      alert('Failed to generate certificate. Please try again.');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const shareOnTwitter = async () => {
+    if (!playerName.trim()) {
+      alert('Please enter your name to share your certificate.');
+      return;
+    }
+    
+    playButtonClick();
+    setIsGenerating(true);
+    
+    try {
+      // Generate and auto-download certificate
+      const pdfBlob = await generateCertificatePDF();
+      const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      const pdfLink = document.createElement('a');
+      pdfLink.href = pdfUrl;
+      pdfLink.download = fileName;
+      pdfLink.click();
+      URL.revokeObjectURL(pdfUrl);
+      
+      // Open Twitter share dialog directly
+      const text = `I just completed all 7 levels of the Ethics-Tech-Policy Decisions Sandbox! ${playerName ? `- ${playerName}` : ''} 🎓✨`;
+      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+      
+      setTimeout(() => {
+        window.open(url, '_blank');
+        setIsGenerating(false);
+      }, 300);
+      
+    } catch (error) {
+      console.error('Error generating certificate for Twitter:', error);
+      alert('Failed to generate certificate. Please try again.');
+      setIsGenerating(false);
+    }
   };
 
   const shareOnLinkedIn = async () => {

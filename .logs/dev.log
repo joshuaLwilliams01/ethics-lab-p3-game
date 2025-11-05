@@ -2059,3 +2059,325 @@ Import trace for requested module:
  ✓ Compiled in 1494ms (1154 modules)
  ✓ Compiled in 2.7s (1154 modules)
  ✓ Compiled in 5.8s (1154 modules)
+ ⨯ ./app/completion/page.tsx
+Error: 
+  [31mx[0m the name `generateCertificatePDF` is defined multiple times
+     ,-[[36;1;4m/Users/cristenwilliams/ethics-lab-p3/app/completion/page.tsx[0m:37:1]
+ [2m 37[0m |   }, [isTestMode]);
+ [2m 38[0m | 
+ [2m 39[0m |   // Helper function to generate certificate PDF
+ [2m 40[0m |   const generateCertificatePDF = async () => {
+     : [31;1m        ^^^^^^^^^^^|^^^^^^^^^^[0m
+     :                    [31;1m`-- [31;1mprevious definition of `generateCertificatePDF` here[0m[0m
+ [2m 41[0m |     const pdf = await PDFDocument.create();
+ [2m 42[0m |     const page = pdf.addPage([612, 792]);
+ [2m 43[0m |     const font = await pdf.embedFont(StandardFonts.Helvetica);
+ [2m 44[0m |     const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+ [2m 45[0m |     const boldItalic = await pdf.embedFont(StandardFonts.HelveticaBoldOblique);
+ [2m 46[0m |     
+ [2m 47[0m |     const bgColor = rgb(0.95, 0.95, 0.95);
+ [2m 48[0m |     page.drawRectangle({ x: 0, y: 0, width: 612, height: 792, color: bgColor });
+ [2m 49[0m |     
+ [2m 50[0m |     const stanfordRed = rgb(0.55, 0.08, 0.08);
+ [2m 51[0m |     const stanfordGreen = rgb(0.09, 0.37, 0.33);
+ [2m 52[0m |     
+ [2m 53[0m |     const centerText = (text: string, y: number, size: number, font: any, options: any = {}) => {
+ [2m 54[0m |       const textWidth = font.widthOfTextAtSize(text, size);
+ [2m 55[0m |       const x = (612 - textWidth) / 2;
+ [2m 56[0m |       page.drawText(text, { x, y, size, font, ...options });
+ [2m 57[0m |     };
+ [2m 58[0m |     
+ [2m 59[0m |     centerText('ETHICS-TECH-POLICY', 750, 22, bold, { color: stanfordRed });
+ [2m 60[0m |     centerText('DECISIONS SANDBOX', 725, 22, bold, { color: stanfordRed });
+ [2m 61[0m |     centerText('Certificate of Completion', 680, 30, bold, { color: rgb(0.2, 0.2, 0.2) });
+ [2m 62[0m |     centerText('This certifies that', 620, 14, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 63[0m |     centerText(playerName.trim(), 580, 36, bold, { color: stanfordRed });
+ [2m 64[0m |     centerText('has successfully completed the training in', 540, 14, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 65[0m |     centerText('Ethics-Tech-Policy Decisions Sandbox', 510, 16, bold, { color: rgb(0.2, 0.2, 0.2) });
+ [2m 66[0m |     
+ [2m 67[0m |     const description = 'Created by Joshua Williams, this program explored the complexities of technology, policy, and society based on lessons from the Ethics, Technology + Public Policy for Practitioners SOE-XETECH0001 course.';
+ [2m 68[0m |     const words = description.split(' ');
+ [2m 69[0m |     let line = '';
+ [2m 70[0m |     let yPos = 460;
+ [2m 71[0m |     for (const word of words) {
+ [2m 72[0m |       const testLine = line + (line ? ' ' : '') + word;
+ [2m 73[0m |       if (font.widthOfTextAtSize(testLine, 11) > 520) {
+ [2m 74[0m |         if (line) {
+ [2m 75[0m |           centerText(line, yPos, 11, font, { color: rgb(0.35, 0.35, 0.35) });
+ [2m 76[0m |           yPos -= 18;
+ [2m 77[0m |         }
+ [2m 78[0m |         line = word;
+ [2m 79[0m |       } else {
+ [2m 80[0m |         line = testLine;
+ [2m 81[0m |       }
+ [2m 82[0m |     }
+ [2m 83[0m |     if (line) {
+ [2m 84[0m |       centerText(line, yPos, 11, font, { color: rgb(0.35, 0.35, 0.35) });
+ [2m 85[0m |     }
+ [2m 86[0m |     
+ [2m 87[0m |     const completionDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+ [2m 88[0m |     centerText('Date of Completion:', 380, 12, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 89[0m |     centerText(completionDate, 360, 12, font, { color: rgb(0.4, 0.4, 0.4) });
+ [2m 90[0m |     centerText('Congratulations on this achievement!', 320, 14, bold, { color: stanfordGreen });
+ [2m 91[0m |     
+ [2m 92[0m |     const disclaimer = 'Disclaimer: This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.';
+ [2m 93[0m |     const disclaimerWords = disclaimer.split(' ');
+ [2m 94[0m |     let disclaimerLine = '';
+ [2m 95[0m |     let disclaimerYPos = 260;
+ [2m 96[0m |     for (const word of disclaimerWords) {
+ [2m 97[0m |       const testDisclaimerLine = disclaimerLine + (disclaimerLine ? ' ' : '') + word;
+ [2m 98[0m |       if (font.widthOfTextAtSize(testDisclaimerLine, 9) > 550) {
+ [2m 99[0m |         if (disclaimerLine) {
+ [2m100[0m |           centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+ [2m101[0m |           disclaimerYPos -= 14;
+ [2m102[0m |         }
+ [2m103[0m |         disclaimerLine = word;
+ [2m104[0m |       } else {
+ [2m105[0m |         disclaimerLine = testDisclaimerLine;
+ [2m106[0m |       }
+ [2m107[0m |     }
+ [2m108[0m |     if (disclaimerLine) {
+ [2m109[0m |       centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+ [2m110[0m |     }
+ [2m111[0m |     
+ [2m112[0m |     const bytes = await pdf.save();
+ [2m113[0m |     return new Blob([bytes], { type: 'application/pdf' });
+ [2m114[0m |   };
+ [2m115[0m | 
+ [2m116[0m |   const generateCertificate = async () => {
+ [2m117[0m |     if (!playerName.trim()) {
+ [2m118[0m |       alert('Please enter your name to generate a certificate.');
+ [2m119[0m |       return;
+ [2m120[0m |     }
+ [2m121[0m |     
+ [2m122[0m |     playButtonClick();
+ [2m123[0m |     setIsGenerating(true);
+ [2m124[0m |     
+ [2m125[0m |     try {
+ [2m126[0m |       const pdfBlob = await generateCertificatePDF();
+ [2m127[0m |       const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+ [2m128[0m |       const url = URL.createObjectURL(pdfBlob);
+ [2m129[0m |       const a = document.createElement('a');
+ [2m130[0m |       a.href = url;
+ [2m131[0m |       a.download = fileName;
+ [2m132[0m |       a.click();
+ [2m133[0m |       URL.revokeObjectURL(url);
+ [2m134[0m |     } catch (error) {
+ [2m135[0m |       console.error('Error generating certificate:', error);
+ [2m136[0m |       alert('Failed to generate certificate. Please try again.');
+ [2m137[0m |     } finally {
+ [2m138[0m |       setIsGenerating(false);
+ [2m139[0m |     }
+ [2m140[0m |   };
+ [2m141[0m | 
+ [2m142[0m |   const shareOnTwitter = async () => {
+ [2m143[0m |     if (!playerName.trim()) {
+ [2m144[0m |       alert('Please enter your name to share your certificate.');
+ [2m145[0m |       return;
+ [2m146[0m |     }
+ [2m147[0m |     
+ [2m148[0m |     playButtonClick();
+ [2m149[0m |     setIsGenerating(true);
+ [2m150[0m |     
+ [2m151[0m |     try {
+ [2m152[0m |       // Generate and auto-download certificate
+ [2m153[0m |       const pdfBlob = await generateCertificatePDF();
+ [2m154[0m |       const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+ [2m155[0m |       const pdfUrl = URL.createObjectURL(pdfBlob);
+ [2m156[0m |       const pdfLink = document.createElement('a');
+ [2m157[0m |       pdfLink.href = pdfUrl;
+ [2m158[0m |       pdfLink.download = fileName;
+ [2m159[0m |       pdfLink.click();
+ [2m160[0m |       URL.revokeObjectURL(pdfUrl);
+ [2m161[0m |       
+ [2m162[0m |       // Open Twitter share dialog directly
+ [2m163[0m |       const text = `I just completed all 7 levels of the Ethics-Tech-Policy Decisions Sandbox! ${playerName ? `- ${playerName}` : ''} 🎓✨`;
+ [2m164[0m |       const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+ [2m165[0m |       
+ [2m166[0m |       setTimeout(() => {
+ [2m167[0m |         window.open(url, '_blank');
+ [2m168[0m |         setIsGenerating(false);
+ [2m169[0m |       }, 300);
+ [2m170[0m |       
+ [2m171[0m |     } catch (error) {
+ [2m172[0m |       console.error('Error generating certificate for Twitter:', error);
+ [2m173[0m |       alert('Failed to generate certificate. Please try again.');
+ [2m174[0m |       setIsGenerating(false);
+ [2m175[0m |     }
+ [2m176[0m |   };
+ [2m177[0m | 
+ [2m178[0m |   // Helper function to generate certificate PDF
+ [2m179[0m |   const generateCertificatePDF = async () => {
+     : [33;1m        ^^^^^^^^^^^|^^^^^^^^^^[0m
+     :                    [33;1m`-- [33;1m`generateCertificatePDF` redefined here[0m[0m
+ [2m180[0m |     const pdf = await PDFDocument.create();
+ [2m181[0m |     const page = pdf.addPage([612, 792]);
+ [2m182[0m |     const font = await pdf.embedFont(StandardFonts.Helvetica);
+     `----
+
+Import trace for requested module:
+./app/completion/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./app/completion/page.tsx
+Error: 
+  [31mx[0m the name `generateCertificatePDF` is defined multiple times
+     ,-[[36;1;4m/Users/cristenwilliams/ethics-lab-p3/app/completion/page.tsx[0m:37:1]
+ [2m 37[0m |   }, [isTestMode]);
+ [2m 38[0m | 
+ [2m 39[0m |   // Helper function to generate certificate PDF
+ [2m 40[0m |   const generateCertificatePDF = async () => {
+     : [31;1m        ^^^^^^^^^^^|^^^^^^^^^^[0m
+     :                    [31;1m`-- [31;1mprevious definition of `generateCertificatePDF` here[0m[0m
+ [2m 41[0m |     const pdf = await PDFDocument.create();
+ [2m 42[0m |     const page = pdf.addPage([612, 792]);
+ [2m 43[0m |     const font = await pdf.embedFont(StandardFonts.Helvetica);
+ [2m 44[0m |     const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+ [2m 45[0m |     const boldItalic = await pdf.embedFont(StandardFonts.HelveticaBoldOblique);
+ [2m 46[0m |     
+ [2m 47[0m |     const bgColor = rgb(0.95, 0.95, 0.95);
+ [2m 48[0m |     page.drawRectangle({ x: 0, y: 0, width: 612, height: 792, color: bgColor });
+ [2m 49[0m |     
+ [2m 50[0m |     const stanfordRed = rgb(0.55, 0.08, 0.08);
+ [2m 51[0m |     const stanfordGreen = rgb(0.09, 0.37, 0.33);
+ [2m 52[0m |     
+ [2m 53[0m |     const centerText = (text: string, y: number, size: number, font: any, options: any = {}) => {
+ [2m 54[0m |       const textWidth = font.widthOfTextAtSize(text, size);
+ [2m 55[0m |       const x = (612 - textWidth) / 2;
+ [2m 56[0m |       page.drawText(text, { x, y, size, font, ...options });
+ [2m 57[0m |     };
+ [2m 58[0m |     
+ [2m 59[0m |     centerText('ETHICS-TECH-POLICY', 750, 22, bold, { color: stanfordRed });
+ [2m 60[0m |     centerText('DECISIONS SANDBOX', 725, 22, bold, { color: stanfordRed });
+ [2m 61[0m |     centerText('Certificate of Completion', 680, 30, bold, { color: rgb(0.2, 0.2, 0.2) });
+ [2m 62[0m |     centerText('This certifies that', 620, 14, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 63[0m |     centerText(playerName.trim(), 580, 36, bold, { color: stanfordRed });
+ [2m 64[0m |     centerText('has successfully completed the training in', 540, 14, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 65[0m |     centerText('Ethics-Tech-Policy Decisions Sandbox', 510, 16, bold, { color: rgb(0.2, 0.2, 0.2) });
+ [2m 66[0m |     
+ [2m 67[0m |     const description = 'Created by Joshua Williams, this program explored the complexities of technology, policy, and society based on lessons from the Ethics, Technology + Public Policy for Practitioners SOE-XETECH0001 course.';
+ [2m 68[0m |     const words = description.split(' ');
+ [2m 69[0m |     let line = '';
+ [2m 70[0m |     let yPos = 460;
+ [2m 71[0m |     for (const word of words) {
+ [2m 72[0m |       const testLine = line + (line ? ' ' : '') + word;
+ [2m 73[0m |       if (font.widthOfTextAtSize(testLine, 11) > 520) {
+ [2m 74[0m |         if (line) {
+ [2m 75[0m |           centerText(line, yPos, 11, font, { color: rgb(0.35, 0.35, 0.35) });
+ [2m 76[0m |           yPos -= 18;
+ [2m 77[0m |         }
+ [2m 78[0m |         line = word;
+ [2m 79[0m |       } else {
+ [2m 80[0m |         line = testLine;
+ [2m 81[0m |       }
+ [2m 82[0m |     }
+ [2m 83[0m |     if (line) {
+ [2m 84[0m |       centerText(line, yPos, 11, font, { color: rgb(0.35, 0.35, 0.35) });
+ [2m 85[0m |     }
+ [2m 86[0m |     
+ [2m 87[0m |     const completionDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+ [2m 88[0m |     centerText('Date of Completion:', 380, 12, font, { color: rgb(0.3, 0.3, 0.3) });
+ [2m 89[0m |     centerText(completionDate, 360, 12, font, { color: rgb(0.4, 0.4, 0.4) });
+ [2m 90[0m |     centerText('Congratulations on this achievement!', 320, 14, bold, { color: stanfordGreen });
+ [2m 91[0m |     
+ [2m 92[0m |     const disclaimer = 'Disclaimer: This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.';
+ [2m 93[0m |     const disclaimerWords = disclaimer.split(' ');
+ [2m 94[0m |     let disclaimerLine = '';
+ [2m 95[0m |     let disclaimerYPos = 260;
+ [2m 96[0m |     for (const word of disclaimerWords) {
+ [2m 97[0m |       const testDisclaimerLine = disclaimerLine + (disclaimerLine ? ' ' : '') + word;
+ [2m 98[0m |       if (font.widthOfTextAtSize(testDisclaimerLine, 9) > 550) {
+ [2m 99[0m |         if (disclaimerLine) {
+ [2m100[0m |           centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+ [2m101[0m |           disclaimerYPos -= 14;
+ [2m102[0m |         }
+ [2m103[0m |         disclaimerLine = word;
+ [2m104[0m |       } else {
+ [2m105[0m |         disclaimerLine = testDisclaimerLine;
+ [2m106[0m |       }
+ [2m107[0m |     }
+ [2m108[0m |     if (disclaimerLine) {
+ [2m109[0m |       centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+ [2m110[0m |     }
+ [2m111[0m |     
+ [2m112[0m |     const bytes = await pdf.save();
+ [2m113[0m |     return new Blob([bytes], { type: 'application/pdf' });
+ [2m114[0m |   };
+ [2m115[0m | 
+ [2m116[0m |   const generateCertificate = async () => {
+ [2m117[0m |     if (!playerName.trim()) {
+ [2m118[0m |       alert('Please enter your name to generate a certificate.');
+ [2m119[0m |       return;
+ [2m120[0m |     }
+ [2m121[0m |     
+ [2m122[0m |     playButtonClick();
+ [2m123[0m |     setIsGenerating(true);
+ [2m124[0m |     
+ [2m125[0m |     try {
+ [2m126[0m |       const pdfBlob = await generateCertificatePDF();
+ [2m127[0m |       const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+ [2m128[0m |       const url = URL.createObjectURL(pdfBlob);
+ [2m129[0m |       const a = document.createElement('a');
+ [2m130[0m |       a.href = url;
+ [2m131[0m |       a.download = fileName;
+ [2m132[0m |       a.click();
+ [2m133[0m |       URL.revokeObjectURL(url);
+ [2m134[0m |     } catch (error) {
+ [2m135[0m |       console.error('Error generating certificate:', error);
+ [2m136[0m |       alert('Failed to generate certificate. Please try again.');
+ [2m137[0m |     } finally {
+ [2m138[0m |       setIsGenerating(false);
+ [2m139[0m |     }
+ [2m140[0m |   };
+ [2m141[0m | 
+ [2m142[0m |   const shareOnTwitter = async () => {
+ [2m143[0m |     if (!playerName.trim()) {
+ [2m144[0m |       alert('Please enter your name to share your certificate.');
+ [2m145[0m |       return;
+ [2m146[0m |     }
+ [2m147[0m |     
+ [2m148[0m |     playButtonClick();
+ [2m149[0m |     setIsGenerating(true);
+ [2m150[0m |     
+ [2m151[0m |     try {
+ [2m152[0m |       // Generate and auto-download certificate
+ [2m153[0m |       const pdfBlob = await generateCertificatePDF();
+ [2m154[0m |       const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+ [2m155[0m |       const pdfUrl = URL.createObjectURL(pdfBlob);
+ [2m156[0m |       const pdfLink = document.createElement('a');
+ [2m157[0m |       pdfLink.href = pdfUrl;
+ [2m158[0m |       pdfLink.download = fileName;
+ [2m159[0m |       pdfLink.click();
+ [2m160[0m |       URL.revokeObjectURL(pdfUrl);
+ [2m161[0m |       
+ [2m162[0m |       // Open Twitter share dialog directly
+ [2m163[0m |       const text = `I just completed all 7 levels of the Ethics-Tech-Policy Decisions Sandbox! ${playerName ? `- ${playerName}` : ''} 🎓✨`;
+ [2m164[0m |       const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+ [2m165[0m |       
+ [2m166[0m |       setTimeout(() => {
+ [2m167[0m |         window.open(url, '_blank');
+ [2m168[0m |         setIsGenerating(false);
+ [2m169[0m |       }, 300);
+ [2m170[0m |       
+ [2m171[0m |     } catch (error) {
+ [2m172[0m |       console.error('Error generating certificate for Twitter:', error);
+ [2m173[0m |       alert('Failed to generate certificate. Please try again.');
+ [2m174[0m |       setIsGenerating(false);
+ [2m175[0m |     }
+ [2m176[0m |   };
+ [2m177[0m | 
+ [2m178[0m |   // Helper function to generate certificate PDF
+ [2m179[0m |   const generateCertificatePDF = async () => {
+     : [33;1m        ^^^^^^^^^^^|^^^^^^^^^^[0m
+     :                    [33;1m`-- [33;1m`generateCertificatePDF` redefined here[0m[0m
+ [2m180[0m |     const pdf = await PDFDocument.create();
+ [2m181[0m |     const page = pdf.addPage([612, 792]);
+ [2m182[0m |     const font = await pdf.embedFont(StandardFonts.Helvetica);
+     `----
+
+Import trace for requested module:
+./app/completion/page.tsx
+ GET /play/individual/1 500 in 103ms
+ ✓ Compiled /_not-found in 2.6s (1145 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /_next/static/webpack/c9e9c1a92418e11d.webpack.hot-update.json 404 in 3296ms
+ GET /play/individual/1 200 in 900ms
