@@ -1859,3 +1859,10 @@ digest: "3421250340"
  ✓ Compiled in 583ms (802 modules)
  GET / 200 in 157ms
  ✓ Compiled in 5.2s (802 modules)
+ ✓ Compiled in 1807ms (802 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.4s (791 modules)
+ GET /background-music.mp3 404 in 2120ms
+ GET /background-music.ogg 404 in 57ms
+ GET /background-music.wav 404 in 63ms
+ ✓ Compiled in 6s (802 modules)
