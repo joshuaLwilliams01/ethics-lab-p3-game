@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import React from 'react';
 import { playButtonClick } from '@/lib/sounds';
 
 type ResultsData = {
@@ -17,7 +18,10 @@ export default function ResultsModal({
   onClose: () => void;
   results: ResultsData | null;
 }) {
-  // Close on Escape key
+  const modalRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Close on Escape key and scroll to top when modal opens
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -26,7 +30,13 @@ export default function ResultsModal({
     };
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      // Don't hide body overflow - let modal container handle scrolling
+      // Scroll both container and modal to top when opening
+      if (containerRef.current) {
+        containerRef.current.scrollTop = 0;
+      }
+      if (modalRef.current) {
+        modalRef.current.scrollTop = 0;
+      }
     }
     return () => {
       document.removeEventListener('keydown', handleEscape);
@@ -46,10 +56,12 @@ export default function ResultsModal({
       
       {/* Modal */}
       <div
+        ref={containerRef}
         className="fixed inset-0 z-50 flex items-start justify-center p-4 pointer-events-none overflow-y-auto"
         style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
       >
         <div
+          ref={modalRef}
           className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-2xl w-full overflow-y-auto relative border-2 border-[#8C1515] pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
           style={{ 
