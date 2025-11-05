@@ -53,7 +53,7 @@ export default function Home(){
             >
               Stanford's Ethics Toolkit
             </a>
-            {' '}from Manuela Travaglianti, PhD, and Thomas Both, players explore tradeoffs and justify their decisions, promoting privacy, accessibility, and responsible technology.
+            {' '}from Manuela Travaglianti, PhD, and Thomas Both, players explore tradeoffs and justify their decisions, promoting ethics, tech, and public policy.
           </p>
         </div>
       </div>
