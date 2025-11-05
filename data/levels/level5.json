@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish clear consent process and documentation",
-            "Create data deletion mechanisms",
-            "Develop privacy-preserving learning methods"
+            "Provide deletion tools + reminders",
+            "Limit internal access + logging",
+            "Run red-team privacy tests"
           ],
           "B": [
-            "Establish clear consent process and documentation",
-            "Create data deletion mechanisms",
-            "Develop privacy-preserving learning methods"
+            "Require explicit opt-in choices",
+            "Apply DP/synthetic safeguards",
+            "Publish participation + impact stats"
           ],
           "C": [
-            "Establish clear consent process and documentation",
-            "Create data deletion mechanisms",
-            "Develop privacy-preserving learning methods"
+            "Enable local profiles + backups",
+            "Offer device performance guidance",
+            "Document feature tradeoffs clearly"
           ]
         },
         "metrics": [
@@ -59,19 +59,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish transparent data usage policies",
-            "Create user control mechanisms",
-            "Develop fair pricing alternatives"
+            "Explain pricing-for-data tradeoffs",
+            "Add easy revoke + delete options",
+            "Ban downstream resale in contracts"
           ],
           "B": [
-            "Establish transparent data usage policies",
-            "Create user control mechanisms",
-            "Develop fair pricing alternatives"
+            "Provide per-signal toggles",
+            "Default to minimum sharing",
+            "Audit default effects quarterly"
           ],
           "C": [
-            "Establish transparent data usage policies",
-            "Create user control mechanisms",
-            "Develop fair pricing alternatives"
+            "Publish clear tier matrix",
+            "Cap data scope per tier",
+            "Review equity impacts regularly"
           ]
         },
         "metrics": [
@@ -100,19 +100,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Engage stakeholders in data usage decisions",
-            "Establish clear objectives and metrics",
-            "Create transparency and accountability framework"
+            "Hold community listening sessions",
+            "Co-design acceptable-use rules",
+            "Publish engagement summary + changes"
           ],
           "B": [
-            "Engage stakeholders in data usage decisions",
-            "Establish clear objectives and metrics",
-            "Create transparency and accountability framework"
+            "Define narrow use cases",
+            "Set success/exit criteria",
+            "Report outcomes vs. harms"
           ],
           "C": [
-            "Engage stakeholders in data usage decisions",
-            "Establish clear objectives and metrics",
-            "Create transparency and accountability framework"
+            "Document rationale + alternatives",
+            "Invest in ethical first-party data",
+            "Revisit decision annually"
           ]
         },
         "metrics": [
@@ -141,19 +141,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct privacy risk assessment",
-            "Develop privacy-preserving technologies",
-            "Establish transparency and audit processes"
+            "Commission re-ID risk assessment",
+            "Implement mitigations (k-anon/DP)",
+            "Update user notices + choices"
           ],
           "B": [
-            "Conduct privacy risk assessment",
-            "Develop privacy-preserving technologies",
-            "Establish transparency and audit processes"
+            "Publish sharing partners + purposes",
+            "Post audit summaries + fixes",
+            "Track opt-outs + complaints"
           ],
           "C": [
-            "Conduct privacy risk assessment",
-            "Develop privacy-preserving technologies",
-            "Establish transparency and audit processes"
+            "Provide in-product privacy tips",
+            "Host user feedback channels",
+            "Iterate policies on published input"
           ]
         },
         "metrics": [
@@ -182,19 +182,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish opt-out mechanisms and alternatives",
-            "Create independent oversight committee",
-            "Involve employees in decision-making"
+            "Maintain card/PIN lanes",
+            "Monitor opt-out friction",
+            "Ban retaliation for opting out"
           ],
           "B": [
-            "Establish opt-out mechanisms and alternatives",
-            "Create independent oversight committee",
-            "Involve employees in decision-making"
+            "Charter a cross-functional board",
+            "Set bias/accuracy test schedule",
+            "Publish incident + drift reports"
           ],
           "C": [
-            "Establish opt-out mechanisms and alternatives",
-            "Create independent oversight committee",
-            "Involve employees in decision-making"
+            "Run anonymized sentiment surveys",
+            "Include diverse shift/role reps",
+            "Share findings + action items"
           ]
         },
         "metrics": [

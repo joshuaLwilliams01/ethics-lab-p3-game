@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Negotiate clear data separation and audit rights",
-            "Establish oversight board with diverse stakeholders",
-            "Create exit plan and transition strategy"
+            "Negotiate audit + exit clauses",
+            "Seat independent oversight members",
+            "Publish data residency/segregation plan"
           ],
           "B": [
-            "Negotiate clear data separation and audit rights",
-            "Establish oversight board with diverse stakeholders",
-            "Create exit plan and transition strategy"
+            "Fund phased architecture roadmap",
+            "Define reliability SLOs + incident playbooks",
+            "Open source templates for peers"
           ],
           "C": [
-            "Negotiate clear data separation and audit rights",
-            "Establish oversight board with diverse stakeholders",
-            "Create exit plan and transition strategy"
+            "Implement policy-as-code separation",
+            "Enable cross-cloud audit logging",
+            "Run failover drills quarterly"
           ]
         },
         "metrics": [
@@ -59,19 +59,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Build coalition with other public-interest apps",
-            "Advocate for fee exemptions or reductions",
-            "Develop hybrid web/native strategy"
+            "Budget for fees w/ transparency",
+            "Track store policy impacts on features",
+            "Explore fee waivers/exemptions"
           ],
           "B": [
-            "Build coalition with other public-interest apps",
-            "Advocate for fee exemptions or reductions",
-            "Develop hybrid web/native strategy"
+            "Build high-quality PWA experience",
+            "Replace push with email/SMS alerts",
+            "Launch user migration guide"
           ],
           "C": [
-            "Build coalition with other public-interest apps",
-            "Advocate for fee exemptions or reductions",
-            "Develop hybrid web/native strategy"
+            "Join multi-org advocacy group",
+            "Publish economic impact analysis",
+            "Propose exemption criteria publicly"
           ]
         },
         "metrics": [
@@ -100,19 +100,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish clear value-sharing framework",
-            "Create transparent improvement reporting",
-            "Develop anti-monopoly safeguards"
+            "Publish data-use agreement",
+            "Require model audit access",
+            "Report public benefits achieved"
           ],
           "B": [
-            "Establish clear value-sharing framework",
-            "Create transparent improvement reporting",
-            "Develop anti-monopoly safeguards"
+            "Add reciprocity clauses to contracts",
+            "Mandate model artifact sharing windows",
+            "Enforce via measurable milestones"
           ],
           "C": [
-            "Establish clear value-sharing framework",
-            "Create transparent improvement reporting",
-            "Develop anti-monopoly safeguards"
+            "Time-limit exclusivity periods",
+            "Define public release obligations",
+            "Add independent performance audits"
           ]
         },
         "metrics": [
@@ -141,19 +141,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish independent advisory committee",
-            "Create clear conflict-of-interest policies",
-            "Develop alternative funding sources"
+            "Create independent advisory board",
+            "Publish curriculum firewall policy",
+            "Set renewal based on audit outcomes"
           ],
           "B": [
-            "Establish independent advisory committee",
-            "Create clear conflict-of-interest policies",
-            "Develop alternative funding sources"
+            "Announce rationale + values",
+            "Identify replacement funding targets",
+            "Prioritize essential programs list"
           ],
           "C": [
-            "Establish independent advisory committee",
-            "Create clear conflict-of-interest policies",
-            "Develop alternative funding sources"
+            "Diversify small grants portfolio",
+            "Standardize conflict-of-interest checks",
+            "Coordinate reporting across funders"
           ]
         },
         "metrics": [
@@ -182,19 +182,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish privacy-preserving data collection",
-            "Create public value metrics",
-            "Develop alternative funding models"
+            "Implement consent + preference center",
+            "Map data flows + retention limits",
+            "Prepare breach/regulatory response plan"
           ],
           "B": [
-            "Establish privacy-preserving data collection",
-            "Create public value metrics",
-            "Develop alternative funding models"
+            "Minimize data by default",
+            "Run privacy impact assessments",
+            "Publish transparency dashboards"
           ],
           "C": [
-            "Establish privacy-preserving data collection",
-            "Create public value metrics",
-            "Develop alternative funding models"
+            "Pilot subscriptions/grants/sponsorship",
+            "Separate revenue from data collection",
+            "Share annual funding + privacy report"
           ]
         },
         "metrics": [

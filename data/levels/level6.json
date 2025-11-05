@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish worker councils and input mechanisms",
-            "Create reskilling and transition programs",
-            "Develop wage-sharing and job quality guarantees"
+            "Fund role-aligned training tracks",
+            "Set error ownership + review SLAs",
+            "Publish productivity-sharing policy"
           ],
           "B": [
-            "Establish worker councils and input mechanisms",
-            "Create reskilling and transition programs",
-            "Develop wage-sharing and job quality guarantees"
+            "Form worker councils per unit",
+            "Define pilot success + stop rules",
+            "Run harm/benefit reviews each sprint"
           ],
           "C": [
-            "Establish worker councils and input mechanisms",
-            "Create reskilling and transition programs",
-            "Develop wage-sharing and job quality guarantees"
+            "Negotiate wage-sharing + job-quality terms",
+            "Sign enforcement/appeal mechanisms",
+            "Schedule staged rollout after agreement"
           ]
         },
         "metrics": [
@@ -59,19 +59,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Involve workers in algorithm design",
-            "Establish manual override mechanisms",
-            "Create regular feedback and adjustment process"
+            "Workshop worker constraints/needs",
+            "Add swap/appeal features",
+            "Monitor burnout + stability metrics"
           ],
           "B": [
-            "Involve workers in algorithm design",
-            "Establish manual override mechanisms",
-            "Create regular feedback and adjustment process"
+            "Pilot on a few teams/shifts",
+            "Set fairness + accuracy targets",
+            "Provide rapid appeal corrections"
           ],
           "C": [
-            "Involve workers in algorithm design",
-            "Establish manual override mechanisms",
-            "Create regular feedback and adjustment process"
+            "Standardize human scheduling rules",
+            "Train managers on bias guards",
+            "Audit schedules quarterly"
           ]
         },
         "metrics": [
@@ -100,19 +100,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Develop comprehensive training program",
-            "Create skill-building opportunities",
-            "Establish promotion pathways"
+            "Provide skills + policy training",
+            "Cap monitoring to necessary data",
+            "Review guidance quality monthly"
           ],
           "B": [
-            "Develop comprehensive training program",
-            "Create skill-building opportunities",
-            "Establish promotion pathways"
+            "Define \"complex\" trigger rules",
+            "Allow agent override/notes",
+            "Track outcomes vs. autonomy"
           ],
           "C": [
-            "Develop comprehensive training program",
-            "Create skill-building opportunities",
-            "Establish promotion pathways"
+            "Add in-tool tips + guardrails",
+            "Monitor error/CSAT impacts daily",
+            "Schedule retro + formal training"
           ]
         },
         "metrics": [
@@ -141,19 +141,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Publish evaluation criteria and methodology",
-            "Establish expedited appeal process",
-            "Create bias audit and monitoring system"
+            "Publish criteria + scoring math",
+            "Stand up fast appeals pathway",
+            "Audit for rating bias routinely"
           ],
           "B": [
-            "Publish evaluation criteria and methodology",
-            "Establish expedited appeal process",
-            "Create bias audit and monitoring system"
+            "Implement fair assignment queue",
+            "Add quality review + coaching",
+            "Monitor client satisfaction drift"
           ],
           "C": [
-            "Publish evaluation criteria and methodology",
-            "Establish expedited appeal process",
-            "Create bias audit and monitoring system"
+            "Negotiate access floors + pay bands",
+            "Codify due-process timelines",
+            "Publish compliance reports"
           ]
         },
         "metrics": [
@@ -182,19 +182,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Develop comprehensive re-skilling programs",
-            "Create re-hiring prioritization process",
-            "Establish shared-work arrangements"
+            "Define eligibility + amounts",
+            "Create rehire pool + fast track",
+            "Offer career navigation services"
           ],
           "B": [
-            "Develop comprehensive re-skilling programs",
-            "Create re-hiring prioritization process",
-            "Establish shared-work arrangements"
+            "Map training to open roles",
+            "Guarantee interview pathways",
+            "Track placement + wage gains"
           ],
           "C": [
-            "Develop comprehensive re-skilling programs",
-            "Create re-hiring prioritization process",
-            "Establish shared-work arrangements"
+            "Split schedules for learn/serve",
+            "Set stipend/benefit protections",
+            "Review progress each quarter"
           ]
         },
         "metrics": [

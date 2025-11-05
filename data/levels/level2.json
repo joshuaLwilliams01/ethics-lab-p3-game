@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Define fairness metrics and targets",
-            "Establish appeal and review process",
-            "Conduct bias audit across demographic groups"
+            "Publish appeal flow + deadlines",
+            "Monitor adverse impact by role",
+            "Blind sensitive attributes where feasible"
           ],
           "B": [
-            "Define fairness metrics and targets",
-            "Establish appeal and review process",
-            "Conduct bias audit across demographic groups"
+            "Freeze automated screening in flagged roles",
+            "Retrain w/ fairness constraints + evals",
+            "Publish tradeoff memo (precision/recall)"
           ],
           "C": [
-            "Define fairness metrics and targets",
-            "Establish appeal and review process",
-            "Conduct bias audit across demographic groups"
+            "Post role matrix (auto vs. manual)",
+            "Train standardized manual rubrics",
+            "Review matrix every 60 days"
           ]
         },
         "metrics": [
@@ -58,19 +58,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct bias audit on scoring model",
-            "Establish clear consent process and documentation",
-            "Create appeal process for loan denials"
+            "Provide notices + scoring factors",
+            "Offer non-location path for thin-file",
+            "Add independent dispute hotline"
           ],
           "B": [
-            "Conduct bias audit on scoring model",
-            "Establish clear consent process and documentation",
-            "Create appeal process for loan denials"
+            "Require explicit consent summaries",
+            "Commission + publish bias audit",
+            "Set retention + re-use limits"
           ],
           "C": [
-            "Conduct bias audit on scoring model",
-            "Establish clear consent process and documentation",
-            "Create appeal process for loan denials"
+            "Define pilot size + success thresholds",
+            "Cap APR/fees to prevent harm",
+            "Publish pilot results + decision"
           ]
         },
         "metrics": [
@@ -99,19 +99,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct bias audit on proctoring system",
-            "Develop alternative assessment methods",
-            "Establish clear appeal process for flagged exams"
+            "Calibrate for tone/lighting/access",
+            "Human review before penalties",
+            "Rapid appeal channel for students"
           ],
           "B": [
-            "Conduct bias audit on proctoring system",
-            "Develop alternative assessment methods",
-            "Establish clear appeal process for flagged exams"
+            "Stand up oral/portfolio options",
+            "Train graders for consistency",
+            "Disclose equivalency to students"
           ],
           "C": [
-            "Conduct bias audit on proctoring system",
-            "Develop alternative assessment methods",
-            "Establish clear appeal process for flagged exams"
+            "Suspend tool; use interim methods",
+            "Contract vendor for targeted fixes",
+            "Pilot w/ diverse cohorts + publish results"
           ]
         },
         "metrics": [
@@ -139,19 +139,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct bias audit on triage model",
-            "Establish override protocols and documentation",
-            "Create equity monitoring system"
+            "Log override reasons/outcomes",
+            "Flag uncertainty for thin histories",
+            "Weekly case review of overrides"
           ],
           "B": [
-            "Conduct bias audit on triage model",
-            "Establish override protocols and documentation",
-            "Create equity monitoring system"
+            "Boost risk for sparse histories",
+            "Validate effect on waits/outcomes",
+            "Tune thresholds weekly"
           ],
           "C": [
-            "Conduct bias audit on triage model",
-            "Establish override protocols and documentation",
-            "Create equity monitoring system"
+            "Define eligibility + verification",
+            "Reserve fixed capacity per shift",
+            "Publish equity access metrics"
           ]
         },
         "metrics": [
@@ -180,19 +180,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct community impact assessment",
-            "Establish transparent decision-making process",
-            "Create community advisory board"
+            "Reallocate budget to prevention",
+            "Publish deployment/stops data",
+            "Hold monthly community oversight"
           ],
           "B": [
-            "Conduct community impact assessment",
-            "Establish transparent decision-making process",
-            "Create community advisory board"
+            "Pre-register design + outcomes",
+            "Brief communities pre/post trial",
+            "Publish full results + data"
           ],
           "C": [
-            "Conduct community impact assessment",
-            "Establish transparent decision-making process",
-            "Create community advisory board"
+            "Fund crisis/mediation/Env. design",
+            "Coordinate 911/311 triage routes",
+            "Track response + resolution times"
           ]
         },
         "metrics": [

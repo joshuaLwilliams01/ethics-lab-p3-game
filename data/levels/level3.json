@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish clear false positive appeal process",
-            "Create educational resources on reporting",
-            "Develop privacy-preserving detection methods"
+            "Ship encrypted on-device checks",
+            "Provide clear false-positive appeals",
+            "Monitor device performance impact"
           ],
           "B": [
-            "Establish clear false positive appeal process",
-            "Create educational resources on reporting",
-            "Develop privacy-preserving detection methods"
+            "Centralize scanning quality controls",
+            "Launch survivor resource hub",
+            "Audit access + retention paths"
           ],
           "C": [
-            "Establish clear false positive appeal process",
-            "Create educational resources on reporting",
-            "Develop privacy-preserving detection methods"
+            "Define when device vs. server applies",
+            "Publish user-readable policy visuals",
+            "Run periodic gap analysis"
           ]
         },
         "metrics": [
@@ -59,19 +59,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct comprehensive red-teaming exercises",
-            "Establish clear safety protocols and watermarking",
-            "Create appeal process for false flags"
+            "Enforce safety policy + rate limits",
+            "Embed robust watermarking",
+            "Staff rapid appeals workflow"
           ],
           "B": [
-            "Conduct comprehensive red-teaming exercises",
-            "Establish clear safety protocols and watermarking",
-            "Create appeal process for false flags"
+            "Clean datasets against risky content",
+            "Conduct external red-team exercises",
+            "Gate new features behind safety checks"
           ],
           "C": [
-            "Conduct comprehensive red-teaming exercises",
-            "Establish clear safety protocols and watermarking",
-            "Create appeal process for false flags"
+            "Vet researcher access criteria",
+            "Log + review sensitive usage",
+            "Publish periodic safety findings"
           ]
         },
         "metrics": [
@@ -100,19 +100,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish rate limits and abuse prevention measures",
-            "Create independent verification process",
-            "Develop strong appeal process for false reports"
+            "Implement rate-limited intake API",
+            "Require human triage on batches",
+            "Track reviewer load + trauma supports"
           ],
           "B": [
-            "Establish rate limits and abuse prevention measures",
-            "Create independent verification process",
-            "Develop strong appeal process for false reports"
+            "Set confidence threshold for action",
+            "Provide creator/user appeal SLAs",
+            "Audit false-positive/negative rates"
           ],
           "C": [
-            "Establish rate limits and abuse prevention measures",
-            "Create independent verification process",
-            "Develop strong appeal process for false reports"
+            "Route reports via third-party vetting",
+            "Define shared evidence standards",
+            "Publish throughput + accuracy stats"
           ]
         },
         "metrics": [
@@ -141,19 +141,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct security audit of AI monitoring systems",
-            "Establish clear consent process for parents and students",
-            "Develop alternative safety measures"
+            "Adopt district-wide guardrails",
+            "Post parent/student rights notice",
+            "Schedule annual compliance audits"
           ],
           "B": [
-            "Conduct security audit of AI monitoring systems",
-            "Establish clear consent process for parents and students",
-            "Develop alternative safety measures"
+            "Hold parent/student info sessions",
+            "Offer opt-outs + alternatives",
+            "Publish data use + retention policies"
           ],
           "C": [
-            "Conduct security audit of AI monitoring systems",
-            "Establish clear consent process for parents and students",
-            "Develop alternative safety measures"
+            "Expand counseling/mediation staff",
+            "Implement threat reporting training",
+            "Track incidents + response timelines"
           ]
         },
         "metrics": [
@@ -182,19 +182,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish survivor consent process",
-            "Create evidence escrow system",
-            "Develop expedited removal protocols"
+            "Automate removal within SLA",
+            "Store cryptographic hashes only",
+            "Provide survivor status updates"
           ],
           "B": [
-            "Establish survivor consent process",
-            "Create evidence escrow system",
-            "Develop expedited removal protocols"
+            "Obtain survivor consent preferences",
+            "Use evidence escrow chain-of-custody",
+            "Time-box review to hard deadlines"
           ],
           "C": [
-            "Establish survivor consent process",
-            "Create evidence escrow system",
-            "Develop expedited removal protocols"
+            "Define expedited legal intake",
+            "Standardize judge order templates",
+            "Monitor equity of access to pathway"
           ]
         },
         "metrics": [

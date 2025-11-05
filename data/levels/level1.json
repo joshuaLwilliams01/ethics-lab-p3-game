@@ -18,19 +18,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Publish a 6-month transition plan",
-            "Define hospital/transit continuity plan",
-            "Trigger supplier labor audit"
+            "Publish 6-month milestone plan",
+            "Define hospital/transit continuity runbooks",
+            "Launch independent labor audit"
           ],
           "B": [
-            "Publish a 6-month transition plan",
-            "Define hospital/transit continuity plan",
-            "Trigger supplier labor audit"
+            "Issue emergency public notice",
+            "Activate mutual-aid compute migration",
+            "Stand up 24/7 incident bridge"
           ],
           "C": [
-            "Publish a 6-month transition plan",
-            "Define hospital/transit continuity plan",
-            "Trigger supplier labor audit"
+            "Create escrowed worker fund w/ oversight",
+            "Publish payout criteria + verification",
+            "Schedule surprise supply-chain audits"
           ]
         },
         "metrics": [
@@ -58,19 +58,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Audit current vendor labor practices",
-            "Create transition timeline with milestones",
-            "Establish worker compensation standards"
+            "Post cutover timeline + acceptance tests",
+            "Add fair-pay clauses to contracts",
+            "Set interim wage top-ups"
           ],
           "B": [
-            "Audit current vendor labor practices",
-            "Create transition timeline with milestones",
-            "Establish worker compensation standards"
+            "Notify users + critical-use alternatives",
+            "Commission rapid labor audit",
+            "Define remediation + re-entry criteria"
           ],
           "C": [
-            "Audit current vendor labor practices",
-            "Create transition timeline with milestones",
-            "Establish worker compensation standards"
+            "Disburse emergency payments via vetted NGO",
+            "Publish audit scope + cadence",
+            "Open protected worker feedback channel"
           ]
         },
         "metrics": [
@@ -98,19 +98,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Establish mental health support program",
-            "Create clear workload limits and rotation schedules",
-            "Develop safety protocols for high-risk content"
+            "Contract trauma-informed counseling",
+            "Implement exposure caps + rotations",
+            "Upgrade triage/blur tooling"
           ],
           "B": [
-            "Establish mental health support program",
-            "Create clear workload limits and rotation schedules",
-            "Develop safety protocols for high-risk content"
+            "Publish freeze list + re-enable criteria",
+            "Reallocate staff to appeals/backlog",
+            "Monitor abuse displacement"
           ],
           "C": [
-            "Establish mental health support program",
-            "Create clear workload limits and rotation schedules",
-            "Develop safety protocols for high-risk content"
+            "Calibrate on diverse data",
+            "Set precision/recall targets + drift checks",
+            "Launch fast human appeals SLAs"
           ]
         },
         "metrics": [
@@ -138,19 +138,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Conduct vulnerability assessment for affected district",
-            "Establish transparent decision-making process",
-            "Create emergency support fund"
+            "Auto-credit medically vulnerable homes",
+            "Deploy outage early-warning checks",
+            "Publish relief eligibility + cadence"
           ],
           "B": [
-            "Conduct vulnerability assessment for affected district",
-            "Establish transparent decision-making process",
-            "Create emergency support fund"
+            "Define rotation rules + exclusions",
+            "Publish district impact forecasts",
+            "Install independent compliance auditor"
           ],
           "C": [
-            "Conduct vulnerability assessment for affected district",
-            "Establish transparent decision-making process",
-            "Create emergency support fund"
+            "Suspend algorithm; revert baseline ops",
+            "Hold public workshops + feedback",
+            "Release draft rules + pilot results"
           ]
         },
         "metrics": [
@@ -178,19 +178,19 @@
         "prompts": [],
         "quick_actions": {
           "A": [
-            "Audit current recycling facilities and safety standards",
-            "Establish clear responsibility and accountability framework",
-            "Create transition plan for safer practices"
+            "Sign safety MOUs w/ facilities",
+            "Fund PPE + ventilation upgrades",
+            "Enable third-party inspections"
           ],
           "B": [
-            "Audit current recycling facilities and safety standards",
-            "Establish clear responsibility and accountability framework",
-            "Create transition plan for safer practices"
+            "Secure compliant interim storage",
+            "Approve local facility siting plan",
+            "Launch recycling workforce training"
           ],
           "C": [
-            "Audit current recycling facilities and safety standards",
-            "Establish clear responsibility and accountability framework",
-            "Create transition plan for safer practices"
+            "Vet to recognized safety standards",
+            "Cap volumes to safe capacity",
+            "Publish vendor list + audits"
           ]
         },
         "metrics": [
