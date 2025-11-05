@@ -26,11 +26,10 @@ export default function ResultsModal({
     };
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      // Don't hide body overflow - let modal container handle scrolling
     }
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 
@@ -48,15 +47,18 @@ export default function ResultsModal({
       {/* Modal */}
       <div
         className="fixed inset-0 z-50 flex items-start justify-center p-4 pointer-events-none overflow-y-auto"
-        style={{ paddingTop: '1rem' }}
+        style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
       >
         <div
-          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[calc(100vh-2rem)] overflow-y-auto relative border-2 border-[#8C1515] pointer-events-auto my-4"
+          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-2xl w-full overflow-y-auto relative border-2 border-[#8C1515] pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
-          style={{ animation: 'modal-slide-in 0.3s ease-out' }}
+          style={{ 
+            animation: 'modal-slide-in 0.3s ease-out',
+            maxHeight: 'calc(100vh - 4rem)'
+          }}
         >
-          {/* Header with gradient - sticky to stay visible */}
-          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-4 rounded-t-lg sticky top-0 z-10">
+          {/* Header with gradient - always at top */}
+          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-4 rounded-t-lg">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                 <span className="text-3xl">🎯</span>
