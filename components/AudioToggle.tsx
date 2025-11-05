@@ -32,7 +32,7 @@ export default function AudioToggle(){
       const bassNotes = [164.81, 185.00, 196.00, 164.81]; // E3, F#3, G3, E3 (raised octave)
       const melodyNotes = [329.63, 392.00, 440.00, 493.88, 440.00, 392.00, 329.63]; // E4, G4, A4, B4, A4, G4, E4 (raised octave)
       
-      const tempo = 0.4; // Slightly faster for more engagement
+      const tempo = 0.65; // Slower tempo for enhanced suspense
       const bassGain = 0.15; // Increased for presence
       const melodyGain = 0.12; // Increased for clarity
       
@@ -204,16 +204,60 @@ export default function AudioToggle(){
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-1">
-      <div className="text-sm text-[#53565A]">
-        {enabled ? "🔊Sound Off" : "🔇Sound Off"}
+    <div className="flex flex-col items-center gap-2">
+      <div className="relative">
+        {/* Speaker icon with enhanced animation */}
+        <div 
+          className={`text-2xl transition-all duration-300 ${
+            enabled 
+              ? 'animate-pulse-glow text-[#8C1515] scale-110' 
+              : 'text-[#53565A] scale-100'
+          }`}
+          style={{
+            filter: enabled ? 'drop-shadow(0 0 8px rgba(140,21,21,0.6))' : 'none',
+            transform: enabled ? 'scale(1.15)' : 'scale(1)',
+            animation: enabled ? 'pulse-glow 2s ease-in-out infinite' : 'none'
+          }}
+        >
+          {enabled ? '🔊' : '🔇'}
+        </div>
+        {/* Pulsing ring effect when enabled */}
+        {enabled && (
+          <>
+            <div 
+              className="absolute inset-0 rounded-full border-2 border-[#8C1515] opacity-30"
+              style={{
+                animation: 'pulse-ring 2s ease-in-out infinite',
+                transform: 'scale(1.5)',
+                margin: '-8px'
+              }}
+            />
+            <div 
+              className="absolute inset-0 rounded-full border-2 border-[#8C1515] opacity-20"
+              style={{
+                animation: 'pulse-ring 2s ease-in-out infinite 0.3s',
+                transform: 'scale(1.8)',
+                margin: '-12px'
+              }}
+            />
+          </>
+        )}
+      </div>
+      <div className={`text-xs font-medium transition-colors duration-300 ${
+        enabled ? 'text-[#8C1515]' : 'text-[#53565A]'
+      }`}>
+        {enabled ? 'Sound On' : 'Sound Off'}
       </div>
       <button 
         onClick={() => {
           playButtonClick();
           setEnabled(v=>!v);
         }} 
-        className="text-xs text-[#53565A] hover:text-[#8C1515] transition cursor-pointer underline" 
+        className={`text-xs transition-all duration-300 hover:scale-105 ${
+          enabled 
+            ? 'text-[#8C1515] hover:text-[#820f0f] font-semibold' 
+            : 'text-[#53565A] hover:text-[#8C1515]'
+        } cursor-pointer underline`}
         aria-pressed={enabled}
         aria-label={enabled ? "Turn sound off" : "Turn sound on"}
       >

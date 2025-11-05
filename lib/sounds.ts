@@ -20,7 +20,8 @@ function getAudioContext(): AudioContext | null {
 }
 
 /**
- * Play a satisfying button click sound effect
+ * Play an enticing, satisfying button click sound effect
+ * Enhanced with musical chime and layered tones
  */
 export function playButtonClick() {
   const ctx = getAudioContext();
@@ -28,40 +29,74 @@ export function playButtonClick() {
   
   const now = ctx.currentTime;
   
-  // Create a pleasant click sound with two tones
-  // High frequency click (800Hz) - brief
+  // Primary click tone - pleasant chime (1000Hz)
   const clickOsc = ctx.createOscillator();
   const clickGain = ctx.createGain();
   
   clickOsc.type = 'sine';
-  clickOsc.frequency.value = 800;
+  clickOsc.frequency.value = 1000;
   
   clickGain.gain.setValueAtTime(0, now);
-  clickGain.gain.linearRampToValueAtTime(0.15, now + 0.001); // Quick attack
-  clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05); // Quick decay
+  clickGain.gain.linearRampToValueAtTime(0.2, now + 0.002); // Quick attack
+  clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08); // Smooth decay
   
   clickOsc.connect(clickGain);
   clickGain.connect(ctx.destination);
   
   clickOsc.start(now);
-  clickOsc.stop(now + 0.05);
+  clickOsc.stop(now + 0.08);
   
-  // Low frequency thud (200Hz) - very brief for depth
-  const thudOsc = ctx.createOscillator();
-  const thudGain = ctx.createGain();
+  // Harmonic layer - octave up (2000Hz) for brightness
+  const harmonicOsc = ctx.createOscillator();
+  const harmonicGain = ctx.createGain();
   
-  thudOsc.type = 'sine';
-  thudOsc.frequency.value = 200;
+  harmonicOsc.type = 'sine';
+  harmonicOsc.frequency.value = 2000;
   
-  thudGain.gain.setValueAtTime(0, now);
-  thudGain.gain.linearRampToValueAtTime(0.08, now + 0.001);
-  thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+  harmonicGain.gain.setValueAtTime(0, now);
+  harmonicGain.gain.linearRampToValueAtTime(0.1, now + 0.001);
+  harmonicGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
   
-  thudOsc.connect(thudGain);
-  thudGain.connect(ctx.destination);
+  harmonicOsc.connect(harmonicGain);
+  harmonicGain.connect(ctx.destination);
   
-  thudOsc.start(now);
-  thudOsc.stop(now + 0.03);
+  harmonicOsc.start(now);
+  harmonicOsc.stop(now + 0.06);
+  
+  // Low frequency body (250Hz) - adds warmth and depth
+  const bodyOsc = ctx.createOscillator();
+  const bodyGain = ctx.createGain();
+  
+  bodyOsc.type = 'sine';
+  bodyOsc.frequency.value = 250;
+  
+  bodyGain.gain.setValueAtTime(0, now);
+  bodyGain.gain.linearRampToValueAtTime(0.12, now + 0.003);
+  bodyGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+  
+  bodyOsc.connect(bodyGain);
+  bodyGain.connect(ctx.destination);
+  
+  bodyOsc.start(now);
+  bodyOsc.stop(now + 0.1);
+  
+  // Subtle pitch bend for musical interest
+  const bendOsc = ctx.createOscillator();
+  const bendGain = ctx.createGain();
+  
+  bendOsc.type = 'sine';
+  bendOsc.frequency.setValueAtTime(1200, now);
+  bendOsc.frequency.exponentialRampToValueAtTime(1000, now + 0.05);
+  
+  bendGain.gain.setValueAtTime(0, now);
+  bendGain.gain.linearRampToValueAtTime(0.08, now + 0.002);
+  bendGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+  
+  bendOsc.connect(bendGain);
+  bendGain.connect(ctx.destination);
+  
+  bendOsc.start(now);
+  bendOsc.stop(now + 0.05);
 }
 
 /**

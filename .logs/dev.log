@@ -338,3 +338,12 @@ digest: "1500796236"
  ✓ Compiled in 308ms (472 modules)
  ✓ Compiled in 501ms (799 modules)
  ✓ Compiled in 893ms (799 modules)
+ ✓ Compiled in 1931ms (799 modules)
+ GET / 200 in 691ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1108ms (787 modules)
+ GET /sfx-suspense.mp3 416 in 1159ms
+ ✓ Compiled in 589ms (799 modules)
+ ✓ Compiled in 613ms (785 modules)
+ ✓ Compiled in 459ms (799 modules)
+ ✓ Compiled in 864ms (799 modules)
