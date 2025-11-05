@@ -9,18 +9,18 @@ export default function Home(){
   
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-12 px-4">
-              {/* Main Title - Enhanced */}
-              <div className="text-center mb-8 relative">
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-6xl opacity-20 animate-bounce-subtle">🌲</div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-4 text-[#8C1515] tracking-tight relative inline-block">
-                  <span className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] bg-clip-text text-transparent animate-pulse" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
-                    ETHICS-TECH-POLICY
-                  </span>
-                </h1>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2E2D29] tracking-tight relative">
-                  DECISIONS SANDBOX
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#8C1515] to-transparent"></div>
-                </h2>
+      {/* Main Title - Enhanced */}
+      <div className="text-center mb-8 relative">
+        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-6xl opacity-20" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>🌲</div>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-[#8C1515] tracking-tight relative inline-block">
+          <span className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] bg-clip-text text-transparent" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
+            ETHICS-TECH-POLICY
+          </span>
+        </h1>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2E2D29] tracking-tight relative">
+          DECISIONS SANDBOX
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#8C1515] to-transparent"></div>
+        </h2>
         <div className="text-base md:text-lg max-w-3xl mx-auto text-[#53565A] mb-8 leading-relaxed text-left">
           <p>
             The Ethics-Tech-Policy Decisions Sandbox, created by{' '}
@@ -51,15 +51,15 @@ export default function Home(){
         <AudioToggle />
       </div>
 
-              {/* Level Selection - Enhanced with animations */}
-              <div className="mb-8 w-full max-w-4xl">
-                <div className="text-center mb-6">
-                  <div className="text-xl font-semibold text-[#2E2D29] mb-2 flex items-center justify-center gap-2">
-                    <span className="stanford-tree">🌲</span>
-                    <span>Choose Your Level</span>
-                    <span className="stanford-tree">🌲</span>
-                  </div>
-                </div>
+      {/* Level Selection - Enhanced with animations */}
+      <div className="mb-8 w-full max-w-4xl">
+        <div className="text-center mb-6">
+          <div className="text-xl font-semibold text-[#2E2D29] mb-2 flex items-center justify-center gap-2">
+            <span className="stanford-tree">🌲</span>
+            <span>Choose Your Level</span>
+            <span className="stanford-tree">🌲</span>
+          </div>
+        </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
                     { level: 1, emoji: "⚖️", title: "Moral Foundations", desc: "Complicity & Ethics", color: "from-red-50 via-red-100 to-red-50", accent: "rgba(140,21,21,0.2)" },
@@ -82,31 +82,31 @@ export default function Home(){
                       <div className="text-2xl font-bold text-[#8C1515] mb-2 glow-cardinal">Level {level}</div>
                       <div className="font-semibold text-[#2E2D29] mb-1 text-lg">{title}</div>
                       <div className="text-sm text-[#53565A]">{desc}</div>
-                      <div className="mt-3 text-xs text-[#8C1515] font-medium opacity-0 group-hover:opacity-100 transition-opacity">Start Journey →</div>
+                      <div className="mt-3 text-xs text-[#8C1515] font-medium opacity-0 hover:opacity-100 transition-opacity">Start Journey →</div>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              {/* How to Play & Start Button - Enhanced */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
-                <button 
-                  onClick={() => setShowHowToPlay(!showHowToPlay)}
-                  className="btn-ghost px-6 py-3 text-base font-semibold relative overflow-hidden group"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    <span className="text-xl">📖</span>
-                    <span>HOW TO PLAY</span>
-                  </span>
-                </button>
-                <Link href="/play/individual/1" className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group">
-                  <span className="relative z-10 flex items-center gap-2">
-                    <span className="text-xl animate-bounce-subtle">🎮</span>
-                    <span>START YOUR JOURNEY</span>
-                    <span className="text-lg">→</span>
-                  </span>
-                </Link>
-              </div>
+      {/* How to Play & Start Button - Enhanced */}
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
+        <button 
+          onClick={() => setShowHowToPlay(!showHowToPlay)}
+          className="btn-ghost px-6 py-3 text-base font-semibold relative overflow-hidden group"
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-xl">📖</span>
+            <span>HOW TO PLAY</span>
+          </span>
+        </button>
+        <Link href="/play/individual/1" className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group">
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-xl" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>🎮</span>
+            <span>START YOUR JOURNEY</span>
+            <span className="text-lg">→</span>
+          </span>
+        </Link>
+      </div>
 
       {/* How to Play Section - Expandable */}
       {showHowToPlay && (
