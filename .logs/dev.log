@@ -1856,3 +1856,6 @@ digest: "3421250340"
  ✓ Compiled in 602ms (802 modules)
  GET / 200 in 241ms
  ✓ Compiled in 1651ms (802 modules)
+ ✓ Compiled in 583ms (802 modules)
+ GET / 200 in 157ms
+ ✓ Compiled in 5.2s (802 modules)

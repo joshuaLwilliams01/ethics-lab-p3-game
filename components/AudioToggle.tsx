@@ -7,12 +7,15 @@ export default function AudioToggle(){
   const audioContextRef = useRef<AudioContext|null>(null);
   const oscillatorsRef = useRef<OscillatorNode[]>([]);
   const gainNodesRef = useRef<GainNode[]>([]);
+  const filtersRef = useRef<BiquadFilterNode[]>([]);
   const scheduleIntervalRef = useRef<number|null>(null);
   const startTimeRef = useRef<number>(0);
+  const masterGainRef = useRef<GainNode|null>(null);
+  const reverbConvolverRef = useRef<ConvolverNode|null>(null);
+  const lowPassFilterRef = useRef<BiquadFilterNode|null>(null);
   const { enabled, setEnabled } = useSound();
 
-  // Generate James Bond/Mission Impossible style theme
-  // Mid-tempo (110 BPM), suspenseful, confident pulse
+  // Professional audio generation with filters, reverb, and advanced synthesis
   const startAudio = () => {
     try {
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
@@ -25,22 +28,48 @@ export default function AudioToggle(){
       audioContextRef.current = ctx;
       startTimeRef.current = ctx.currentTime;
       
-      // Mid-tempo: 113 BPM = ~0.531s per beat (confident, walking pace)
-      // Professional quality matching AISES Knowledge Bowl standards
-      const beatDuration = 0.531;
-      const bassGain = 0.16; // Balanced for professional sound
-      const melodyGain = 0.12; // Clear but not overpowering
-      const harmonyGain = 0.08; // Subtle depth
-      const subBassGain = 0.10; // Low frequency foundation
+      // Create master gain for overall volume control
+      const masterGain = ctx.createGain();
+      masterGain.gain.value = 0.35; // Professional volume level
+      masterGainRef.current = masterGain;
       
-      // James Bond/Mission Impossible inspired notes - professional quality
-      // Bass: Strong pulsing E2, B2, E3 pattern
+      // Create low-pass filter for warmth and smoothness
+      const lowPass = ctx.createBiquadFilter();
+      lowPass.type = 'lowpass';
+      lowPass.frequency.value = 3500; // Warm, smooth cutoff
+      lowPass.Q.value = 0.7; // Gentle resonance
+      lowPassFilterRef.current = lowPass;
+      
+      // Create reverb for spatial depth and professionalism
+      const reverb = ctx.createConvolver();
+      // Generate impulse response for reverb (short room reverb)
+      const reverbLength = ctx.sampleRate * 0.3; // 300ms reverb
+      const reverbBuffer = ctx.createBuffer(2, reverbLength, ctx.sampleRate);
+      for (let channel = 0; channel < 2; channel++) {
+        const channelData = reverbBuffer.getChannelData(channel);
+        for (let i = 0; i < reverbLength; i++) {
+          channelData[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / reverbLength, 2);
+        }
+      }
+      reverb.buffer = reverbBuffer;
+      reverbConvolverRef.current = reverb;
+      
+      // Connect: source -> filter -> reverb -> master gain -> destination
+      lowPass.connect(reverb);
+      reverb.connect(masterGain);
+      masterGain.connect(ctx.destination);
+      
+      // Mid-tempo: 113 BPM = ~0.531s per beat
+      const beatDuration = 0.531;
+      const bassGain = 0.22;
+      const melodyGain = 0.18;
+      const harmonyGain = 0.12;
+      const subBassGain = 0.15;
+      
+      // Professional note selection - E minor pentatonic for smooth, professional sound
       const bassNotes = [82.41, 123.47, 164.81]; // E2, B2, E3
-      // Melody: Suspenseful but confident (E4, G#4, B4, E5)
-      const melodyNotes = [329.63, 415.30, 493.88, 659.25]; // E4, G#4, B4, E5
-      // Harmony: Suspense layer (minor third above)
-      const harmonyNotes = [392.00, 466.16, 554.37, 783.99]; // G4, A#4, C#5, G5
-      // Sub-bass: Very low frequency for depth (one octave below bass)
+      const melodyNotes = [329.63, 392.00, 493.88, 587.33]; // E4, G4, B4, D5 (smoother progression)
+      const harmonyNotes = [392.00, 466.16, 523.25, 659.25]; // G4, A#4, C5, E5
       const subBassNotes = [41.20, 61.74, 82.41]; // E1, B1, E2
       
       const isEnabledRef = { current: true };
@@ -50,222 +79,244 @@ export default function AudioToggle(){
         
         const ctx = audioContextRef.current;
         const currentTime = ctx.currentTime;
-        const measureDuration = beatDuration * 4; // 4/4 time
-        const patternTime = (currentTime - startTimeRef.current) % (measureDuration * 2); // 2-measure pattern
+        const measureDuration = beatDuration * 4;
+        const patternTime = (currentTime - startTimeRef.current) % (measureDuration * 2);
         const beatInMeasure = (patternTime % measureDuration) / beatDuration;
         const measureNumber = Math.floor(patternTime / measureDuration) % 2;
         
-        // Bass line - Strong confident pulse on beats 1, 2.5, 4
-        // Enhanced with richer harmonics for better quality
+        // Bass line - Professional with detuned oscillators for warmth
         if (Math.abs(beatInMeasure - 0) < 0.1) {
-          // Beat 1 - E2 (strong) - with harmonic enhancement
           const note = bassNotes[0];
           if (!isFinite(note) || note <= 0) return;
           
-          // Main bass oscillator - professional quality
-          const osc = ctx.createOscillator();
+          // Main bass with slight detuning for richness
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator(); // Detuned copy for warmth
           const gain = ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.value = note;
-          // Professional envelope: smooth attack, sustain, decay
-          gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.8, currentTime + 0.01); // Quick initial attack
-          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.025); // Smooth to full
-          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.35); // Sustain
-          gain.gain.linearRampToValueAtTime(bassGain * 0.6, currentTime + beatDuration * 0.7); // Gradual decay start
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.05); // Smooth fade
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(currentTime);
-          osc.stop(currentTime + beatDuration * 1.0);
-          oscillatorsRef.current.push(osc);
-          gainNodesRef.current.push(gain);
+          const filter = ctx.createBiquadFilter();
           
-          // Sub-bass layer for depth and professional fullness
+          osc1.type = 'triangle';
+          osc1.frequency.value = note;
+          osc2.type = 'triangle';
+          osc2.frequency.value = note * 1.003; // Slight detune for warmth
+          
+          filter.type = 'lowpass';
+          filter.frequency.value = 800; // Bass filter
+          filter.Q.value = 1.0;
+          
+          // Professional envelope with smooth curves
+          gain.gain.setValueAtTime(0, currentTime);
+          gain.gain.linearRampToValueAtTime(bassGain * 0.5, currentTime + 0.005);
+          gain.gain.exponentialRampToValueAtTime(bassGain, currentTime + 0.02);
+          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.4);
+          gain.gain.exponentialRampToValueAtTime(bassGain * 0.3, currentTime + beatDuration * 0.75);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
+          
+          osc1.connect(gain);
+          osc2.connect(gain);
+          gain.connect(filter);
+          filter.connect(lowPass);
+          
+          osc1.start(currentTime);
+          osc1.stop(currentTime + beatDuration * 1.0);
+          osc2.start(currentTime);
+          osc2.stop(currentTime + beatDuration * 1.0);
+          
+          oscillatorsRef.current.push(osc1, osc2);
+          gainNodesRef.current.push(gain);
+          filtersRef.current.push(filter);
+          
+          // Sub-bass foundation
           const subBass = ctx.createOscillator();
           const subGain = ctx.createGain();
+          const subFilter = ctx.createBiquadFilter();
+          
           subBass.type = 'sine';
           subBass.frequency.value = subBassNotes[0];
+          subFilter.type = 'lowpass';
+          subFilter.frequency.value = 120;
+          subFilter.Q.value = 0.5;
+          
           subGain.gain.setValueAtTime(0, currentTime);
-          subGain.gain.linearRampToValueAtTime(subBassGain, currentTime + 0.02);
-          subGain.gain.setValueAtTime(subBassGain, currentTime + beatDuration * 0.3);
-          subGain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.9);
+          subGain.gain.exponentialRampToValueAtTime(subBassGain, currentTime + 0.03);
+          subGain.gain.setValueAtTime(subBassGain, currentTime + beatDuration * 0.35);
+          subGain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.85);
+          
           subBass.connect(subGain);
-          subGain.connect(ctx.destination);
+          subGain.connect(subFilter);
+          subFilter.connect(lowPass);
+          
           subBass.start(currentTime);
-          subBass.stop(currentTime + beatDuration * 0.9);
+          subBass.stop(currentTime + beatDuration * 0.85);
           oscillatorsRef.current.push(subBass);
           gainNodesRef.current.push(subGain);
-          
-          // Subtle harmonic layer (octave above) for richness
-          const harmonic = ctx.createOscillator();
-          const harmonicGain = ctx.createGain();
-          harmonic.type = 'sine';
-          harmonic.frequency.value = note * 2;
-          harmonicGain.gain.setValueAtTime(0, currentTime);
-          harmonicGain.gain.linearRampToValueAtTime(bassGain * 0.12, currentTime + 0.025);
-          harmonicGain.gain.setValueAtTime(bassGain * 0.12, currentTime + beatDuration * 0.25);
-          harmonicGain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.75);
-          harmonic.connect(harmonicGain);
-          harmonicGain.connect(ctx.destination);
-          harmonic.start(currentTime);
-          harmonic.stop(currentTime + beatDuration * 0.75);
-          oscillatorsRef.current.push(harmonic);
-          gainNodesRef.current.push(harmonicGain);
+          filtersRef.current.push(subFilter);
           
         } else if (Math.abs(beatInMeasure - 1.5) < 0.1) {
-          // Beat 2.5 - B2 (accent)
           const note = bassNotes[1];
           if (!isFinite(note) || note <= 0) return;
           
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
+          const filter = ctx.createBiquadFilter();
+          
           osc.type = 'triangle';
           osc.frequency.value = note;
-          // Professional envelope
+          filter.type = 'lowpass';
+          filter.frequency.value = 800;
+          filter.Q.value = 1.0;
+          
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.85, currentTime + 0.012);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.025);
-          gain.gain.setValueAtTime(bassGain * 0.9, currentTime + beatDuration * 0.25);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.5, currentTime + beatDuration * 0.5);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.7);
+          gain.gain.exponentialRampToValueAtTime(bassGain * 0.85, currentTime + 0.015);
+          gain.gain.exponentialRampToValueAtTime(bassGain * 0.85, currentTime + beatDuration * 0.3);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.65);
+          
           osc.connect(gain);
-          gain.connect(ctx.destination);
+          gain.connect(filter);
+          filter.connect(lowPass);
+          
           osc.start(currentTime);
-          osc.stop(currentTime + beatDuration * 0.7);
+          osc.stop(currentTime + beatDuration * 0.65);
           oscillatorsRef.current.push(osc);
           gainNodesRef.current.push(gain);
+          filtersRef.current.push(filter);
+          
         } else if (Math.abs(beatInMeasure - 3) < 0.1) {
-          // Beat 4 - E3 (resolution)
           const note = bassNotes[2];
           if (!isFinite(note) || note <= 0) return;
           
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
+          const filter = ctx.createBiquadFilter();
+          
           osc.type = 'triangle';
           osc.frequency.value = note;
-          // Professional envelope with smooth resolution
+          filter.type = 'lowpass';
+          filter.frequency.value = 1000;
+          filter.Q.value = 1.0;
+          
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.8, currentTime + 0.01);
-          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.025);
-          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.3);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.7, currentTime + beatDuration * 0.6);
+          gain.gain.exponentialRampToValueAtTime(bassGain, currentTime + 0.015);
+          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.35);
+          gain.gain.exponentialRampToValueAtTime(bassGain * 0.4, currentTime + beatDuration * 0.7);
           gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.9);
+          
           osc.connect(gain);
-          gain.connect(ctx.destination);
+          gain.connect(filter);
+          filter.connect(lowPass);
+          
           osc.start(currentTime);
           osc.stop(currentTime + beatDuration * 0.9);
           oscillatorsRef.current.push(osc);
           gainNodesRef.current.push(gain);
+          filtersRef.current.push(filter);
         }
         
-        // Melody - Suspenseful but confident (plays on beats 2, 3.5)
+        // Melody - Professional with filters and smooth vibrato
         if (Math.abs(beatInMeasure - 1) < 0.15 || Math.abs(beatInMeasure - 2.5) < 0.15) {
-          // Calculate note index based on which beat we're on
           let noteIndex = 0;
           if (Math.abs(beatInMeasure - 1) < 0.15) {
-            // Beat 2 - use first melody note
             noteIndex = 0;
           } else if (Math.abs(beatInMeasure - 2.5) < 0.15) {
-            // Beat 3.5 - use second melody note, vary by measure
             noteIndex = (1 + measureNumber) % melodyNotes.length;
           }
           
           const note = melodyNotes[noteIndex];
+          if (!isFinite(note) || note <= 0) return;
           
-          // Validate note is finite before using
-          if (!isFinite(note) || note <= 0) {
-            console.warn('Invalid melody note:', note);
-            return;
-          }
-          
-          // Main melody oscillator - professional quality
-          const osc = ctx.createOscillator();
+          // Main melody with detuned layer for richness
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator();
           const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.value = note;
-          // Professional envelope: smooth attack, sustain, decay
-          gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(melodyGain * 0.6, currentTime + 0.03);
-          gain.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.06);
-          gain.gain.setValueAtTime(melodyGain, currentTime + beatDuration * 0.45);
-          gain.gain.linearRampToValueAtTime(melodyGain * 0.7, currentTime + beatDuration * 0.8);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.35);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(currentTime);
-          osc.stop(currentTime + beatDuration * 1.3);
-          oscillatorsRef.current.push(osc);
-          gainNodesRef.current.push(gain);
+          const filter = ctx.createBiquadFilter();
           
-          // Professional vibrato for warmth and character
+          osc1.type = 'sine';
+          osc1.frequency.value = note;
+          osc2.type = 'sine';
+          osc2.frequency.value = note * 1.002; // Very slight detune
+          
+          filter.type = 'lowpass';
+          filter.frequency.value = 5000;
+          filter.Q.value = 0.5; // Gentle rolloff
+          
+          gain.gain.setValueAtTime(0, currentTime);
+          gain.gain.exponentialRampToValueAtTime(melodyGain * 0.4, currentTime + 0.02);
+          gain.gain.exponentialRampToValueAtTime(melodyGain, currentTime + 0.08);
+          gain.gain.setValueAtTime(melodyGain, currentTime + beatDuration * 0.5);
+          gain.gain.exponentialRampToValueAtTime(melodyGain * 0.5, currentTime + beatDuration * 0.85);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.3);
+          
+          osc1.connect(gain);
+          osc2.connect(gain);
+          gain.connect(filter);
+          filter.connect(lowPass);
+          
+          osc1.start(currentTime);
+          osc1.stop(currentTime + beatDuration * 1.3);
+          osc2.start(currentTime);
+          osc2.stop(currentTime + beatDuration * 1.3);
+          
+          oscillatorsRef.current.push(osc1, osc2);
+          gainNodesRef.current.push(gain);
+          filtersRef.current.push(filter);
+          
+          // Smooth vibrato for character
           const vibrato = ctx.createOscillator();
           const vibratoGain = ctx.createGain();
           const vibratoDepth = ctx.createGain();
           vibrato.type = 'sine';
-          vibrato.frequency.value = 4.5; // Slightly slower for elegance
-          vibratoGain.gain.value = 1.5; // Subtle pitch variation
-          vibratoDepth.gain.value = 0.015; // Very small depth for professional sound
+          vibrato.frequency.value = 3.5; // Slower, more elegant
+          vibratoGain.gain.value = 1.0;
+          vibratoDepth.gain.value = 0.008; // Very subtle
           vibrato.connect(vibratoGain);
           vibratoGain.connect(vibratoDepth);
-          vibratoDepth.connect(osc.frequency);
+          vibratoDepth.connect(osc1.frequency);
+          vibratoDepth.connect(osc2.frequency);
           vibrato.start(currentTime);
           vibrato.stop(currentTime + beatDuration * 1.3);
           oscillatorsRef.current.push(vibrato);
           gainNodesRef.current.push(vibratoGain);
-          
-          // Subtle harmonic for richness (perfect fifth above)
-          const harmonic = ctx.createOscillator();
-          const harmonicGain = ctx.createGain();
-          harmonic.type = 'sine';
-          harmonic.frequency.value = note * 1.5; // Perfect fifth
-          harmonicGain.gain.setValueAtTime(0, currentTime);
-          harmonicGain.gain.linearRampToValueAtTime(melodyGain * 0.08, currentTime + 0.05);
-          harmonicGain.gain.setValueAtTime(melodyGain * 0.08, currentTime + beatDuration * 0.3);
-          harmonicGain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
-          harmonic.connect(harmonicGain);
-          harmonicGain.connect(ctx.destination);
-          harmonic.start(currentTime);
-          harmonic.stop(currentTime + beatDuration * 1.0);
-          oscillatorsRef.current.push(harmonic);
-          gainNodesRef.current.push(harmonicGain);
         }
         
-        // Harmony - Subtle suspense layer (plays on beat 2.5)
+        // Harmony - Subtle and smooth
         if (Math.abs(beatInMeasure - 2.5) < 0.2) {
           const noteIndex = measureNumber % harmonyNotes.length;
           const note = harmonyNotes[noteIndex];
-          
-          // Validate note is finite before using
-          if (!isFinite(note) || note <= 0) {
-            console.warn('Invalid harmony note:', note);
-            return;
-          }
+          if (!isFinite(note) || note <= 0) return;
           
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
+          const filter = ctx.createBiquadFilter();
+          
           osc.type = 'sine';
           osc.frequency.value = note;
-          // Professional envelope for harmony
+          filter.type = 'lowpass';
+          filter.frequency.value = 4000;
+          filter.Q.value = 0.5;
+          
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(harmonyGain * 0.7, currentTime + 0.05);
-          gain.gain.linearRampToValueAtTime(harmonyGain, currentTime + 0.08);
-          gain.gain.setValueAtTime(harmonyGain, currentTime + beatDuration * 0.4);
-          gain.gain.linearRampToValueAtTime(harmonyGain * 0.6, currentTime + beatDuration * 0.7);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.05);
+          gain.gain.exponentialRampToValueAtTime(harmonyGain * 0.5, currentTime + 0.04);
+          gain.gain.exponentialRampToValueAtTime(harmonyGain, currentTime + 0.1);
+          gain.gain.setValueAtTime(harmonyGain, currentTime + beatDuration * 0.45);
+          gain.gain.exponentialRampToValueAtTime(harmonyGain * 0.4, currentTime + beatDuration * 0.8);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
+          
           osc.connect(gain);
-          gain.connect(ctx.destination);
+          gain.connect(filter);
+          filter.connect(lowPass);
+          
           osc.start(currentTime);
           osc.stop(currentTime + beatDuration * 1.0);
           oscillatorsRef.current.push(osc);
           gainNodesRef.current.push(gain);
+          filtersRef.current.push(filter);
         }
         
         // Schedule next iteration
         if (isEnabledRef.current && audioContextRef.current) {
           scheduleIntervalRef.current = window.setTimeout(
             scheduleNext,
-            beatDuration * 1000 / 8 // Check 8 times per beat for precision
+            beatDuration * 1000 / 12 // Higher precision
           );
         }
       };
@@ -298,6 +349,26 @@ export default function AudioToggle(){
       try { gain.disconnect(); } catch (e) {}
     });
     gainNodesRef.current = [];
+    
+    filtersRef.current.forEach(filter => {
+      try { filter.disconnect(); } catch (e) {}
+    });
+    filtersRef.current = [];
+    
+    if (reverbConvolverRef.current) {
+      try { reverbConvolverRef.current.disconnect(); } catch (e) {}
+      reverbConvolverRef.current = null;
+    }
+    
+    if (lowPassFilterRef.current) {
+      try { lowPassFilterRef.current.disconnect(); } catch (e) {}
+      lowPassFilterRef.current = null;
+    }
+    
+    if (masterGainRef.current) {
+      try { masterGainRef.current.disconnect(); } catch (e) {}
+      masterGainRef.current = null;
+    }
     
     if (audioContextRef.current) {
       audioContextRef.current.close().catch(() => {});
