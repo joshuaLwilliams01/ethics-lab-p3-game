@@ -347,3 +347,29 @@ digest: "1500796236"
  ✓ Compiled in 613ms (785 modules)
  ✓ Compiled in 459ms (799 modules)
  ✓ Compiled in 864ms (799 modules)
+ ✓ Compiled in 471ms (799 modules)
+ ✓ Compiled /_error in 452ms (787 modules)
+ GET /sfx-suspense.mp3 416 in 496ms
+ ✓ Compiled in 621ms (785 modules)
+ ✓ Compiled in 193ms (785 modules)
+ ✓ Compiled in 266ms (785 modules)
+ ✓ Compiled in 953ms (799 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 697ms (801 modules)
+ ⨯ contexts/SoundContext.tsx (38:11) @ useSound
+ ⨯ Error: useSound must be used within a SoundProvider
+    at useSound (./contexts/SoundContext.tsx:42:15)
+    at AudioToggle (./components/AudioToggle.tsx:22:101)
+digest: "3421250340"
+[0m [90m 36 |[39m   [36mconst[39m context [33m=[39m useContext([33mSoundContext[39m)[33m;[39m[0m
+[0m [90m 37 |[39m   [36mif[39m (context [33m===[39m undefined) {[0m
+[0m[31m[1m>[22m[39m[90m 38 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'useSound must be used within a SoundProvider'[39m)[33m;[39m[0m
+[0m [90m    |[39m           [31m[1m^[22m[39m[0m
+[0m [90m 39 |[39m   }[0m
+[0m [90m 40 |[39m   [36mreturn[39m context[33m;[39m[0m
+[0m [90m 41 |[39m }[0m
+ GET / 500 in 397ms
+ ✓ Compiled in 809ms (802 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 198ms
+ ✓ Compiled in 398ms (802 modules)

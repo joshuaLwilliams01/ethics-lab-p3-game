@@ -20,10 +20,23 @@ function getAudioContext(): AudioContext | null {
 }
 
 /**
+ * Check if sound is enabled by reading from localStorage
+ */
+function isSoundEnabled(): boolean {
+  if (typeof window === 'undefined') return false;
+  const saved = localStorage.getItem('soundEnabled');
+  return saved === 'true';
+}
+
+/**
  * Play an enticing, satisfying button click sound effect
  * Enhanced with musical chime and layered tones
+ * Only plays if sound is enabled
  */
 export function playButtonClick() {
+  // Check if sound is enabled
+  if (!isSoundEnabled()) return;
+  
   const ctx = getAudioContext();
   if (!ctx) return;
   
@@ -101,8 +114,12 @@ export function playButtonClick() {
 
 /**
  * Play a success/confirmation sound
+ * Only plays if sound is enabled
  */
 export function playSuccess() {
+  // Check if sound is enabled
+  if (!isSoundEnabled()) return;
+  
   const ctx = getAudioContext();
   if (!ctx) return;
   

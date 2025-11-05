@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
 import { playButtonClick } from "@/lib/sounds";
+import { useSound } from "@/contexts/SoundContext";
 
 export default function AudioToggle(){
   const audioRef = useRef<HTMLAudioElement|null>(null);
@@ -9,7 +10,7 @@ export default function AudioToggle(){
   const gainNodesRef = useRef<GainNode[]>([]);
   const scheduleIntervalRef = useRef<number|null>(null);
   const startTimeRef = useRef<number>(0);
-  const [enabled, setEnabled] = useState(false);
+  const { enabled, setEnabled } = useSound();
   const [usingFallback, setUsingFallback] = useState(false);
 
   // Generate James Bond-inspired suspense theme using Web Audio API
@@ -250,8 +251,11 @@ export default function AudioToggle(){
       </div>
       <button 
         onClick={() => {
-          playButtonClick();
-          setEnabled(v=>!v);
+          // Play sound before toggling (so it plays when turning on)
+          if (!enabled) {
+            playButtonClick();
+          }
+          setEnabled(!enabled);
         }} 
         className={`text-xs transition-all duration-300 hover:scale-105 ${
           enabled 
