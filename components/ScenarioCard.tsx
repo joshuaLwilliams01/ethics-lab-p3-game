@@ -48,22 +48,23 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
         />
       </button>
       {isOpen && (
-        <div className="mt-3 text-sm text-gray-700 card border-2 border-[#8C1515] bg-gradient-to-br from-white to-[#F7F6F3] shadow-lg">
-          <div>
-            <strong className="text-[#8C1515]">Stanford Ethics Toolkit Cue(s):</strong> <span className="text-[#2E2D29]">{scenario.toolkit_cues}</span>
+        <div className="mt-3 text-base card border-2 border-[#8C1515] bg-gradient-to-br from-white to-[#F7F6F3] shadow-lg p-4">
+          <div className="mb-4">
+            <strong className="text-[#8C1515] text-base font-bold">Stanford Ethics Toolkit Cue(s):</strong>{' '}
+            <span className="text-[#1F2937] font-semibold text-base">{scenario.toolkit_cues}</span>
           </div>
           {scenario.toolkit_references && (
-            <div className="mt-3 p-3 bg-white/50 rounded border border-[#8C1515]/20">
-              <strong className="text-[#8C1515]">Stanford Ethics Toolkit Reference(s):</strong>{' '}
+            <div className="mt-3 p-4 bg-white/70 rounded border border-[#8C1515]/30">
+              <strong className="text-[#8C1515] text-base font-bold">Stanford Ethics Toolkit Reference(s):</strong>{' '}
               <a
                 href="https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8C1515] hover:text-[#820f0f] underline text-xs font-medium"
+                className="text-[#8C1515] hover:text-[#820f0f] underline text-sm font-semibold"
               >
                 https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit
               </a>
-              <ol className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#2E2D29] font-medium list-decimal list-inside">
+              <ol className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-base text-[#1F2937] font-semibold list-decimal list-inside">
                 {scenario.toolkit_references.split(',').map((ref, idx) => {
                   const trimmedRef = ref.trim();
                   return (
@@ -75,8 +76,9 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
               </ol>
             </div>
           )}
-          <div className="mt-3 p-3 bg-white/50 rounded border border-[#8C1515]/20">
-            <strong className="text-[#8C1515]">People + Planet + Parity Cues:</strong> <span className="text-[#2E2D29]">{scenario.p3_cues}</span>
+          <div className="mt-3 p-4 bg-white/70 rounded border border-[#8C1515]/30">
+            <strong className="text-[#8C1515] text-base font-bold">People + Planet + Parity Cues:</strong>{' '}
+            <span className="text-[#1F2937] font-semibold text-base">{scenario.p3_cues}</span>
           </div>
         </div>
       )}

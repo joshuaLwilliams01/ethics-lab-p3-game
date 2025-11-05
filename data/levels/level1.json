@@ -11,7 +11,7 @@
         "B": "Immediate shutdown; emergency public notice; seek mutual aid compute.",
         "C": "Keep running, but divert a portion of savings to remediation funds."
       },
-      "toolkit_cues": "Which duties are inviolable? What counts as acceptable interim harm?",
+      "toolkit_cues": "Which duties are unchangeable? What counts as acceptable interim harm?",
       "p3_cues": "People (coercion), Planet (datacenter energy mix), Parity (who suffers outages).",
       "toolkit_flow": {
         "order": [],
