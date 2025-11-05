@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import HowToPlay from "@/components/HowToPlay";
+import HowToPlayModal from "@/components/HowToPlayModal";
 import AudioToggle from "@/components/AudioToggle";
 import { useState } from "react";
 
@@ -101,12 +101,8 @@ export default function Home(){
                 </div>
               </div>
 
-      {/* How to Play Section - Expandable */}
-      {showHowToPlay && (
-        <div className="w-full max-w-3xl card mb-8 transition-all duration-300 ease-in-out">
-          <HowToPlay />
-        </div>
-      )}
+      {/* How to Play Modal */}
+      <HowToPlayModal isOpen={showHowToPlay} onClose={() => setShowHowToPlay(false)} />
 
       {/* Disclaimer */}
       <div className="text-center text-xs text-[#53565A] max-w-2xl">
