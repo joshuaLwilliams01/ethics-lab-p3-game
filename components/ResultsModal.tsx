@@ -30,16 +30,16 @@ export default function ResultsModal({
     };
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      // Scroll both container and modal to top when opening
-      // Use requestAnimationFrame to ensure DOM is ready
-      requestAnimationFrame(() => {
+      // Scroll container to top when opening to ensure header is visible
+      // Use setTimeout to ensure DOM is fully rendered
+      setTimeout(() => {
         if (containerRef.current) {
-          containerRef.current.scrollTop = 0;
+          containerRef.current.scrollTo({ top: 0, behavior: 'instant' });
         }
         if (modalRef.current) {
-          modalRef.current.scrollTop = 0;
+          modalRef.current.scrollTo({ top: 0, behavior: 'instant' });
         }
-      });
+      }, 0);
     }
     return () => {
       document.removeEventListener('keydown', handleEscape);
@@ -61,7 +61,7 @@ export default function ResultsModal({
       <div
         ref={containerRef}
         className="fixed inset-0 z-50 flex items-start justify-center p-4 pointer-events-none overflow-y-auto"
-        style={{ paddingTop: '2rem', paddingBottom: '2rem' }}
+        style={{ paddingTop: '1rem', paddingBottom: '1rem' }}
       >
         <div
           ref={modalRef}
@@ -69,7 +69,8 @@ export default function ResultsModal({
           onClick={(e) => e.stopPropagation()}
           style={{ 
             animation: 'modal-slide-in 0.3s ease-out',
-            maxHeight: 'calc(100vh - 4rem)'
+            maxHeight: 'calc(100vh - 2rem)',
+            marginTop: '0'
           }}
         >
           {/* Header with gradient - always at top */}
