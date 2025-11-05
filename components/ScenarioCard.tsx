@@ -21,7 +21,7 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
             : 'linear-gradient(135deg, rgba(140,21,21,0.1) 0%, rgba(196,30,58,0.1) 100%)',
           border: '2px solid #8C1515',
           color: isOpen ? '#FFFFFF' : '#8C1515',
-          animation: 'shake 0.5s ease-in-out infinite',
+          animation: 'shake 2s ease-in-out infinite',
           boxShadow: isOpen 
             ? '0 8px 16px rgba(140,21,21,0.4), 0 0 20px rgba(140,21,21,0.3)' 
             : '0 4px 8px rgba(140,21,21,0.2)'
