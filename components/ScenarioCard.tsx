@@ -91,7 +91,44 @@ export default function ScenarioCard({
             </span>
           )}
         </div>
-        <div className="mt-1"><strong>People + Planet + Parity Cues:</strong> {scenario.p3_cues}</div>
+        {scenario.toolkit_flow.order.length > 0 && (
+          <div className="mt-2">
+            <strong>Stanford Ethics Toolkit Reference(s):</strong>
+            <div className="mt-1 flex flex-wrap gap-2">
+              {scenario.toolkit_flow.order.map(t => {
+                const names: Record<string, string> = {
+                  'T1': 'Impacts Explorer',
+                  'T2': 'Values Clarifier',
+                  'T3': 'Risks Anticipator',
+                  'T4': 'Alternatives Generator',
+                  'T5': 'Accountability Builder'
+                };
+                const toolName = names[t] || t;
+                return (
+                  <a
+                    key={t}
+                    href="https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#8C1515] hover:text-[#820f0f] underline text-xs"
+                  >
+                    {toolName}
+                  </a>
+                );
+              })}
+              <span className="text-gray-500">|</span>
+              <a
+                href="https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8C1515] hover:text-[#820f0f] underline text-xs font-medium"
+              >
+                Ethics Toolkit Website
+              </a>
+            </div>
+          </div>
+        )}
+        <div className="mt-2"><strong>People + Planet + Parity Cues:</strong> {scenario.p3_cues}</div>
       </div>
 
       <ToolkitCard flow={scenario.toolkit_flow} choice={choice} onComplete={setToolkit} />
