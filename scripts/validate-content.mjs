@@ -14,6 +14,7 @@ const scenarioSchema = z.object({
   prompt: z.string(),
   choices: z.object({ A: z.string(), B: z.string(), C: z.string() }),
   toolkit_cues: z.string().optional(),
+  toolkit_references: z.string().optional(),
   p3_cues: z.string().optional(),
   toolkit_flow: z.object({
     order: z.array(z.enum(["T1","T2","T3","T4","T5"])),
