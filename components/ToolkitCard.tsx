@@ -66,8 +66,8 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
       ))}
       {actions.length > 0 && (
         <div>
-          <div className="font-bold text-base text-[#1F2937] mb-2">Quick actions{choice ? ` (for choice ${choice})` : ''}</div>
-          <p className="text-sm text-gray-600 mb-3 font-medium">All quick actions must be selected to proceed.</p>
+          <div className="font-bold text-base text-[#1F2937] mb-2">Potential Action Steps{choice ? ` (for choice ${choice})` : ''}</div>
+          <p className="text-sm text-gray-600 mb-3 font-medium">All potential action steps must be selected to proceed.</p>
           {actions.map((a, i) => (
             <label key={i} className="flex items-start gap-3 mb-2 cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
               <input 
@@ -78,7 +78,7 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
                   next[i] = e.target.checked; 
                   setChecks(next); 
                 }} 
-                aria-label={`Quick action ${i+1}`}
+                aria-label={`Potential action step ${i+1}`}
                 className="mt-1 flex-shrink-0"
               />
               <span className="text-base font-semibold text-[#1F2937] leading-relaxed">{a}</span>

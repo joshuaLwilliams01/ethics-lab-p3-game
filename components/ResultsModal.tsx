@@ -47,15 +47,15 @@ export default function ResultsModal({
       
       {/* Modal */}
       <div
-        className="fixed inset-0 z-50 flex items-start justify-center pt-8 pb-8 px-4 pointer-events-none overflow-y-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
       >
         <div
-          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[calc(100vh-4rem)] overflow-hidden relative border-2 border-[#8C1515] pointer-events-auto my-auto"
+          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col relative border-2 border-[#8C1515] pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
           style={{ animation: 'modal-slide-in 0.3s ease-out' }}
         >
-          {/* Header with gradient - sticky so it's always visible */}
-          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-6 rounded-t-lg sticky top-0 z-10">
+          {/* Header with gradient - always visible */}
+          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-6 rounded-t-lg flex-shrink-0">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-white flex items-center gap-3">
                 <span className="text-4xl">🎯</span>
@@ -78,7 +78,7 @@ export default function ResultsModal({
           </div>
 
           {/* Content - scrollable */}
-          <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-16rem)]">
+          <div className="p-6 space-y-6 overflow-y-auto flex-1 min-h-0">
             {/* Summary */}
             <div className="bg-gradient-to-r from-[#8C1515]/10 to-[#175E54]/10 p-5 rounded-lg border-l-4 border-[#8C1515]">
               <p className="text-[#1F2937] text-base font-semibold leading-relaxed">{results.summary}</p>
