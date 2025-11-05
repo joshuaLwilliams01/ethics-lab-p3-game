@@ -51,6 +51,26 @@ export default function Home(){
         <AudioToggle />
       </div>
 
+      {/* How to Play & Start Button - Enhanced */}
+      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
+        <button 
+          onClick={() => setShowHowToPlay(!showHowToPlay)}
+          className="btn-ghost px-6 py-3 text-base font-semibold relative overflow-hidden group"
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-xl">📖</span>
+            <span>HOW TO PLAY</span>
+          </span>
+        </button>
+        <Link href="/play/individual/1" className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group">
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-xl" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>🎮</span>
+            <span>START YOUR JOURNEY</span>
+            <span className="text-lg">→</span>
+          </span>
+        </Link>
+      </div>
+
       {/* Level Selection - Enhanced with animations */}
       <div className="mb-8 w-full max-w-4xl">
         <div className="text-center mb-6">
@@ -87,26 +107,6 @@ export default function Home(){
                   ))}
                 </div>
               </div>
-
-      {/* How to Play & Start Button - Enhanced */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
-        <button 
-          onClick={() => setShowHowToPlay(!showHowToPlay)}
-          className="btn-ghost px-6 py-3 text-base font-semibold relative overflow-hidden group"
-        >
-          <span className="relative z-10 flex items-center gap-2">
-            <span className="text-xl">📖</span>
-            <span>HOW TO PLAY</span>
-          </span>
-        </button>
-        <Link href="/play/individual/1" className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group">
-          <span className="relative z-10 flex items-center gap-2">
-            <span className="text-xl" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>🎮</span>
-            <span>START YOUR JOURNEY</span>
-            <span className="text-lg">→</span>
-          </span>
-        </Link>
-      </div>
 
       {/* How to Play Section - Expandable */}
       {showHowToPlay && (
