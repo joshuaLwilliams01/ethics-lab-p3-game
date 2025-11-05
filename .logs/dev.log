@@ -2693,3 +2693,7 @@ digest: "2094012415"
  GET /stanford-logo.jpg 404 in 547ms
  ✓ Compiled in 653ms (1157 modules)
  ✓ Compiled in 864ms (1157 modules)
+ ✓ Compiled in 1377ms (1157 modules)
+ GET / 200 in 192ms
+ GET / 200 in 911ms
+ ✓ Compiled in 1123ms (1154 modules)

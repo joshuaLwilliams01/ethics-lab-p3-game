@@ -21,7 +21,7 @@ export default function Home(){
           DECISIONS SANDBOX
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#8C1515] to-transparent"></div>
         </h2>
-        <div className="text-base md:text-lg max-w-3xl mx-auto text-[#53565A] mb-8 leading-relaxed text-left">
+        <div className="text-base md:text-lg max-w-3xl mx-auto text-[#53565A] mb-8 leading-relaxed text-center">
           <p>
             The Ethics-Tech-Policy Decisions Sandbox, created by{' '}
             <a 
