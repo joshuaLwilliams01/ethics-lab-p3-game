@@ -382,3 +382,8 @@ digest: "3421250340"
  ✓ Compiled in 1078ms (802 modules)
  ✓ Compiled in 686ms (802 modules)
  ✓ Compiled in 753ms (802 modules)
+ ✓ Compiled in 562ms (802 modules)
+ GET / 200 in 180ms
+ ✓ Compiled /_error in 417ms (790 modules)
+ GET /sfx-suspense.mp3 416 in 477ms
+ ✓ Compiled in 835ms (802 modules)
