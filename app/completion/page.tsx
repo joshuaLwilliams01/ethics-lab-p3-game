@@ -246,10 +246,32 @@ function CompletionPageContent() {
       // Save PDF and auto-download it
       const pdfBytes = await pdf.save();
       const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const fileName = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+      
+      // Try using Web Share API with file if supported (for mobile/native apps)
+      if (navigator.share && navigator.canShare) {
+        const file = new File([pdfBlob], fileName, { type: 'application/pdf' });
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              title: 'Ethics-Tech-Policy Decisions Sandbox Certificate',
+              text: `I just completed all 7 levels of the Ethics-Tech-Policy Decisions Sandbox! Check out my certificate of completion.`,
+              files: [file]
+            });
+            setIsGenerating(false);
+            return;
+          } catch (shareError) {
+            // If share fails or user cancels, fall through to download + LinkedIn
+            console.log('Web Share API not available, falling back to download');
+          }
+        }
+      }
+      
+      // Fallback: Auto-download certificate and open LinkedIn
       const pdfUrl = URL.createObjectURL(pdfBlob);
       const pdfLink = document.createElement('a');
       pdfLink.href = pdfUrl;
-      pdfLink.download = `ethics-sandbox-certificate-${playerName.trim().replace(/\s+/g, '-').toLowerCase()}.pdf`;
+      pdfLink.download = fileName;
       pdfLink.click();
       URL.revokeObjectURL(pdfUrl);
       
