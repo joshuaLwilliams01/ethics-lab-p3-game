@@ -47,14 +47,14 @@ export default function ResultsModal({
       {/* Modal */}
       <div
         className="fixed inset-0 z-50 flex items-start justify-center px-4 pointer-events-none overflow-y-auto"
-        style={{ paddingTop: '4rem', paddingBottom: '2rem' }}
+        style={{ paddingTop: '5rem', paddingBottom: '2rem' }}
       >
         <div
           className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-2xl w-full flex flex-col relative border-2 border-[#8C1515] pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
           style={{ 
             animation: 'modal-slide-in 0.3s ease-out',
-            maxHeight: 'calc(100vh - 6rem)',
+            maxHeight: 'calc(100vh - 7rem)',
             marginTop: '0',
             marginBottom: '2rem'
           }}
