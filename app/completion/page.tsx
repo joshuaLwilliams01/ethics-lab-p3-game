@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { playButtonClick } from '@/lib/sounds';
 import { checkAllLevelsCompleted, getCompletionStats } from '@/lib/completion';
 
@@ -10,21 +11,30 @@ export default function CompletionPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
   const [stats, setStats] = useState({ completedLevels: [], totalLevels: 7, percentage: 0 });
+  const searchParams = useSearchParams();
+  const isTestMode = searchParams?.get('test') === 'true';
 
   useEffect(() => {
     const completed = checkAllLevelsCompleted();
     const completionStats = getCompletionStats();
     setStats(completionStats);
-    setHasAccess(completed);
     
-    // If not completed, redirect after 3 seconds
-    if (!completed) {
+    // Allow access in test mode or if completed
+    if (isTestMode || completed) {
+      setHasAccess(true);
+      // In test mode, set stats to 100% for display
+      if (isTestMode) {
+        setStats({ completedLevels: [1, 2, 3, 4, 5, 6, 7], totalLevels: 7, percentage: 100 });
+      }
+    } else {
+      setHasAccess(false);
+      // If not completed and not in test mode, redirect after 3 seconds
       const timer = setTimeout(() => {
         window.location.href = '/';
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [isTestMode]);
 
   const generateCertificate = async () => {
     if (!playerName.trim()) {
@@ -112,9 +122,17 @@ export default function CompletionPage() {
           <h1 className="text-3xl font-bold text-[#8C1515]">Access Restricted</h1>
           <p className="text-lg text-gray-600">You must complete all 7 levels to access this page.</p>
           <p className="text-sm text-gray-500">Redirecting to homepage...</p>
-          <Link href="/" className="btn px-6 py-3 text-base font-semibold inline-block">
-            Go Home
-          </Link>
+          <div className="space-y-2">
+            <Link href="/" className="btn px-6 py-3 text-base font-semibold inline-block">
+              Go Home
+            </Link>
+            <div className="mt-4 pt-4 border-t border-gray-300">
+              <p className="text-xs text-gray-500 mb-2">Test Mode (for review):</p>
+              <Link href="/completion?test=true" className="text-sm text-[#8C1515] hover:underline">
+                View Completion Page in Test Mode
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -136,7 +154,14 @@ export default function CompletionPage() {
         </div>
 
         {/* Main Card */}
-        <div className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl border-4 border-[#8C1515] p-8 md:p-12 space-y-8">
+        <div className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl border-4 border-[#8C1515] p-8 md:p-12 space-y-8 relative">
+          {/* Test Mode Banner */}
+          {isTestMode && (
+            <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+              🧪 TEST MODE
+            </div>
+          )}
+          
           {/* Stats */}
           <div className="text-center">
             <div className="inline-block bg-gradient-to-r from-[#8C1515] to-[#175E54] text-white px-6 py-3 rounded-full">
