@@ -8,13 +8,13 @@ The application uses a spy/detective-themed background music from Pixabay.
 
 1. Visit: https://pixabay.com/music/cartoons-spy-detective-background-suspenseful-investigation-full-412906/
 2. Click the download button to download the audio file
-3. Save the file as `spy-detective-suspense.mp3` in the `/public` folder
-4. The file should be located at: `/public/spy-detective-suspense.mp3`
+3. Save the file as `spy-detective-background-suspenseful-investigation-full-412906.mp3` in the `/public` folder
+4. The file should be located at: `/public/spy-detective-background-suspenseful-investigation-full-412906.mp3`
 
 ### File Format
 
 - **Format**: MP3
-- **Location**: `/public/spy-detective-suspense.mp3`
+- **Location**: `/public/spy-detective-background-suspenseful-investigation-full-412906.mp3`
 - **Usage**: Loops continuously when sound is enabled
 
 ### Fallback
