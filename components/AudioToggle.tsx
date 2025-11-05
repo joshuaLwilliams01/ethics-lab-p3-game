@@ -54,10 +54,13 @@ export default function AudioToggle(){
         // Bass line - Strong confident pulse on beats 1, 2.5, 4
         if (Math.abs(beatInMeasure - 0) < 0.1) {
           // Beat 1 - E2 (strong)
+          const note = bassNotes[0];
+          if (!isFinite(note) || note <= 0) return;
+          
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
-          osc.frequency.value = bassNotes[0];
+          osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
           gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2);
@@ -69,10 +72,13 @@ export default function AudioToggle(){
           gainNodesRef.current.push(gain);
         } else if (Math.abs(beatInMeasure - 1.5) < 0.1) {
           // Beat 2.5 - B2 (accent)
+          const note = bassNotes[1];
+          if (!isFinite(note) || note <= 0) return;
+          
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
-          osc.frequency.value = bassNotes[1];
+          osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
           gain.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.8);
@@ -84,10 +90,13 @@ export default function AudioToggle(){
           gainNodesRef.current.push(gain);
         } else if (Math.abs(beatInMeasure - 3) < 0.1) {
           // Beat 4 - E3 (resolution)
+          const note = bassNotes[2];
+          if (!isFinite(note) || note <= 0) return;
+          
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
-          osc.frequency.value = bassNotes[2];
+          osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
           gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
@@ -101,8 +110,23 @@ export default function AudioToggle(){
         
         // Melody - Suspenseful but confident (plays on beats 2, 3.5)
         if (Math.abs(beatInMeasure - 1) < 0.15 || Math.abs(beatInMeasure - 2.5) < 0.15) {
-          const noteIndex = Math.floor((beatInMeasure - 1) / 1.5) % melodyNotes.length;
+          // Calculate note index based on which beat we're on
+          let noteIndex = 0;
+          if (Math.abs(beatInMeasure - 1) < 0.15) {
+            // Beat 2 - use first melody note
+            noteIndex = 0;
+          } else if (Math.abs(beatInMeasure - 2.5) < 0.15) {
+            // Beat 3.5 - use second melody note, vary by measure
+            noteIndex = (1 + measureNumber) % melodyNotes.length;
+          }
+          
           const note = melodyNotes[noteIndex];
+          
+          // Validate note is finite before using
+          if (!isFinite(note) || note <= 0) {
+            console.warn('Invalid melody note:', note);
+            return;
+          }
           
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
@@ -121,8 +145,14 @@ export default function AudioToggle(){
         
         // Harmony - Subtle suspense layer (plays on beat 2.5)
         if (Math.abs(beatInMeasure - 2.5) < 0.2) {
-          const noteIndex = Math.floor(measureNumber) % harmonyNotes.length;
+          const noteIndex = measureNumber % harmonyNotes.length;
           const note = harmonyNotes[noteIndex];
+          
+          // Validate note is finite before using
+          if (!isFinite(note) || note <= 0) {
+            console.warn('Invalid harmony note:', note);
+            return;
+          }
           
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
