@@ -84,7 +84,7 @@ export default function Home(){
                     <Link
                       key={level}
                       href={`/play/individual/${level}`}
-                      className={`level-card card text-center p-6 bg-gradient-to-br ${color} border-2 hover:border-[#8C1515] relative overflow-hidden`}
+                      className={`level-card card text-center p-6 bg-gradient-to-br ${color} border-2 hover:border-[#8C1515] relative overflow-hidden ${level === 7 ? 'lg:col-start-2' : ''}`}
                       style={{ 
                         boxShadow: `0 4px 12px ${accent}, 0 0 0 1px rgba(140,21,21,0.1)`
                       }}
