@@ -25,11 +25,11 @@ export default function AudioToggle(){
       audioContextRef.current = ctx;
       startTimeRef.current = ctx.currentTime;
       
-      // Mid-tempo: 110 BPM = ~0.545s per beat (confident, walking pace)
-      const beatDuration = 0.545;
-      const bassGain = 0.18; // Strong bass for confident pulse
-      const melodyGain = 0.12; // Clear melody
-      const harmonyGain = 0.08; // Subtle harmony
+      // Mid-tempo: 113 BPM = ~0.531s per beat (confident, walking pace - increased by 3 BPM)
+      const beatDuration = 0.531;
+      const bassGain = 0.20; // Increased for richer bass
+      const melodyGain = 0.14; // Increased for clearer melody
+      const harmonyGain = 0.10; // Increased for better depth
       
       // James Bond/Mission Impossible inspired notes
       // Bass: Strong pulsing E2, B2, E3 pattern
@@ -52,24 +52,43 @@ export default function AudioToggle(){
         const measureNumber = Math.floor(patternTime / measureDuration) % 2;
         
         // Bass line - Strong confident pulse on beats 1, 2.5, 4
+        // Enhanced with richer harmonics for better quality
         if (Math.abs(beatInMeasure - 0) < 0.1) {
-          // Beat 1 - E2 (strong)
+          // Beat 1 - E2 (strong) - with harmonic enhancement
           const note = bassNotes[0];
           if (!isFinite(note) || note <= 0) return;
           
+          // Main bass oscillator
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
           osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2);
+          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.015); // Faster attack
+          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.3); // Sustain
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.1); // Smoother decay
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(currentTime);
           osc.stop(currentTime + beatDuration * 1.0);
           oscillatorsRef.current.push(osc);
           gainNodesRef.current.push(gain);
+          
+          // Subtle harmonic layer (octave above) for richness
+          const harmonic = ctx.createOscillator();
+          const harmonicGain = ctx.createGain();
+          harmonic.type = 'sine';
+          harmonic.frequency.value = note * 2;
+          harmonicGain.gain.setValueAtTime(0, currentTime);
+          harmonicGain.gain.linearRampToValueAtTime(bassGain * 0.15, currentTime + 0.02);
+          harmonicGain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.8);
+          harmonic.connect(harmonicGain);
+          harmonicGain.connect(ctx.destination);
+          harmonic.start(currentTime);
+          harmonic.stop(currentTime + beatDuration * 0.8);
+          oscillatorsRef.current.push(harmonic);
+          gainNodesRef.current.push(harmonicGain);
+          
         } else if (Math.abs(beatInMeasure - 1.5) < 0.1) {
           // Beat 2.5 - B2 (accent)
           const note = bassNotes[1];
@@ -80,8 +99,9 @@ export default function AudioToggle(){
           osc.type = 'triangle';
           osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.02);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.8);
+          gain.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.015);
+          gain.gain.setValueAtTime(bassGain * 0.9, currentTime + beatDuration * 0.2);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.75);
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(currentTime);
@@ -98,8 +118,9 @@ export default function AudioToggle(){
           osc.type = 'triangle';
           osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
+          gain.gain.linearRampToValueAtTime(bassGain, currentTime + 0.015);
+          gain.gain.setValueAtTime(bassGain, currentTime + beatDuration * 0.25);
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.95);
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(currentTime);
@@ -128,19 +149,37 @@ export default function AudioToggle(){
             return;
           }
           
+          // Main melody oscillator
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'sine';
           osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.05);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.5);
+          gain.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.04); // Slightly faster attack
+          gain.gain.setValueAtTime(melodyGain, currentTime + beatDuration * 0.4); // Sustain phase
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.4); // Smoother decay
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(currentTime);
           osc.stop(currentTime + beatDuration * 1.3);
           oscillatorsRef.current.push(osc);
           gainNodesRef.current.push(gain);
+          
+          // Subtle vibrato for warmth (very gentle)
+          const vibrato = ctx.createOscillator();
+          const vibratoGain = ctx.createGain();
+          const vibratoDepth = ctx.createGain();
+          vibrato.type = 'sine';
+          vibrato.frequency.value = 5; // 5 Hz vibrato
+          vibratoGain.gain.value = 2; // Very subtle pitch variation
+          vibratoDepth.gain.value = 0.02; // Small depth
+          vibrato.connect(vibratoGain);
+          vibratoGain.connect(vibratoDepth);
+          vibratoDepth.connect(osc.frequency);
+          vibrato.start(currentTime);
+          vibrato.stop(currentTime + beatDuration * 1.3);
+          oscillatorsRef.current.push(vibrato);
+          gainNodesRef.current.push(vibratoGain);
         }
         
         // Harmony - Subtle suspense layer (plays on beat 2.5)
@@ -159,8 +198,9 @@ export default function AudioToggle(){
           osc.type = 'sine';
           osc.frequency.value = note;
           gain.gain.setValueAtTime(0, currentTime);
-          gain.gain.linearRampToValueAtTime(harmonyGain, currentTime + 0.08);
-          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2);
+          gain.gain.linearRampToValueAtTime(harmonyGain, currentTime + 0.06); // Faster attack
+          gain.gain.setValueAtTime(harmonyGain, currentTime + beatDuration * 0.35); // Sustain
+          gain.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.1); // Smoother decay
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start(currentTime);
