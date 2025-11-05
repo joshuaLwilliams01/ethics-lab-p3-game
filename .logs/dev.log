@@ -1934,3 +1934,7 @@ digest: "3421250340"
  GET /play/individual/1 200 in 254ms
  ✓ Compiled in 1592ms (802 modules)
  ✓ Compiled in 497ms (802 modules)
+ ✓ Compiled in 601ms (802 modules)
+ GET / 200 in 1107ms
+ ✓ Compiled in 573ms (802 modules)
+ ✓ Compiled in 479ms (802 modules)
