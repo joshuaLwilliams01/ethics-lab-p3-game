@@ -55,7 +55,7 @@ export default function Home(){
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
         <button 
           onClick={() => setShowHowToPlay(!showHowToPlay)}
-          className="btn-ghost px-6 py-3 text-base font-semibold relative overflow-hidden group"
+          className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group"
         >
           <span className="relative z-10 flex items-center gap-2">
             <span className="text-xl">📖</span>
