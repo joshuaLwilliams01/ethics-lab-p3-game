@@ -1,12 +1,12 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { playButtonClick } from '@/lib/sounds';
 import { checkAllLevelsCompleted, getCompletionStats } from '@/lib/completion';
 
-export default function CompletionPage() {
+function CompletionPageContent() {
   const [playerName, setPlayerName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
@@ -254,6 +254,21 @@ export default function CompletionPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function CompletionPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin text-4xl mb-4">⏳</div>
+          <p className="text-lg text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CompletionPageContent />
+    </Suspense>
   );
 }
 
