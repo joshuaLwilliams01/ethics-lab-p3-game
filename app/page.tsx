@@ -1,6 +1,7 @@
 'use client';
 import Link from "next/link";
 import HowToPlayModal from "@/components/HowToPlayModal";
+import EthicsBrainIcon from "@/components/EthicsBrainIcon";
 import { useState } from "react";
 import { playButtonClick } from "@/lib/sounds";
 
@@ -12,11 +13,7 @@ export default function Home(){
       {/* Main Title - Enhanced */}
       <div className="text-center mb-8 relative">
         <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-20" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>
-          <img 
-            src="/stanford-logo.jpg" 
-            alt="Stanford University" 
-            className="h-24 w-24 object-contain"
-          />
+          <EthicsBrainIcon className="w-24 h-24" />
         </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-[#8C1515] tracking-tight relative inline-block">
           <span className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] bg-clip-text text-transparent" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>

@@ -20,15 +20,6 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
                   src="/stanford-logo.jpg" 
                   alt="Stanford University" 
                   className="stanford-logo h-8 w-8 object-contain"
-                  onError={(e) => {
-                    // Fallback to emoji if logo file not found
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const fallback = document.createElement('span');
-                    fallback.className = 'text-2xl stanford-tree';
-                    fallback.textContent = '🌲';
-                    target.parentNode?.insertBefore(fallback, target);
-                  }}
                 />
                 <span className="group-hover:underline">Ethics-Tech-Policy Decisions Sandbox</span>
               </Link>
