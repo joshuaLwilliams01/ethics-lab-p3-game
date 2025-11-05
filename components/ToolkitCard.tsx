@@ -20,11 +20,15 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
   const [answers, setAnswers] = useState<string[]>(() => flow.prompts.map(()=>''));
   const [checks, setChecks] = useState<boolean[]>(() => actions.map(() => false));
 
-  // Reset all state when flow prompts/actions change or when actions array changes
+  // Reset checks when actions change (due to choice change or flow change)
+  useEffect(() => {
+    setChecks(actions.map(() => false));
+  }, [actions.length, actions.join(',')]);
+
+  // Reset answers when prompts change
   useEffect(() => {
     setAnswers(flow.prompts.map(() => ''));
-    setChecks(actions.map(() => false));
-  }, [flow.prompts.length, actions.length, JSON.stringify(flow.prompts), JSON.stringify(actions)]);
+  }, [flow.prompts.length, flow.prompts.join(',')]);
 
   useEffect(() => {
     // Check if prompts are complete
@@ -34,14 +38,14 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
     
     // Check if actions are complete
     const noActions = actions.length === 0;
-    const allActionsChecked = checks.length === actions.length && checks.every(c => c === true);
+    const allActionsChecked = checks.length === actions.length && checks.length > 0 && checks.every(c => c === true);
     const actionsComplete = noActions || allActionsChecked;
     
     const isComplete = promptsComplete && actionsComplete;
     
     // Always call onComplete to update parent state
     onComplete({ prompts:answers, actions:checks, metrics:flow.metrics ?? [], isComplete });
-  }, [answers, checks, flow.prompts.length, actions.length, flow.metrics, choice]);
+  }, [answers, checks, flow.prompts.length, actions.length, flow.metrics, onComplete]);
 
   return (
     <div className="card space-y-4">
