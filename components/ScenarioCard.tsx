@@ -136,8 +136,8 @@ export default function ScenarioCard({
     <div className="space-y-4">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
-          <h3 className="text-xl font-semibold">{scenario.title}</h3>
-          <p className="text-gray-700 mt-1">{scenario.prompt}</p>
+          <h3 className="text-2xl font-bold text-[#1F2937] mb-2">{scenario.title}</h3>
+          <p className="text-base font-medium text-[#374151] leading-relaxed">{scenario.prompt}</p>
         </div>
         <div className="flex gap-2 flex-shrink-0">
           <button onClick={doSave} className="btn-ghost px-4 py-2 text-sm font-semibold">Save Your Progress</button>
@@ -147,12 +147,20 @@ export default function ScenarioCard({
 
       <CheatCodeButton scenario={scenario} />
 
-      <fieldset className="card space-y-2">
-        <div className="font-medium">Choose From Below:</div>
+      <fieldset className="card space-y-3 p-4">
+        <div className="font-bold text-base text-[#1F2937] mb-2">Choose From Below:</div>
         {(['A','B','C'] as ChoiceKey[]).map(key => (
-          <label key={key} className="flex items-center gap-2">
-            <input type="radio" name={`choice-${scenario.scenario_id}`} checked={choice===key} onChange={()=>setChoice(key)} />
-            <span><strong>{key}:</strong> {scenario.choices[key]}</span>
+          <label key={key} className="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors">
+            <input 
+              type="radio" 
+              name={`choice-${scenario.scenario_id}`} 
+              checked={choice===key} 
+              onChange={()=>setChoice(key)}
+              className="mt-1 flex-shrink-0"
+            />
+            <span className="text-base font-semibold text-[#1F2937] leading-relaxed">
+              <strong className="text-[#8C1515] font-bold">{key}:</strong> {scenario.choices[key]}
+            </span>
           </label>
         ))}
       </fieldset>
