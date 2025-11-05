@@ -31,15 +31,23 @@ export default function ResultsModal({
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
       // Scroll container to top when opening to ensure header is visible
-      // Use setTimeout to ensure DOM is fully rendered
-      setTimeout(() => {
+      // Use multiple attempts to ensure scroll happens
+      const scrollToTop = () => {
         if (containerRef.current) {
           containerRef.current.scrollTo({ top: 0, behavior: 'instant' });
         }
         if (modalRef.current) {
           modalRef.current.scrollTo({ top: 0, behavior: 'instant' });
         }
-      }, 0);
+      };
+      // Try immediately
+      scrollToTop();
+      // Try after a brief delay
+      setTimeout(scrollToTop, 0);
+      // Try after animation frame
+      requestAnimationFrame(() => {
+        setTimeout(scrollToTop, 0);
+      });
     }
     return () => {
       document.removeEventListener('keydown', handleEscape);
@@ -60,8 +68,8 @@ export default function ResultsModal({
       {/* Modal */}
       <div
         ref={containerRef}
-        className="fixed inset-0 z-50 flex items-start justify-center p-4 pointer-events-none overflow-y-auto"
-        style={{ paddingTop: '1rem', paddingBottom: '1rem' }}
+        className="fixed inset-0 z-50 flex items-start justify-center px-4 py-2 pointer-events-none overflow-y-auto"
+        style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
       >
         <div
           ref={modalRef}
@@ -69,12 +77,12 @@ export default function ResultsModal({
           onClick={(e) => e.stopPropagation()}
           style={{ 
             animation: 'modal-slide-in 0.3s ease-out',
-            maxHeight: 'calc(100vh - 2rem)',
+            maxHeight: 'calc(100vh - 1rem)',
             marginTop: '0'
           }}
         >
           {/* Header with gradient - always at top, smaller */}
-          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-3 rounded-t-lg sticky top-0 z-10">
+          <div className="bg-gradient-to-r from-[#8C1515] via-[#C41E3A] to-[#8C1515] p-3 rounded-t-lg">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span className="text-2xl">🎯</span>
