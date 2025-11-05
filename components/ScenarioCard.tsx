@@ -64,7 +64,7 @@ export default function ScenarioCard({
       </div>
 
       <fieldset className="card space-y-2">
-        <div className="font-medium">Choose From Below</div>
+        <div className="font-medium">Choose From Below:</div>
         {(['A','B','C'] as ChoiceKey[]).map(key => (
           <label key={key} className="flex items-center gap-2">
             <input type="radio" name={`choice-${scenario.scenario_id}`} checked={choice===key} onChange={()=>setChoice(key)} />
