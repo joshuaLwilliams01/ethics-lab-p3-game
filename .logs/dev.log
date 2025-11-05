@@ -1831,3 +1831,10 @@ digest: "3421250340"
  ✓ Compiled in 528ms (805 modules)
  ✓ Compiled in 824ms (805 modules)
  ✓ Compiled in 1983ms (802 modules)
+ ✓ Compiled in 442ms (802 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1574ms (802 modules)
+ GET / 200 in 520ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1835ms (802 modules)
+ GET / 200 in 1563ms
