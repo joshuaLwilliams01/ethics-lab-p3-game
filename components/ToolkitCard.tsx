@@ -20,10 +20,11 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
   const [answers, setAnswers] = useState<string[]>(() => flow.prompts.map(()=>''));
   const [checks, setChecks] = useState<boolean[]>(() => actions.map(() => false));
 
-  // Reset checks when choice or actions change
+  // Reset all state when flow prompts/actions change or when actions array changes
   useEffect(() => {
+    setAnswers(flow.prompts.map(() => ''));
     setChecks(actions.map(() => false));
-  }, [actions.length]);
+  }, [flow.prompts.length, actions.length, JSON.stringify(flow.prompts), JSON.stringify(actions)]);
 
   useEffect(() => {
     // Check if prompts are complete

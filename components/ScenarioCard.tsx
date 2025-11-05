@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import type { Scenario, ChoiceKey } from '@/lib/types';
 import ToolkitCard from './ToolkitCard';
 import { describeResult } from '@/lib/results';
@@ -24,6 +24,13 @@ export default function ScenarioCard({
   const [choice, setChoice] = useState<ChoiceKey | null>(null);
   const [toolkit, setToolkit] = useState<any>({ isComplete:false });
   const [resultBlock, setResultBlock] = useState<null | {summary:string; benefits:string[]; harms:string[]}>(null);
+
+  // Reset all state when scenario changes (scenario_id changes)
+  useEffect(() => {
+    setChoice(null);
+    setToolkit({ isComplete: false });
+    setResultBlock(null);
+  }, [scenario.scenario_id]);
 
   const canSubmit = useMemo(() => {
     if (!choice) return false;

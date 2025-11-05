@@ -183,3 +183,9 @@
  ✓ Compiled in 1017ms (776 modules)
  GET /play/individual/1 200 in 230ms
  ✓ Compiled in 433ms (776 modules)
+ GET /play/individual/1 200 in 196ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1567ms (790 modules)
+ GET /play/individual/1 200 in 458ms
+ ✓ Compiled in 737ms (790 modules)
