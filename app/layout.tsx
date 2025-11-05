@@ -21,7 +21,7 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
             </div>
           </nav>
           <div className="mx-auto max-w-5xl px-4 pb-3 text-xs text-[#53565A] border-t border-gray-100 pt-2 bg-gradient-to-r from-transparent via-gray-50 to-transparent">
-            <strong>Disclaimer:</strong> This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the McCoy Family Center for Ethics in Society staff.
+            <strong>Disclaimer:</strong> This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
           </div>
         </header>
         <main className="relative z-10">{children}</main>

@@ -118,7 +118,7 @@ export default function Home(){
       {/* Disclaimer */}
       <div className="text-center text-xs text-[#53565A] max-w-2xl">
         <p>
-          This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the McCoy Family Center for Ethics in Society staff.
+          This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
         </p>
       </div>
     </div>
