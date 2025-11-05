@@ -38,21 +38,6 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
     
     const isComplete = promptsComplete && actionsComplete;
     
-    // Debug logging
-    if (process.env.NODE_ENV === 'development') {
-      console.log('ToolkitCard completion check:', {
-        promptsComplete,
-        actionsComplete,
-        isComplete,
-        promptsLength: flow.prompts.length,
-        actionsLength: actions.length,
-        checksLength: checks.length,
-        allChecked: checks.every(c => c === true),
-        checks: checks,
-        choice: choice
-      });
-    }
-    
     // Always call onComplete to update parent state
     onComplete({ prompts:answers, actions:checks, metrics:flow.metrics ?? [], isComplete });
   }, [answers, checks, flow.prompts.length, actions.length, flow.metrics, choice]);

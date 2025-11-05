@@ -98,12 +98,6 @@ export default function ScenarioCard({
         >
           Submit Decision
         </button>
-        {/* Debug info - remove in production */}
-        {process.env.NODE_ENV === 'development' && (
-          <div className="text-xs text-gray-500 mt-2">
-            Debug: choice={choice ? 'yes' : 'no'}, toolkit.isComplete={toolkit?.isComplete ? 'true' : 'false'}
-          </div>
-        )}
       </div>
 
       {resultBlock && (
