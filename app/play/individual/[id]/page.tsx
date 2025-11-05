@@ -7,6 +7,7 @@ import { scoreDecision } from '@/lib/scoring';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { playButtonClick } from '@/lib/sounds';
+import { loadProgress } from '@/lib/save';
 
 type StepResult = {
   scenario_id: string;
@@ -23,7 +24,14 @@ export default function IndividualLevel({ params }:{ params:{ id:string } }) {
   const [results, setResults] = useState<StepResult[]>([]);
   const router = useRouter();
 
-  useEffect(() => { loadLevel(levelIndex).then(setPack).catch(console.error); }, [levelIndex]);
+  useEffect(() => { 
+    loadLevel(levelIndex).then(setPack).catch(console.error);
+    // Try to load saved progress for this level
+    const saved = loadProgress();
+    if (saved && saved.level === levelIndex) {
+      setIdx(saved.idx);
+    }
+  }, [levelIndex]);
 
   const scenario = useMemo(() => pack?.scenarios[idx], [pack, idx]);
   const progress = useMemo(() => pack ? `${idx+1} / ${pack.scenarios.length}` : '—', [pack, idx]);
