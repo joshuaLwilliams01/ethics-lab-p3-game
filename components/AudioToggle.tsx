@@ -28,15 +28,17 @@ export default function AudioToggle(){
       
       // Mission Impossible Main Theme
       // Based on the iconic 5/4 time signature rhythm and melody
+      // Adjusted for smoother, less harsh sound
       // Bass line: E2, B2, E3 (signature rhythm pattern)
       // Melody: E4, G4, B4, D5, E5, G4, E4 (main theme)
       const bassNotes = [82.41, 123.47, 164.81]; // E2, B2, E3
       const melodyNotes = [329.63, 392.00, 493.88, 587.33, 659.25, 392.00, 329.63]; // E4, G4, B4, D5, E5, G4, E4
       
       // 5/4 time signature - Mission Impossible signature rhythm
-      const beatDuration = 0.15; // Faster, more energetic
-      const bassGain = 0.18; // Stronger bass for impact
-      const melodyGain = 0.15; // Clear melody
+      // Slower tempo for smoother playback (matches YouTube reference)
+      const beatDuration = 0.2; // Slightly slower for clarity
+      const bassGain = 0.12; // Reduced for less harshness
+      const melodyGain = 0.10; // Reduced for smoother sound
       
       const isEnabledRef = { current: true }; // Track enabled state for scheduling
       const scheduleNext = () => {
@@ -54,70 +56,72 @@ export default function AudioToggle(){
         const measureNumber = Math.floor(patternTime / measureDuration) % 2;
         
         // Signature bass pattern: E2 on beat 0, B2 on beat 1.5, E3 on beat 3
+        // Using triangle wave for smoother, less harsh bass
         if (Math.abs(beatInMeasure - 0) < 0.1) {
           // Beat 0 - E2
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
-          bassOsc.type = 'square'; // Square wave for punchy bass
+          bassOsc.type = 'triangle'; // Triangle wave for smoother bass
           bassOsc.frequency.value = bassNotes[0]; // E2
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.01);
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.8);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.05); // Slower attack
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2); // Longer decay
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
           bassOsc.start(currentTime);
-          bassOsc.stop(currentTime + beatDuration * 0.8);
+          bassOsc.stop(currentTime + beatDuration * 1.0);
           oscillatorsRef.current.push(bassOsc);
           gainNodesRef.current.push(bassGainNode);
         } else if (Math.abs(beatInMeasure - 1.5) < 0.1) {
           // Beat 1.5 - B2
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
-          bassOsc.type = 'square';
+          bassOsc.type = 'triangle'; // Triangle wave for smoother bass
           bassOsc.frequency.value = bassNotes[1]; // B2
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.01);
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.6);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain * 0.85, currentTime + 0.04);
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.9);
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
           bassOsc.start(currentTime);
-          bassOsc.stop(currentTime + beatDuration * 0.6);
+          bassOsc.stop(currentTime + beatDuration * 0.8);
           oscillatorsRef.current.push(bassOsc);
           gainNodesRef.current.push(bassGainNode);
         } else if (Math.abs(beatInMeasure - 3) < 0.1) {
           // Beat 3 - E3
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
-          bassOsc.type = 'square';
+          bassOsc.type = 'triangle'; // Triangle wave for smoother bass
           bassOsc.frequency.value = bassNotes[2]; // E3
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.01);
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.7);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.05);
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.0);
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
           bassOsc.start(currentTime);
-          bassOsc.stop(currentTime + beatDuration * 0.7);
+          bassOsc.stop(currentTime + beatDuration * 0.9);
           oscillatorsRef.current.push(bassOsc);
           gainNodesRef.current.push(bassGainNode);
         }
         
         // Melody line - Mission Impossible main theme
         // Plays on beats 2, 4 of each measure (with variations)
+        // Using sine wave for smooth, pleasant melody
         if (Math.abs(beatInMeasure - 2) < 0.15 || Math.abs(beatInMeasure - 4) < 0.15) {
           const melodyIndex = Math.floor(beatInMeasure) % melodyNotes.length;
           const melodyNote = melodyNotes[melodyIndex];
           
           const melodyOsc = ctx.createOscillator();
           const melodyGainNode = ctx.createGain();
-          melodyOsc.type = 'sawtooth'; // Sawtooth for that sharp Mission Impossible sound
+          melodyOsc.type = 'sine'; // Sine wave for smooth, pleasant sound
           melodyOsc.frequency.value = melodyNote;
           melodyGainNode.gain.setValueAtTime(0, currentTime);
-          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.02);
-          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2);
+          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.08); // Much slower attack
+          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.5); // Longer, smoother decay
           melodyOsc.connect(melodyGainNode);
           melodyGainNode.connect(ctx.destination);
           melodyOsc.start(currentTime);
-          melodyOsc.stop(currentTime + beatDuration * 1.0);
+          melodyOsc.stop(currentTime + beatDuration * 1.3);
           oscillatorsRef.current.push(melodyOsc);
           gainNodesRef.current.push(melodyGainNode);
         }
