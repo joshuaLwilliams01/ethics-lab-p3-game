@@ -32,7 +32,16 @@ export default function Home(){
             >
               Joshua Williams
             </a>
-            , is a web-based simulator that addresses real-world dilemmas at the intersection of technology, policy, and society, drawing on lessons from the Stanford Ethics, Technology + Public Policy for Practitioners SOE-XETECH0001 course.
+            , is a web-based simulator that addresses real-world dilemmas at the intersection of technology, policy, and society, drawing on lessons from the{' '}
+            <a 
+              href="https://online.stanford.edu/courses/soe-xetech0001-ethics-technology-public-policy-practitioners"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#8C1515] hover:text-[#820f0f] underline"
+            >
+              Stanford Ethics, Technology + Public Policy for Practitioners SOE-XETECH0001 course
+            </a>
+            .
           </p>
           <p className="mt-4">
             Utilizing{' '}
