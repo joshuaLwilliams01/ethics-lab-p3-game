@@ -249,14 +249,28 @@ export default function AudioToggle(){
       </button>
       <audio 
         ref={audioRef} 
-        src="/spy-detective-background-suspenseful-investigation-full-412906.mp3" 
+        src="https://cdn.pixabay.com/download/audio/2024/01/01/audio_412906.mp3?filename=spy-detective-background-suspenseful-investigation-full-412906.mp3" 
         loop 
         preload="none"
+        crossOrigin="anonymous"
         onError={() => {
-          // If audio file fails to load, use fallback
-          if (enabled && !usingFallback) {
-            setUsingFallback(true);
-            startFallbackAudio();
+          // Try local file if Pixabay URL fails
+          if (audioRef.current && !audioRef.current.src.includes('/public/')) {
+            audioRef.current.src = '/spy-detective-background-suspenseful-investigation-full-412906.mp3';
+            audioRef.current.load();
+            audioRef.current.play().catch(() => {
+              // If local file also fails, use fallback
+              if (enabled && !usingFallback) {
+                setUsingFallback(true);
+                startFallbackAudio();
+              }
+            });
+          } else {
+            // If audio file fails to load, use fallback
+            if (enabled && !usingFallback) {
+              setUsingFallback(true);
+              startFallbackAudio();
+            }
           }
         }}
       />
