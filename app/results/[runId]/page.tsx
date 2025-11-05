@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import Link from 'next/link';
+import { playButtonClick } from '@/lib/sounds';
 
 export default function Results({ params }:{ params:{ runId:string } }) {
   const [run, setRun] = useState<any>(null);
@@ -13,6 +14,7 @@ export default function Results({ params }:{ params:{ runId:string } }) {
   }, [run]);
 
   const generateCertificate = async () => {
+    playButtonClick();
     const pdf = await PDFDocument.create();
     const page = pdf.addPage([612, 396]);
     const font = await pdf.embedFont(StandardFonts.Helvetica);
@@ -47,7 +49,7 @@ export default function Results({ params }:{ params:{ runId:string } }) {
       </div>
       <div className="flex gap-2">
         <button onClick={generateCertificate} className="btn px-6 py-3 text-base font-semibold">Generate Certificate</button>
-        <Link href="/" className="btn-ghost px-6 py-3 text-base font-semibold">Back Home</Link>
+        <Link href="/" onClick={() => playButtonClick()} className="btn-ghost px-6 py-3 text-base font-semibold">Back Home</Link>
       </div>
     </div>
   );

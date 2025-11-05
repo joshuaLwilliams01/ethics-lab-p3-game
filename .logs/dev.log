@@ -297,3 +297,44 @@
  ✓ Compiled in 1375ms (794 modules)
  ✓ Compiled in 422ms (794 modules)
  ✓ Compiled in 843ms (794 modules)
+ ✓ Compiled in 354ms (794 modules)
+ ✓ Compiled /_error in 380ms (782 modules)
+ GET /sfx-suspense.mp3 416 in 436ms
+ ✓ Compiled in 662ms (794 modules)
+ ✓ Compiled in 600ms (794 modules)
+ ✓ Compiled in 290ms (794 modules)
+ ✓ Compiled in 912ms (795 modules)
+ ✓ Compiled in 425ms (795 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ app/page.tsx (51:10) @ AudioToggle
+ ⨯ ReferenceError: AudioToggle is not defined
+    at Home (./app/page.tsx:120:103)
+digest: "1500796236"
+[0m [90m 49 |[39m       {[90m/* Sound Toggle - positioned like AISES */[39m}[0m
+[0m [90m 50 |[39m       [33m<[39m[33mdiv[39m className[33m=[39m[32m"mb-6"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 51 |[39m         [33m<[39m[33mAudioToggle[39m [33m/[39m[33m>[39m[0m
+[0m [90m    |[39m          [31m[1m^[22m[39m[0m
+[0m [90m 52 |[39m       [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 53 |[39m[0m
+[0m [90m 54 |[39m       {[90m/* How to Play Button - Enhanced */[39m}[0m
+ GET / 500 in 382ms
+ ✓ Compiled in 417ms (795 modules)
+ ✓ Compiled in 1166ms (797 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 159ms
+ ✓ Compiled in 858ms (797 modules)
+ ✓ Compiled in 334ms (797 modules)
+ ✓ Compiled in 330ms (797 modules)
+ ✓ Compiled in 244ms (797 modules)
+ ✓ Compiled in 568ms (797 modules)
+ ✓ Compiled in 1066ms (797 modules)
+ ✓ Compiled in 398ms (797 modules)
+ ✓ Compiled in 2.1s (797 modules)
+ ✓ Compiled in 856ms (797 modules)
+ ✓ Compiled in 1495ms (785 modules)
+ ✓ Compiled in 331ms (799 modules)
+ ✓ Compiled in 114ms (472 modules)
+ ✓ Compiled in 386ms (472 modules)
+ ✓ Compiled in 308ms (472 modules)
+ ✓ Compiled in 501ms (799 modules)
+ ✓ Compiled in 893ms (799 modules)

@@ -6,6 +6,7 @@ import { describeResult } from '@/lib/results';
 import Link from 'next/link';
 import { saveProgress } from '@/lib/save';
 import ResultsModal from './ResultsModal';
+import { playButtonClick } from '@/lib/sounds';
 
 function CheatCodeButton({ scenario }: { scenario: Scenario }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,10 @@ function CheatCodeButton({ scenario }: { scenario: Scenario }) {
   return (
     <div className="mb-3">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          playButtonClick();
+          setIsOpen(!isOpen);
+        }}
         className="relative w-full text-left flex items-center justify-between px-6 py-4 rounded-lg font-semibold text-sm transition-all duration-300 overflow-hidden group"
         style={{
           background: isOpen 
@@ -113,12 +117,14 @@ export default function ScenarioCard({
   }, [choice, toolkit]);
 
   const doSave = () => {
+    playButtonClick();
     saveProgress({ level, idx:index, timestamp:Date.now(), payload:{ choice, toolkit } });
     alert("Progress saved locally.");
   };
 
   const handleSubmit = () => {
     if (!choice) return;
+    playButtonClick();
     const res = describeResult({ scenario, choice, p3: { people: false, planet: false, parity: false } });
     setResultBlock(res);
     onSubmit({ choice, toolkitOut: toolkit, p3Out: { people: false, planet: false, parity: false } });

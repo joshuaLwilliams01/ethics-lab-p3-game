@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import HowToPlay from './HowToPlay';
+import { playButtonClick } from '@/lib/sounds';
 
 export default function HowToPlayModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   // Close on Escape key
@@ -48,7 +49,10 @@ export default function HowToPlayModal({ isOpen, onClose }: { isOpen: boolean; o
                 <span>How to Play</span>
               </h2>
               <button
-                onClick={onClose}
+                onClick={() => {
+                  playButtonClick();
+                  onClose();
+                }}
                 className="text-white hover:text-gray-200 transition-colors duration-200 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20"
                 aria-label="Close modal"
               >
@@ -65,7 +69,10 @@ export default function HowToPlayModal({ isOpen, onClose }: { isOpen: boolean; o
           {/* Footer with close button */}
           <div className="border-t border-gray-200 p-4 flex justify-end">
             <button
-              onClick={onClose}
+              onClick={() => {
+                playButtonClick();
+                onClose();
+              }}
               className="btn px-6 py-2 text-sm font-semibold"
             >
               Got it!

@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
+import { playButtonClick } from "@/lib/sounds";
 
 export default function AudioToggle(){
   const audioRef = useRef<HTMLAudioElement|null>(null);
@@ -24,15 +25,16 @@ export default function AudioToggle(){
       audioContextRef.current = ctx;
       startTimeRef.current = ctx.currentTime;
       
-      // Calmer James Bond-inspired theme (softened version)
-      // Bass line: E2, F#2, G2, E2 (low suspenseful notes) - one octave lower for warmth
-      // Melody: E3, G3, A3, B3, A3, G3, E3 (softer, lower octave)
-      const bassNotes = [82.41, 92.50, 98.00, 82.41]; // E2, F#2, G2, E2
-      const melodyNotes = [164.81, 196.00, 220.00, 246.94, 220.00, 196.00, 164.81]; // E3, G3, A3, B3, A3, G3, E3 (one octave lower)
+      // Enhanced James Bond-inspired theme - clearer, less underwater
+      // Raised frequencies to avoid muffled sound
+      // Bass line: E3, F#3, G3, E3 (raised one octave for clarity)
+      // Melody: E4, G4, A4, B4, A4, G4, E4 (raised one octave for clarity)
+      const bassNotes = [164.81, 185.00, 196.00, 164.81]; // E3, F#3, G3, E3 (raised octave)
+      const melodyNotes = [329.63, 392.00, 440.00, 493.88, 440.00, 392.00, 329.63]; // E4, G4, A4, B4, A4, G4, E4 (raised octave)
       
-      const tempo = 0.35; // Slower tempo for calmer feel
-      const bassGain = 0.12; // Increased by 2 levels (was 0.06)
-      const melodyGain = 0.08; // Increased by 2 levels (was 0.04)
+      const tempo = 0.4; // Slightly faster for more engagement
+      const bassGain = 0.15; // Increased for presence
+      const melodyGain = 0.12; // Increased for clarity
       
       const isEnabledRef = { current: true }; // Track enabled state for scheduling
       const scheduleNext = () => {
@@ -50,13 +52,13 @@ export default function AudioToggle(){
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
           
-          bassOsc.type = 'sine'; // Softer, calmer sound
+          bassOsc.type = 'triangle'; // Triangle wave for clearer, less muffled sound
           bassOsc.frequency.value = bassNote;
           
-          // Much gentler envelope with longer fade
+          // Crisper envelope for better definition
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.05); // Slower attack
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 1.2); // Longer decay
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02); // Faster attack for clarity
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 1.0); // Controlled decay
           
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
@@ -76,13 +78,13 @@ export default function AudioToggle(){
           const melodyOsc = ctx.createOscillator();
           const melodyGainNode = ctx.createGain();
           
-          melodyOsc.type = 'sine'; // Smooth, calm sound instead of harsh square
+          melodyOsc.type = 'triangle'; // Triangle wave for clearer, less muffled sound
           melodyOsc.frequency.value = melodyNote;
           
-          // Very gentle envelope
+          // Crisper envelope for better definition
           melodyGainNode.gain.setValueAtTime(0, currentTime);
-          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.08); // Very slow attack
-          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.9); // Longer, smoother decay
+          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.03); // Faster attack for clarity
+          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.8); // Controlled decay
           
           melodyOsc.connect(melodyGainNode);
           melodyGainNode.connect(ctx.destination);
@@ -207,7 +209,10 @@ export default function AudioToggle(){
         {enabled ? "🔊Sound Off" : "🔇Sound Off"}
       </div>
       <button 
-        onClick={()=>setEnabled(v=>!v)} 
+        onClick={() => {
+          playButtonClick();
+          setEnabled(v=>!v);
+        }} 
         className="text-xs text-[#53565A] hover:text-[#8C1515] transition cursor-pointer underline" 
         aria-pressed={enabled}
         aria-label={enabled ? "Turn sound off" : "Turn sound on"}

@@ -1,4 +1,6 @@
+'use client';
 import Link from "next/link";
+import { playButtonClick } from "@/lib/sounds";
 
 export default function About(){
   return (
@@ -90,10 +92,10 @@ export default function About(){
 
         {/* Navigation Buttons - matching homepage style */}
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <Link href="/" className="btn px-6 py-3 text-base font-semibold">
+          <Link href="/" onClick={() => playButtonClick()} className="btn px-6 py-3 text-base font-semibold">
             🏠 Back Home
           </Link>
-          <Link href="/play/individual/1" className="btn-ghost px-6 py-3 text-base font-semibold">
+          <Link href="/play/individual/1" onClick={() => playButtonClick()} className="btn-ghost px-6 py-3 text-base font-semibold">
             🎮 START YOUR JOURNEY
           </Link>
         </div>

@@ -1,8 +1,8 @@
 'use client';
 import Link from "next/link";
 import HowToPlayModal from "@/components/HowToPlayModal";
-import AudioToggle from "@/components/AudioToggle";
 import { useState } from "react";
+import { playButtonClick } from "@/lib/sounds";
 
 export default function Home(){
   const [showHowToPlay, setShowHowToPlay] = useState(false);
@@ -46,15 +46,13 @@ export default function Home(){
         </div>
       </div>
 
-      {/* Sound Toggle - positioned like AISES */}
-      <div className="mb-6">
-        <AudioToggle />
-      </div>
-
       {/* How to Play Button - Enhanced */}
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
         <button 
-          onClick={() => setShowHowToPlay(!showHowToPlay)}
+          onClick={() => {
+            playButtonClick();
+            setShowHowToPlay(!showHowToPlay);
+          }}
           className="btn px-6 py-3 text-base font-semibold relative overflow-hidden group"
         >
           <span className="relative z-10 flex items-center gap-2">

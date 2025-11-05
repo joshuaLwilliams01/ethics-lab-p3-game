@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import AudioToggle from "@/components/AudioToggle";
 
 export const metadata = {
   title: "Ethics-Tech-Policy Decisions Sandbox",
@@ -17,6 +18,7 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
               <span className="group-hover:underline">Ethics-Tech-Policy Decisions Sandbox</span>
             </Link>
             <div className="flex items-center gap-4">
+              <AudioToggle />
               <Link href="/about" className="text-sm text-[#2E2D29] hover:text-[#8C1515] transition-all duration-300 font-semibold hover:underline">About</Link>
             </div>
           </nav>

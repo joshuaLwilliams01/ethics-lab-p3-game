@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import { playButtonClick } from '@/lib/sounds';
 
 type ResultsData = {
   summary: string;
@@ -64,7 +65,10 @@ export default function ResultsModal({
                 </div>
               </h2>
               <button
-                onClick={onClose}
+                onClick={() => {
+                  playButtonClick();
+                  onClose();
+                }}
                 className="text-white hover:text-gray-200 transition-colors duration-200 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20"
                 aria-label="Close modal"
               >
@@ -119,7 +123,10 @@ export default function ResultsModal({
           {/* Footer */}
           <div className="border-t border-gray-200 p-4 bg-gradient-to-r from-gray-50 to-transparent flex justify-end">
             <button
-              onClick={onClose}
+              onClick={() => {
+                playButtonClick();
+                onClose();
+              }}
               className="btn px-6 py-2 text-sm font-semibold"
             >
               Got it! Continue
