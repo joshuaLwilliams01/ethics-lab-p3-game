@@ -30,25 +30,18 @@ export default function ResultsModal({
     };
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      // Scroll container to top when opening to ensure header is visible
-      // Use multiple attempts to ensure scroll happens
-      const scrollToTop = () => {
-        if (containerRef.current) {
-          containerRef.current.scrollTo({ top: 0, behavior: 'instant' });
-        }
+      document.body.style.overflow = 'hidden';
+      // Ensure modal scrolls to top when opening
+      setTimeout(() => {
         if (modalRef.current) {
-          modalRef.current.scrollTo({ top: 0, behavior: 'instant' });
+          modalRef.current.scrollTop = 0;
         }
-      };
-      // Try immediately
-      scrollToTop();
-      // Try after a brief delay
-      setTimeout(scrollToTop, 0);
-      // Try after animation frame
-      requestAnimationFrame(() => {
-        setTimeout(scrollToTop, 0);
-      });
+      }, 0);
     }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
@@ -68,17 +61,16 @@ export default function ResultsModal({
       {/* Modal */}
       <div
         ref={containerRef}
-        className="fixed inset-0 z-50 flex items-start justify-center px-4 py-2 pointer-events-none overflow-y-auto"
-        style={{ paddingTop: '0.5rem', paddingBottom: '0.5rem' }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+        style={{ overflow: 'hidden' }}
       >
         <div
           ref={modalRef}
-          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-xl w-full overflow-y-auto relative border-2 border-[#8C1515] pointer-events-auto"
+          className="bg-gradient-to-br from-white via-[#F7F6F3] to-white rounded-lg shadow-2xl max-w-lg w-full overflow-y-auto relative border-2 border-[#8C1515] pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
           style={{ 
             animation: 'modal-slide-in 0.3s ease-out',
-            maxHeight: 'calc(100vh - 1rem)',
-            marginTop: '0'
+            maxHeight: '85vh'
           }}
         >
           {/* Header with gradient - always at top, smaller */}
