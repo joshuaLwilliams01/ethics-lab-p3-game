@@ -42,9 +42,6 @@ export default function ResultsModal({
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
     };
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
   }, [isOpen, onClose]);
 
   if (!isOpen || !results) return null;
