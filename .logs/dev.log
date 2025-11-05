@@ -2398,3 +2398,211 @@ Import trace for requested module:
  ✓ Compiled in 1997ms (1157 modules)
  GET /stanford-logo.png 404 in 107ms
  ✓ Compiled in 748ms (1157 modules)
+ ✓ Compiled in 1366ms (1157 modules)
+ GET / 200 in 1218ms
+ GET /stanford-logo.png 404 in 485ms
+ ✓ Compiled in 990ms (1154 modules)
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+digest: "4116420393"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+digest: "4116420393"
+ ✓ Compiled in 2.3s (1154 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ GET / 500 in 1523ms
+ GET /completion?test=true 500 in 1066ms
+ ✓ Compiled in 1093ms (1154 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ GET /completion?test=true 500 in 651ms
+ GET / 500 in 658ms
+ ✓ Compiled in 883ms (1154 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ GET /completion?test=true 500 in 700ms
+ GET / 500 in 709ms
+ ✓ Compiled in 756ms (1154 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img src=... alt=... className=... onError={function onError}>
+                                             ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "1572739438"
+ GET / 500 in 442ms
+ GET /completion?test=true 500 in 464ms

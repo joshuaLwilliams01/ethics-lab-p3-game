@@ -13,7 +13,7 @@ export default function Home(){
       <div className="text-center mb-8 relative">
         <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-20" style={{ animation: 'bounce-subtle 2s ease-in-out infinite' }}>
           <img 
-            src="/stanford-logo.png" 
+            src="/stanford-logo.jpg" 
             alt="Stanford University" 
             className="h-24 w-24 object-contain"
           />
@@ -85,13 +85,13 @@ export default function Home(){
         <div className="text-center mb-6">
           <div className="text-xl font-semibold text-[#2E2D29] mb-2 flex items-center justify-center gap-2">
             <img 
-              src="/stanford-logo.png" 
+              src="/stanford-logo.jpg" 
               alt="Stanford University" 
               className="stanford-logo h-6 w-6 object-contain"
             />
             <span>Choose Your Level</span>
             <img 
-              src="/stanford-logo.png" 
+              src="/stanford-logo.jpg" 
               alt="Stanford University" 
               className="stanford-logo h-6 w-6 object-contain"
             />

@@ -17,9 +17,18 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
             <nav className="mx-auto max-w-6xl flex items-center justify-between p-4">
               <Link href="/" className="font-semibold text-[#2E2D29] text-lg hover:text-[#8C1515] transition-all duration-300 flex items-center gap-2 group">
                 <img 
-                  src="/stanford-logo.png" 
+                  src="/stanford-logo.jpg" 
                   alt="Stanford University" 
                   className="stanford-logo h-8 w-8 object-contain"
+                  onError={(e) => {
+                    // Fallback to emoji if logo file not found
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = document.createElement('span');
+                    fallback.className = 'text-2xl stanford-tree';
+                    fallback.textContent = '🌲';
+                    target.parentNode?.insertBefore(fallback, target);
+                  }}
                 />
                 <span className="group-hover:underline">Ethics-Tech-Policy Decisions Sandbox</span>
               </Link>
