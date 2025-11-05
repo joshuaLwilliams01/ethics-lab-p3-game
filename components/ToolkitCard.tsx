@@ -71,7 +71,23 @@ export default function ToolkitCard({ flow, choice, onComplete }:{
       ))}
       {actions.length > 0 && (
         <div>
-          <div className="font-medium mb-2">Quick actions{choice ? ` (for choice ${choice})` : ''}</div>
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-medium">Quick actions{choice ? ` (for choice ${choice})` : ''}</div>
+            <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+              <input 
+                type="checkbox"
+                checked={checks.length === actions.length && checks.every(c => c === true)}
+                onChange={e => {
+                  const allChecked = e.target.checked;
+                  setChecks(actions.map(() => allChecked));
+                }}
+                aria-label="Select all quick actions"
+                className="cursor-pointer"
+              />
+              <span className="select-none">Select All</span>
+            </label>
+          </div>
+          <p className="text-xs text-gray-500 mb-2">All quick actions must be selected to proceed.</p>
           {actions.map((a, i) => (
             <label key={i} className="flex items-center gap-2 mb-1">
               <input 
