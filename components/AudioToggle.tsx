@@ -13,7 +13,7 @@ export default function AudioToggle(){
   const { enabled, setEnabled } = useSound();
   const [usingFallback, setUsingFallback] = useState(false);
 
-  // Generate James Bond-inspired suspense theme using Web Audio API
+  // Generate Mission Impossible Main Theme using Web Audio API
   const startFallbackAudio = () => {
     try {
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
@@ -26,16 +26,17 @@ export default function AudioToggle(){
       audioContextRef.current = ctx;
       startTimeRef.current = ctx.currentTime;
       
-      // Enhanced James Bond-inspired theme - clearer, less underwater
-      // Raised frequencies to avoid muffled sound
-      // Bass line: E3, F#3, G3, E3 (raised one octave for clarity)
-      // Melody: E4, G4, A4, B4, A4, G4, E4 (raised one octave for clarity)
-      const bassNotes = [164.81, 185.00, 196.00, 164.81]; // E3, F#3, G3, E3 (raised octave)
-      const melodyNotes = [329.63, 392.00, 440.00, 493.88, 440.00, 392.00, 329.63]; // E4, G4, A4, B4, A4, G4, E4 (raised octave)
+      // Mission Impossible Main Theme
+      // Based on the iconic 5/4 time signature rhythm and melody
+      // Bass line: E2, B2, E3 (signature rhythm pattern)
+      // Melody: E4, G4, B4, D5, E5, G4, E4 (main theme)
+      const bassNotes = [82.41, 123.47, 164.81]; // E2, B2, E3
+      const melodyNotes = [329.63, 392.00, 493.88, 587.33, 659.25, 392.00, 329.63]; // E4, G4, B4, D5, E5, G4, E4
       
-      const tempo = 0.65; // Slower tempo for enhanced suspense
-      const bassGain = 0.15; // Increased for presence
-      const melodyGain = 0.12; // Increased for clarity
+      // 5/4 time signature - Mission Impossible signature rhythm
+      const beatDuration = 0.15; // Faster, more energetic
+      const bassGain = 0.18; // Stronger bass for impact
+      const melodyGain = 0.15; // Clear melody
       
       const isEnabledRef = { current: true }; // Track enabled state for scheduling
       const scheduleNext = () => {
@@ -43,55 +44,80 @@ export default function AudioToggle(){
         
         const ctx = audioContextRef.current;
         const currentTime = ctx.currentTime;
-        const patternTime = (currentTime - startTimeRef.current) % (tempo * 8); // 8-beat pattern
+        // 5/4 time signature - 5 beats per measure
+        const measureDuration = beatDuration * 5;
+        const patternTime = (currentTime - startTimeRef.current) % (measureDuration * 2); // 2-measure pattern
         
-        // Bass line - plays on beats 0, 2, 4, 6
-        const bassBeat = Math.floor(patternTime / tempo) % 8;
-        if ([0, 2, 4, 6].includes(bassBeat)) {
-          const bassNote = bassNotes[Math.floor(bassBeat / 2) % bassNotes.length];
-          
+        // Bass line - Mission Impossible signature rhythm (5/4 pattern)
+        // Plays on beats 0, 1.5, 3 of each 5-beat measure
+        const beatInMeasure = (patternTime % measureDuration) / beatDuration;
+        const measureNumber = Math.floor(patternTime / measureDuration) % 2;
+        
+        // Signature bass pattern: E2 on beat 0, B2 on beat 1.5, E3 on beat 3
+        if (Math.abs(beatInMeasure - 0) < 0.1) {
+          // Beat 0 - E2
           const bassOsc = ctx.createOscillator();
           const bassGainNode = ctx.createGain();
-          
-          bassOsc.type = 'triangle'; // Triangle wave for clearer, less muffled sound
-          bassOsc.frequency.value = bassNote;
-          
-          // Crisper envelope for better definition
+          bassOsc.type = 'square'; // Square wave for punchy bass
+          bassOsc.frequency.value = bassNotes[0]; // E2
           bassGainNode.gain.setValueAtTime(0, currentTime);
-          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.02); // Faster attack for clarity
-          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 1.0); // Controlled decay
-          
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.01);
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.8);
           bassOsc.connect(bassGainNode);
           bassGainNode.connect(ctx.destination);
           bassOsc.start(currentTime);
-          bassOsc.stop(currentTime + tempo * 0.8);
-          
+          bassOsc.stop(currentTime + beatDuration * 0.8);
+          oscillatorsRef.current.push(bassOsc);
+          gainNodesRef.current.push(bassGainNode);
+        } else if (Math.abs(beatInMeasure - 1.5) < 0.1) {
+          // Beat 1.5 - B2
+          const bassOsc = ctx.createOscillator();
+          const bassGainNode = ctx.createGain();
+          bassOsc.type = 'square';
+          bassOsc.frequency.value = bassNotes[1]; // B2
+          bassGainNode.gain.setValueAtTime(0, currentTime);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain * 0.9, currentTime + 0.01);
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.6);
+          bassOsc.connect(bassGainNode);
+          bassGainNode.connect(ctx.destination);
+          bassOsc.start(currentTime);
+          bassOsc.stop(currentTime + beatDuration * 0.6);
+          oscillatorsRef.current.push(bassOsc);
+          gainNodesRef.current.push(bassGainNode);
+        } else if (Math.abs(beatInMeasure - 3) < 0.1) {
+          // Beat 3 - E3
+          const bassOsc = ctx.createOscillator();
+          const bassGainNode = ctx.createGain();
+          bassOsc.type = 'square';
+          bassOsc.frequency.value = bassNotes[2]; // E3
+          bassGainNode.gain.setValueAtTime(0, currentTime);
+          bassGainNode.gain.linearRampToValueAtTime(bassGain, currentTime + 0.01);
+          bassGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 0.7);
+          bassOsc.connect(bassGainNode);
+          bassGainNode.connect(ctx.destination);
+          bassOsc.start(currentTime);
+          bassOsc.stop(currentTime + beatDuration * 0.7);
           oscillatorsRef.current.push(bassOsc);
           gainNodesRef.current.push(bassGainNode);
         }
         
-        // Melody line - plays on beats 1, 3, 5, 7 (staggered)
-        const melodyBeat = Math.floor(patternTime / tempo) % 8;
-        if ([1, 3, 5, 7].includes(melodyBeat)) {
-          const melodyIndex = Math.floor((melodyBeat - 1) / 2) % melodyNotes.length;
+        // Melody line - Mission Impossible main theme
+        // Plays on beats 2, 4 of each measure (with variations)
+        if (Math.abs(beatInMeasure - 2) < 0.15 || Math.abs(beatInMeasure - 4) < 0.15) {
+          const melodyIndex = Math.floor(beatInMeasure) % melodyNotes.length;
           const melodyNote = melodyNotes[melodyIndex];
           
           const melodyOsc = ctx.createOscillator();
           const melodyGainNode = ctx.createGain();
-          
-          melodyOsc.type = 'triangle'; // Triangle wave for clearer, less muffled sound
+          melodyOsc.type = 'sawtooth'; // Sawtooth for that sharp Mission Impossible sound
           melodyOsc.frequency.value = melodyNote;
-          
-          // Crisper envelope for better definition
           melodyGainNode.gain.setValueAtTime(0, currentTime);
-          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.03); // Faster attack for clarity
-          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + tempo * 0.8); // Controlled decay
-          
+          melodyGainNode.gain.linearRampToValueAtTime(melodyGain, currentTime + 0.02);
+          melodyGainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + beatDuration * 1.2);
           melodyOsc.connect(melodyGainNode);
           melodyGainNode.connect(ctx.destination);
           melodyOsc.start(currentTime);
-          melodyOsc.stop(currentTime + tempo * 0.6);
-          
+          melodyOsc.stop(currentTime + beatDuration * 1.0);
           oscillatorsRef.current.push(melodyOsc);
           gainNodesRef.current.push(melodyGainNode);
         }
@@ -100,7 +126,7 @@ export default function AudioToggle(){
         if (isEnabledRef.current && audioContextRef.current) {
           scheduleIntervalRef.current = window.setTimeout(
             scheduleNext,
-            tempo * 1000 / 4 // Check 4 times per beat for precision
+            beatDuration * 1000 / 8 // Check 8 times per beat for precision
           );
         }
       };
