@@ -112,23 +112,30 @@ function CompletionPageContent() {
       centerText('Date of Completion:', 380, 12, font, { color: rgb(0.3, 0.3, 0.3) });
       centerText(completionDate, 360, 12, font, { color: rgb(0.4, 0.4, 0.4) });
       
-      // Signature line
-      centerText('Signature:', 320, 12, font, { color: rgb(0.3, 0.3, 0.3) });
-      centerText('___________________________', 300, 12, font, { color: rgb(0.5, 0.5, 0.5) });
-      
-      // Title line (if applicable)
-      centerText('Title (if applicable):', 270, 12, font, { color: rgb(0.3, 0.3, 0.3) });
-      centerText('___________________________', 250, 12, font, { color: rgb(0.5, 0.5, 0.5) });
-      
-      // Organization line (if applicable)
-      centerText('Organization (if applicable):', 220, 12, font, { color: rgb(0.3, 0.3, 0.3) });
-      centerText('___________________________', 200, 12, font, { color: rgb(0.5, 0.5, 0.5) });
-      
       // Congratulations message
-      centerText('Congratulations on this achievement!', 160, 14, bold, { color: stanfordGreen });
+      centerText('Congratulations on this achievement!', 320, 14, bold, { color: stanfordGreen });
       
-      // Footer
-      centerText('People · Planet · Parity', 100, 12, bold, { color: stanfordGreen });
+      // Disclaimer
+      const disclaimer = 'Disclaimer: This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.';
+      // Split disclaimer into lines
+      const disclaimerWords = disclaimer.split(' ');
+      let disclaimerLine = '';
+      let disclaimerYPos = 260;
+      for (const word of disclaimerWords) {
+        const testDisclaimerLine = disclaimerLine + (disclaimerLine ? ' ' : '') + word;
+        if (font.widthOfTextAtSize(testDisclaimerLine, 9) > 550) {
+          if (disclaimerLine) {
+            centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+            disclaimerYPos -= 14;
+          }
+          disclaimerLine = word;
+        } else {
+          disclaimerLine = testDisclaimerLine;
+        }
+      }
+      if (disclaimerLine) {
+        centerText(disclaimerLine, disclaimerYPos, 9, font, { color: rgb(0.5, 0.5, 0.5) });
+      }
       
       const bytes = await pdf.save();
       const blob = new Blob([bytes], { type: 'application/pdf' });

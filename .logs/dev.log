@@ -2034,3 +2034,7 @@ Import trace for requested module:
  ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
  GET /completion?test=true 200 in 1241ms
  GET /play/individual/1 200 in 1270ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/cristenwilliams/ethics-lab-p3/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/cristenwilliams/ethics-lab-p3/.next/cache/webpack/client-development-fallback/0.pack.gz'
+ ✓ Compiled in 3s (1159 modules)
+ GET /completion?test=true 200 in 1415ms
+ ✓ Compiled in 3.3s (1154 modules)
