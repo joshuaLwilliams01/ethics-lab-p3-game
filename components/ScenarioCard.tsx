@@ -88,7 +88,7 @@ export default function ScenarioCard({
             >
               https://ethicsinsociety.stanford.edu/tech-ethics/ethics-toolkit
             </a>
-            <ol className="mt-1 list-decimal list-inside space-y-1 text-sm text-[#2E2D29] font-medium">
+            <ol className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#2E2D29] font-medium list-decimal list-inside">
               {scenario.toolkit_references.split(',').map((ref, idx) => {
                 const trimmedRef = ref.trim();
                 return (
