@@ -20,19 +20,33 @@
     display: none;
   }
   
-  /* Ensure details summary text doesn't duplicate on mobile */
-  details[open] summary {
-    display: block;
+  /* Mobile: Hide entire summary when details is open to prevent duplication */
+  @media (max-width: 639px) {
+    /* Hide the entire summary when open - expanded content will show full text with label */
+    details[open] summary {
+      display: none;
+    }
+    
+    /* Show expanded content only when open */
+    details:not([open]) > div {
+      display: none;
+    }
   }
   
   /* On desktop, make details always open and summary not clickable */
   @media (min-width: 640px) {
     details summary {
       cursor: default;
+      pointer-events: none;
     }
     
     details summary::after {
       display: none;
+    }
+    
+    /* Always show full text on desktop, hide expanded div */
+    details > div {
+      display: none !important;
     }
   }
   

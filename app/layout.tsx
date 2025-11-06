@@ -38,22 +38,29 @@ export default function RootLayout({children}:{children:React.ReactNode}) {
             <div className="bg-[#F4F4F4] border-t border-[#8C1515]/20">
               <div className="mx-auto max-w-6xl px-2 sm:px-4 py-1 sm:py-2">
                 {/* Mobile: Collapsible, Desktop: Always visible */}
-                <details className="group sm:open">
-                  <summary className="text-xs text-[#53565A] cursor-pointer list-none flex items-start gap-1 py-1 touch-manipulation sm:cursor-default">
-                    <span className="font-semibold text-[#8C1515] flex-shrink-0">Disclaimer:</span>
-                    <span className="text-[#53565A] flex-1 sm:inline">
-                      <span className="sm:hidden line-clamp-2 inline-block">
-                        This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
+                <details className="sm:open">
+                  <summary className="text-xs text-[#53565A] cursor-pointer list-none py-1 touch-manipulation sm:cursor-default">
+                    <div className="flex items-start gap-1 sm:flex-row">
+                      <span className="font-semibold text-[#8C1515] flex-shrink-0">Disclaimer:</span>
+                      <span className="text-[#53565A] flex-1">
+                        {/* Mobile: truncated in summary (hidden when open), Desktop: full text */}
+                        <span className="sm:hidden line-clamp-2" id="disclaimer-summary-mobile">
+                          This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
+                        </span>
+                        <span className="hidden sm:inline">
+                          This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
+                        </span>
                       </span>
-                      <span className="hidden sm:inline">
-                        This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
-                      </span>
-                    </span>
-                    <span className="text-[#8C1515] font-semibold ml-2 flex-shrink-0 sm:hidden">(tap to expand)</span>
+                      <span className="text-[#8C1515] font-semibold ml-2 flex-shrink-0 sm:hidden" id="disclaimer-expand-hint">(tap to expand)</span>
+                    </div>
                   </summary>
-                  <p className="text-xs text-[#53565A] mt-2 pl-4 leading-relaxed sm:hidden">
-                    This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
-                  </p>
+                  {/* Mobile: Only shows full text when expanded (replaces summary text) */}
+                  <div className="sm:hidden">
+                    <p className="text-xs text-[#53565A] leading-relaxed mt-1">
+                      <span className="font-semibold text-[#8C1515]">Disclaimer: </span>
+                      This is an independent capstone project by Joshua Williams for the Ethics+Tech Public Policy Practitioner Course; not associated with the Stanford McCoy Family Center for Ethics in Society or its staff.
+                    </p>
+                  </div>
                 </details>
               </div>
             </div>
